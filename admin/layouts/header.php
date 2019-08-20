@@ -12,19 +12,19 @@
     <title>Trang Admin</title>
 
     <!-- Bootstrap Core CSS -->
-    <link href="<?php echo base_url() ?>public/admin/css/bootstrap.min.css" rel="stylesheet">
+    <link href="<?php echo url_home() ?>/public/admin/css/bootstrap.min.css" rel="stylesheet">
 
     <!-- Custom CSS -->
-    <link href="<?php echo base_url() ?>public/admin/css/sb-admin.css" rel="stylesheet">
+    <link href="<?php echo url_home() ?>/public/admin/css/sb-admin.css" rel="stylesheet">
 
     <!-- Morris Charts CSS -->
-    <link href="<?php echo base_url() ?>public/admin/css/plugins/morris.css" rel="stylesheet">
+    <link href="<?php echo url_home() ?>/public/admin/css/plugins/morris.css" rel="stylesheet">
 
     <!-- Custom Fonts -->
-    <link href="<?php echo base_url() ?>public/admin/css/fontawesome.min.css" rel="stylesheet" type="text/css">
-    <link href="<?php echo base_url() ?>public/admin/css/all.min.css" rel="stylesheet" type="text/css">
-    <link href="<?php echo base_url() ?>public/admin/css/brands.min.css" rel="stylesheet" type="text/css">
-    <link href="<?php echo base_url() ?>public/admin/css/solid.min.css" rel="stylesheet" type="text/css">
+    <link href="<?php echo url_home() ?>/public/admin/css/fontawesome.min.css" rel="stylesheet" type="text/css">
+    <link href="<?php echo url_home() ?>/public/admin/css/all.min.css" rel="stylesheet" type="text/css">
+    <link href="<?php echo url_home() ?>/public/admin/css/brands.min.css" rel="stylesheet" type="text/css">
+    <link href="<?php echo url_home() ?>/public/admin/css/solid.min.css" rel="stylesheet" type="text/css">
 
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
@@ -132,10 +132,10 @@
             <div class="collapse navbar-collapse navbar-ex1-collapse">
                 <ul class="nav navbar-nav side-nav">
                     <li class="">
-                        <a href="http://localhost:5000/websitebangiay/admin"><i class="fas fa-keyboard"></i>Bảng điều khiển</a>
+                        <a href="<?php echo url_home(); ?>/admin"><i class="fas fa-keyboard"></i>Bảng điều khiển</a>
                     </li>
                     <li class="<?php echo isset($open) && $open == 'category' ? 'active' : '' ?>">
-                        <a href="http://localhost:5000/websitebangiay/admin/modules/category/"><i class="fas fa-list-ul"></i> Danh mục sản phẩm</a>
+                        <a href="<?php echo url_home(); ?>/admin/modules/category/"><i class="fas fa-list-ul"></i> Danh mục sản phẩm</a>
                     </li>
                     <li>
                         <a href=""><i class="fa fa-fw fa-desktop"></i> Bootstrap Elements</a>
