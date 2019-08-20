@@ -1,0 +1,500 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+body,
+html {
+    width: 100%;
+    height: 100%;
+}
+
+a {
+    color: black;
+}
+
+    a:hover {
+        text-decoration: none;
+        color: black;
+    }
+
+h2, h3, p {
+    font-family: 'Source Sans Pro', sans-serif;
+}
+
+.header .container {
+    max-width: 1400px;
+    margin: 0 auto;
+    padding-right: 15px;
+    padding-left: 30px;
+    width: 100%;
+}
+
+h1 {
+    color: #8b4513;
+    font-family: "Marck Script", cursive;
+    font-weight: bold;
+    font-size: 50px;
+}
+
+#logo {
+    font-family: "Marck Script", cursive;
+    font-size: 35px;
+    font-weight: bold;
+    color: #171414e3;
+    padding-top: 5px;
+    -webkit-text-decoration-line: underline;
+    text-decoration-line: underline;
+}
+
+h3 a:hover {
+    color: #8b4513;
+    transition: 0.2s;
+}
+
+.no-padding {
+    padding-left: 0;
+    padding-right: 0;
+}
+
+.header {
+    background: white;
+    width: 100%;
+    min-height: 50px;
+    transition: 0.5s;
+    z-index: 10;
+    position: fixed;
+    border-bottom: 1px solid black;
+}
+
+.header2 ul {
+    padding: 4px 0;
+}
+
+.header-3 {
+    color: black;
+}
+
+.header ul li {
+    padding: 0px 5px;
+}
+
+.nav-item__right {
+    display: flex;
+    width: 70px;
+    padding: 5px 5px;
+    justify-content: space-between;
+}
+
+.pay {
+    position: relative;
+}
+
+.header-icons-noti {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 16px;
+    height: 16px;
+    border-radius: 50%;
+    background-color: #111111;
+    color: white;
+    font-family: Montserrat-Medium;
+    font-size: 12px;
+    position: absolute;
+    top: 2px;
+    left: 15px;
+}
+
+.header ul li a {
+    font-family: "Source Sans Pro", sans-serif;
+    font-weight: 600;
+    font-size: 15px;
+}
+
+.header-navbar {
+    font-weight: 400 !important;
+}
+
+.header ul li:hover a {
+    color: #222222 !important;
+    transition: 0.1s;
+}
+
+.text-white {
+    color: white;
+}
+.header ul .dropdown-menu a{
+    font-size: 14px;
+}
+.header ul .dropdown-menu a:hover {
+    background:#363636;
+    color: white !important;
+    font-weight: bold !important;
+}
+/* ===============End Header================== */
+.banner {
+    width: 100%;
+    height: 500px;
+    position: relative;
+}
+
+.details {
+    position: absolute;
+    z-index: 6;
+    top: 75%;
+    height: 50px;
+    width: 100%;
+}
+
+    .details a {
+        color: white;
+        text-decoration: none;
+    }
+
+.details-btn {
+    color: white;
+    font-weight: 600;
+    font-size: 18px;
+    width: 250px;
+    height: 50px;
+    padding: 10px 20px;
+    border: 1px solid white;
+    text-align: center;
+    border-radius: 50px;
+    transition: 0.3s;
+    position: absolute;
+    left: 40%;
+    opacity: 0;
+    visibility: hidden;
+}
+
+.active-1 {
+    opacity: 1;
+    visibility: visible;
+}
+
+.details-btn:hover {
+    background: white;
+    color: #656565e8;
+}
+
+.banner-img {
+    position: relative;
+    width: 100%;
+    height: 500px;
+    overflow: hidden;
+    text-align: center;
+}
+
+.slide-img {
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    opacity: 0;
+    visibility: hidden;
+    width: 100%;
+}
+
+    .slide-img img {
+        width: 100%;
+        height: 500px;
+    }
+
+.prev {
+    position: absolute;
+    z-index: 5;
+    top: 45%;
+    font-size: 30px;
+    color: white;
+    left: 10%;
+    cursor: pointer;
+}
+
+.next {
+    position: absolute;
+    z-index: 5;
+    top: 45%;
+    font-size: 30px;
+    color: white;
+    left: 90%;
+    cursor: pointer;
+}
+
+.active {
+    opacity: 1;
+    visibility: visible;
+}
+
+.slide-img.bienmatubentrai {
+    -webkit-animation: bienmatubentrai 0.8s forwards;
+    animation: bienmatubentrai 0.8s forwards;
+}
+
+@-webkit-keyframes bienmatubentrai {
+    0% {
+        transform: translateX(0%);
+        visibility: visible;
+        opacity: 1;
+    }
+
+    100% {
+        transform: translateX(-100%);
+        visibility: hidden;
+        opacity: 0;
+    }
+}
+
+.slide-img.bienmatubenphai {
+    -webkit-animation: bienmatubenphai 0.8s forwards;
+    animation: bienmatubenphai 0.8s forwards;
+}
+
+@-webkit-keyframes bienmatubenphai {
+    0% {
+        transform: translateX(0%);
+        visibility: visible;
+        opacity: 1;
+    }
+
+    100% {
+        transform: translateX(100%);
+        visibility: hidden;
+        opacity: 0;
+    }
+}
+
+.slide-img.divaotubenphai {
+    -webkit-animation: divaotubenphai 0.8s forwards;
+    animation: divaotubenphai 0.8s forwards;
+}
+
+@-webkit-keyframes divaotubenphai {
+    0% {
+        transform: translateX(100%);
+        visibility: hidden;
+        opacity: 0;
+    }
+
+    100% {
+        transform: translateX(0%);
+        visibility: visible;
+        opacity: 1;
+    }
+}
+
+.slide-img.divaotubentrai {
+    -webkit-animation: divaotubentrai 0.8s forwards;
+    animation: divaotubentrai 0.8s forwards;
+}
+
+@-webkit-keyframes divaotubentrai {
+    0% {
+        transform: translateX(-100%);
+        visibility: hidden;
+        opacity: 0;
+    }
+
+    100% {
+        transform: translateX(0%);
+        visibility: visible;
+        opacity: 1;
+    }
+}
+
+/*================= End-Banner ================*/
+
+/* ================Product=============== */
+.list-product {
+    padding: 100px 0;
+}
+
+    .list-product h5 {
+        font-size: 30px;
+        text-transform: uppercase;
+        font-family: "Source Sans Pro", sans-serif;
+        margin-bottom: 50px;
+    }
+
+    .list-product .col-3 {
+        padding-right: 10px;
+        padding-left: 0;
+    }
+
+.news {
+    margin-top: 5%;
+    margin-bottom: 15%;
+    border-bottom: 1px solid #f2f2f2;
+}
+
+    .news p {
+        width: 255px;
+        margin: 10px 0;
+        font-weight: 600;
+        font-size: 13px;
+    }
+
+    .news a:hover {
+        color: rgba(173, 58, 4, 0.856);
+        transition: 0.4s;
+    }
+
+    .news img {
+        width: 100%;
+        height: auto;
+        max-height: 200px;
+        max-width: 200px;
+    }
+
+.search-product {
+    font-size: 13px;
+    color: #555555;
+    line-height: 1.8;
+    display: flex;
+    height: 45px;
+    border: 1px solid #eee;
+    padding-right: 0;
+}
+
+    .search-product input {
+        padding-left: 23px;
+        width: 100%;
+        height: 40px;
+        border: none;
+    }
+
+        .search-product input:focus {
+            outline: none !important;
+        }
+
+    .search-product button {
+        height: 40px;
+        width: 30%;
+        background: none;
+        border: none;
+        transition: 0.1s;
+    }
+
+        .search-product button:hover {
+            color: #EEAD0E;
+            transition: 0.1s;
+        }
+
+.info-product {
+    padding-left: 30px;
+    border-left: 1px solid #e6e6e694;
+}
+
+    .info-product h2 {
+        margin-bottom: 50px;
+        font-size: 30px;
+        font-weight: 600;
+    }
+
+    .info-product .product-detail {
+        margin-bottom: 50px;
+    }
+
+        .info-product .product-detail h3 {
+            margin: 15px 0;
+            font-size: 18px;
+            font-weight: 600;
+        }
+
+.product-detail img {
+    width: 100%;
+    max-width: 250px;
+    height: auto;
+    transition: 0.3s;
+}
+
+    .product-detail img:hover {
+        transform: scale(1.1);
+        transition: 0.3s;
+    }
+
+.product-detail .add-cart {
+    background: none;
+    border: 1px solid black;
+    padding: 8px 8px;
+    width: 50%;
+    font-size: 12px;
+    transition: 0.3s;
+    font-weight: 600;
+}
+
+    .product-detail .add-cart:hover {
+        background: black;
+        transition: 0.2s;
+        color: white;
+    }
+
+/* ================Footer=============== */
+.footer {
+    bottom: 0;
+    height: auto;
+    width: 100%;
+    background: #f0f0f0;
+}
+
+    .footer h3 {
+        color: black;
+        font-weight: 400;
+        font-size: 18px;
+        margin-bottom: 20px;
+    }
+
+.footer_first {
+    padding: 3% 2% 3% 2%;
+}
+
+.header3 {
+    font-family: "Marck Script", cursive;
+    font-size: 43px;
+    font-weight: 600;
+    color: black;
+    margin-top: -10px;
+}
+
+.contact-us {
+    margin: 0 auto;
+}
+
+    .contact-us p {
+        font-size: 14px;
+        line-height: 1;
+        color: #1c1c1c;
+    }
+
+.opening {
+    margin: 0 auto;
+}
+
+    .opening p {
+        font-size: 14px;
+        line-height: 1;
+        color: #1c1c1c;
+    }
+
+    .opening h6 {
+        margin-top: -10px;
+        margin-bottom: 10px;
+    }
+
+
+
+.info-baguetto {
+    margin: 0 auto;
+}
+
+    .info-baguetto i {
+        padding-right: 10px;
+        margin-right: 5px;
+        font-size: 20px;
+        cursor: pointer;
+    }
+
+        .info-baguetto i:hover {
+            transition: 0.4s;
+            color: #8b4513;
+        }
