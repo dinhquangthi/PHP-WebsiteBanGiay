@@ -9,7 +9,7 @@
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <title>Bunny Store</title>
+    <title>Bunny </title>
 
     <!-- Bootstrap Core CSS -->
     <link href="<?php echo base_url() ?>user/modules/Plugin/bootstrap.css" rel="stylesheet">

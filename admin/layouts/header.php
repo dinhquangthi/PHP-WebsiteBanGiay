@@ -131,25 +131,14 @@
             <!-- Sidebar Menu Items - These collapse to the responsive navigation menu on small screens -->
             <div class="collapse navbar-collapse navbar-ex1-collapse">
                 <ul class="nav navbar-nav side-nav">
-                    <li class="">
-                        <a href="<?php echo url_home(); ?>/admin"><i class="fas fa-keyboard"></i>Bảng điều khiển</a>
+                    <li>
+                        <a href="<?php echo url_home(); ?>/admin"><i class="fas fa-home"></i> Bảng điều khiển</a>
                     </li>
                     <li class="<?php echo isset($open) && $open == 'category' ? 'active' : '' ?>">
-                        <a href="<?php echo url_home(); ?>/admin/modules/category/"><i class="fas fa-list-ul"></i> Danh mục sản phẩm</a>
+                        <a href="<?php echo url_home(); ?>/admin/modules/category/"><i class="fas fa-list-ul"></i> Danh mục</a>
                     </li>
-                    <li>
-                        <a href=""><i class="fa fa-fw fa-desktop"></i> Bootstrap Elements</a>
-                    </li>
-                    <li>
-                        <a href="javascript:;" data-toggle="collapse" data-target="#demo"><i class="fa fa-fw fa-arrows-v"></i> Dropdown <i class="fa fa-fw fa-caret-down"></i></a>
-                        <ul id="demo" class="collapse">
-                            <li>
-                                <a href="#">Dropdown Item</a>
-                            </li>
-                            <li>
-                                <a href="#">Dropdown Item</a>
-                            </li>
-                        </ul>
+                    <li class="<?php echo isset($open) && $open == 'product' ? 'active' : '' ?>">
+                        <a href="<?php echo url_home(); ?>/admin/modules/product/"><i class="fas fa-database"></i> Sản phẩm</a>
                     </li>
                
                 </ul>

@@ -3,7 +3,15 @@
     require_once __DIR__. "/../../autoload/autoload.php";
       
     
-   if ($_SERVER["REQUEST_METHOD"] == "POST") {
+    $id = intval(getInput('id'));
+
+    $EditCategory = $db->fetchID("category",$id);
+    if(empty($EditCategory))
+    {
+        $_SESSION['error'] = "Dữ liệu không tồn tại";
+        redirectAdmin("category");
+    }
+      if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
     $data = 
     [
@@ -20,29 +28,40 @@
     
     if(empty($error))
     {
-        $isset = $db->fetchOne("category","name = '".$data['name']."'");
-            if(count($isset) > 0)
+            // kiem tra
+            if($EditCategory['name'] != $data['name'])
+            {
+                $isset = $db->fetchOne("category","name = '".$data['name']."'");
+                 if(count($isset) > 0)
+                    {
+                        $_SESSION['error'] = "Tên danh mục đã tồn tại !";
+                    }
+                 else {
+                    
+                    $id_update = $db->update("category", $data,array("id"=>$id));
+                 if($id_update > 0)
+                     {
+                  $_SESSION['success'] = "Cập nhật thành công";
+                   redirectAdmin("category");
+                     }
+                  else
+            {
+                // thêm thất bại
+                $_SESSION['error'] = "Cập nhật thất bại";
+                redirectAdmin("category");
+            }
+                     }
+            }
+            else 
                 {
-                    $_SESSION['error'] = "Tên danh mục đã tồn tại !";
+                    $_SESSION['error'] = "Dữ liệu không thay đổi";
+                         redirectAdmin("category");
                 }
-    
-    else
-    {
-        $id_insert = $db->insert("category", $data);
-        if($id_insert > 0)
-        {
-            $_SESSION['success'] = "Thêm mới thành công";
-           redirectAdmin("category");
-        }
-        else
-        {
-            // thêm thất bại
-             $_SESSION['error'] = "Thêm mới thất bại";
-        }
+          
         
     }
    }
-}
+    
     
 ?>
 
@@ -68,9 +87,6 @@
                         <i class="fa fa-file"></i> Thêm mới
                     </li>
                 </ol>
-                <div class="clearfix">
-                     <?php require_once __DIR__. "/../../../partials/notification.php"; ?>
-                </div>
             </div>
         </div>
         <!-- /.row -->
@@ -81,11 +97,9 @@
                     <div class="form-group">
                         <label for="exampleInputEmail1" class="col-sm-2">Tên danh mục</label>
                         <div class="col-sm-8">
-                            <input type="text" name="name" class="form-control" 
-                                 placeholder="Tên danh mục">
-                           <?php if (isset($error['name'])) : ?>
-                           <p class="text-danger"><?php echo $error['name'] ?></p>
-                           <?php endif ?>
+                            <input type="text" name="name" class="form-control" placeholder="Tên danh mục"
+                                value="<?php echo $EditCategory['name']?>">
+                            <?php require_once __DIR__. "/../../../partials/notification.php"; ?>
                         </div>
 
                     </div>
