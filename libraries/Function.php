@@ -90,6 +90,10 @@
             return isset($_POST[$string]) ? $_POST[$string] : '';
         }
 
+        function url_home() {
+            return 'http://localhost:5000/PHP-WebsiteBanGiay';
+        }
+
         function base_url()
         {
             return $url = "../";
