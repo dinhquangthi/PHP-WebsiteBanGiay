@@ -1,8 +1,9 @@
 <?php 
+ $open = "product";
     require_once __DIR__. "/../../autoload/autoload.php";
 
 
-    $category = $db->fetchAll("category");
+    $product = $db->fetchAll("product");
 ?>
 
 <?php require_once __DIR__. "/../../layouts/header.php"; ?>
@@ -15,7 +16,7 @@
         <div class="row">
             <div class="col-lg-12">
                 <h1 class="page-header">
-                    Danh sách danh mục
+                    Danh sách sản phẩm
                     <a href="add.php" class="btn btn-success">Thêm mới</a>
                 </h1>
 
@@ -24,7 +25,7 @@
                         <i class="fa fa-dashboard"></i> <a href="index.html">Home</a>
                     </li>
                     <li class="active">
-                        <i class="fa fa-file"></i> Danh mục
+                        <i class="fa fa-file"></i> Sản phẩm
                     </li>
                 </ol>
                 <div class="clearfix"></div>
@@ -41,18 +42,29 @@
                             <tr>
                                 <th>STT</th>
                                 <th>Name</th>
+                                <th>Category</th>
                                 <th>Slug</th>
-                                <th>Created</th>
+                                <th>Image</th>
+                                <th>Info</th>
                                 <th>Action</th>
                             </tr>
                         </thead>
                         <tbody>
-                            <?php $stt=1; foreach ($category as $item) : ?>
+                            <?php $stt=1; foreach ($product as $item) : ?>
                             <tr>
                                 <td><?php echo $stt ?></td>
                                 <td><?php echo $item['name'] ?></td>
+                                <td><?php echo $item['category_id'] ?></td>
                                 <td><?php echo $item['slug'] ?></td>
-                                <td><?php echo $item['created_at'] ?></td>
+                                 <td>
+                                    <img src="<?php echo url_home() ?>/public/uploads/product/<?php echo $item['image'] ?>" width="150px" height="100px" >
+                                </td>
+                                <td>
+                                    <ul>
+                                        <li>Giá: <?php echo $item['price'] ?></li>
+                                        <li>Số lượng: <?php echo $item['number'] ?></li>
+                                    </ul>
+                                </td>
                                 <td>
                                     <a class="btn btn-info" href="edit.php?id=<?php echo $item['id'] ?>"><i
                                             class="far fa-edit"></i>Sửa</a>
