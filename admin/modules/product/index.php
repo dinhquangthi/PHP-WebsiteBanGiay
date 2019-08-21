@@ -79,7 +79,7 @@
                                     <ul>
                                         <li>Giá: <?php echo $item['price'] ?></li>
                                         <li>Số lượng: <?php echo $item['number'] ?></li>
-                                        <li>Số lượng: <?php echo $item['size'] ?></li>
+                                        <li>Size: <?php echo $item['size'] ?></li>
                                     </ul>
                                 </td>
                                 <td>
