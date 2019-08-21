@@ -26,9 +26,9 @@
                         trang khổng
                         lồ đến từ nhiều thương hiệu lớn, nhỏ và cả ở Việt Nam.
                     </p>
-                    <i class="fab fa-facebook-f"></i>
-                    <i class="fab fa-twitter"></i>
-                    <i class="fab fa-instagram"></i>
+                    <a href=""> <i class="fab fa-facebook-f"></i></a>
+                    <a href=""> <i class="fab fa-twitter"></i></a>
+                    <a href=""> <i class="fab fa-instagram"></i></a>
                 </div>
 
             </div>
@@ -44,7 +44,10 @@
     <script src="<?php echo base_url() ?>user/modules/Plugin/bootstrap.min.js"></script>
     <script src="<?php echo base_url() ?>user/modules/Plugin/all.js"></script>
     <script src="<?php echo base_url() ?>user/modules/Plugin/fontawesome.js"></script>
-    <script src="<?php echo base_url() ?>user/modules/Plugin/slide.js"></script>
+    <script src="<?php echo base_url() ?>user/modules/Plugin/jquery.sliderPro.js"></script>
+    <script src="<?php echo base_url() ?>user/modules/Plugin/wow.js"></script>
+    <script src="<?php echo base_url() ?>user/modules/Plugin/javascript.js"></script>
+
 
 
 </body>

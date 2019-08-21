@@ -39,7 +39,7 @@
                     </div>
 
                     <div class="row">
-                        <div class="col-4 product-detail">
+                        <div class="col-4 product-detail wow fadeInUp" data-wow-duration="2s" >
                             <a href="#"><img src="image/product/giay-1.jpg" alt=""></a>
                             <a href="">
                                 <h3>Giày Adidas Ultra 2019</h3>
@@ -47,7 +47,7 @@
                             <p>1.250.000 VNĐ</p>
                             <a href=""><button class="add-cart">MUA HÀNG</button></a>
                         </div>
-                        <div class="col-4 product-detail">
+                        <div class="col-4 product-detail wow fadeInUp" data-wow-duration="2s" >
                             <a href=""><img src="image/product/giay-4.jpg" alt=""></a>
                             <a href="">
                                 <h3>Giày Adidas Ultra 2019</h3>
@@ -55,7 +55,7 @@
                             <p>1.250.000 VNĐ</p>
                             <a href=""><button class="add-cart">MUA HÀNG</button></a>
                         </div>
-                        <div class="col-4 product-detail">
+                        <div class="col-4 product-detail wow fadeInUp" data-wow-duration="2s" >
                             <a href=""><img src="image/product/giay-3.jpg" alt=""></a>
                             <a href="">
                                 <h3>Giày Adidas Ultra 2019</h3>
@@ -63,7 +63,7 @@
                             <p>1.250.000 VNĐ</p>
                             <a href=""><button class="add-cart">MUA HÀNG</button></a>
                         </div>
-                        <div class="col-4 product-detail">
+                        <div class="col-4 product-detail wow fadeInUp" data-wow-duration="2s" >
                             <a href=""><img src="image/product/giay-3.jpg" alt=""></a>
                             <a href="">
                                 <h3>Giày Adidas Ultra 2019</h3>
@@ -71,7 +71,7 @@
                             <p>1.250.000 VNĐ</p>
                             <a href=""><button class="add-cart">MUA HÀNG</button></a>
                         </div>
-                        <div class="col-4 product-detail">
+                        <div class="col-4 product-detail wow fadeInUp" data-wow-duration="2s" >
                             <a href=""><img src="image/product/giay-3.jpg" alt=""></a>
                             <a href="">
                                 <h3>Giày Adidas Ultra 2019</h3>
@@ -79,7 +79,7 @@
                             <p>1.250.000 VNĐ</p>
                             <a href=""><button class="add-cart">MUA HÀNG</button></a>
                         </div>
-                        <div class="col-4 product-detail">
+                        <div class="col-4 product-detail wow fadeInUp" data-wow-duration="2s" >
                             <a href=""><img src="image/product/giay-3.jpg" alt=""></a>
                             <a href="">
                                 <h3>Giày Adidas Ultra 2019</h3>
@@ -87,7 +87,7 @@
                             <p>1.250.000 VNĐ</p>
                             <a href=""><button class="add-cart">MUA HÀNG</button></a>
                         </div>
-                        <div class="col-4 product-detail">
+                        <div class="col-4 product-detail wow fadeInUp" data-wow-duration="2s" >
                             <a href=""><img src="image/product/giay-3.jpg" alt=""></a>
                             <a href="">
                                 <h3>Giày Adidas Ultra 2019</h3>
@@ -95,7 +95,7 @@
                             <p>1.250.000 VNĐ</p>
                             <a href=""><button class="add-cart">MUA HÀNG</button></a>
                         </div>
-                        <div class="col-4 product-detail">
+                        <div class="col-4 product-detail wow fadeInUp" data-wow-duration="2s" data-wow-delay="1.3s">
                             <a href=""><img src="image/product/giay-3.jpg" alt=""></a>
                             <a href="">
                                 <h3>Giày Adidas Ultra 2019</h3>

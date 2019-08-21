@@ -9,18 +9,23 @@
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <title>Bunny </title>
+    <title>Bunny Store</title>
 
     <!-- Bootstrap Core CSS -->
     <link href="<?php echo base_url() ?>user/modules/Plugin/bootstrap.css" rel="stylesheet">
 
-    <!-- Custom Fonts -->
+  
+    <!-- Custom CSS -->
     <link href="<?php echo base_url() ?>user/modules/Plugin/fontawesome.css" rel="stylesheet" type="text/css">
     <link href="<?php echo base_url() ?>user/modules/Plugin/all.css" rel="stylesheet" type="text/css">
     <link href="<?php echo base_url() ?>user/modules/Plugin/brands.css" rel="stylesheet" type="text/css">
     <link href="<?php echo base_url() ?>user/modules/Plugin/solid.css" rel="stylesheet" type="text/css">
+    <link href="<?php echo base_url() ?>user/modules/Plugin/animate.css" rel="stylesheet" type="text/css">
+    <link href="<?php echo base_url() ?>user/modules/Plugin/slider-pro.min.css" rel="stylesheet" type="text/css">
+
     <!-- My css -->
     <link href="<?php echo base_url() ?>user/modules/Style/index.css" rel="stylesheet" type="text/css">
+    <link href="<?php echo base_url() ?>user/modules/Style/details.css" rel="stylesheet" type="text/css">
 
 
 
@@ -31,7 +36,7 @@
    <div class="header">
         <div class="container">
             <nav class="navbar navbar-expand-lg navbar-light ">
-                <h3><a href="#" class="header2" id="logo">Bunny Store</a></h3>
+                <h3><a href="<?php echo url_home(); ?>/user" class="header2" id="logo">Bunny Store</a></h3>
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
                         aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
