@@ -12,6 +12,7 @@
         "category_id" => postInput("category_id"),
         "price" => postInput("price"),
         "number" => postInput("number"),
+        "size" => postInput("size"),
         "content" => postInput("content")
     ];
 
@@ -32,6 +33,10 @@
     if(postInput('number') == '')
     {
         $error['number'] = "Mời bạn nhập số lượng";
+    }
+    if(postInput('size') == '')
+    {
+        $error['size'] = "Mời bạn chọn size";
     }
     if(postInput('content') == '')
     {
@@ -145,10 +150,39 @@
                         </div>
                     </div>
 
-                         <div class="form-group">
+                    <div class="form-group">
                         <label for="exampleInputEmail1" class="col-sm-2">Số lượng</label>
                         <div class="col-sm-3">
                             <input type="number" name="number" class="form-control" defaultvalue="1">
+                            <?php if (isset($error['number'])) : ?>
+                            <p class="text-danger"><?php echo $error['number'] ?></p>
+                            <?php endif ?>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="exampleInputEmail1" class="col-sm-2">Size</label>
+                        <div class="col-sm-8" style="display:flex;">
+                            <div class="custom-control custom-checkbox" style="margin-right:10px;">
+                                <input name="size" type="checkbox" class="custom-control-input" id="size" value="39"> 
+                                <label class="custom-control-label" for="customCheck1">
+                                    39</label>
+                            </div>
+                            <div class="custom-control custom-checkbox" style="margin-right:10px;">
+                                <input name="size" type="checkbox" class="custom-control-input" id="size" value="40"> 
+                                <label class="custom-control-label" for="customCheck1">
+                                    40</label>
+                            </div>
+                            <div class="custom-control custom-checkbox" style="margin-right:10px;">
+                                <input name="size" type="checkbox" class="custom-control-input" id="size" value="41"> 
+                                <label class="custom-control-label" for="customCheck1">
+                                    41</label>
+                            </div>
+                            <div class="custom-control custom-checkbox" style="margin-right:10px;">
+                                <input name="size" type="checkbox" class="custom-control-input" id="size" value="42"> 
+                                <label class="custom-control-label" for="customCheck1">
+                                    42</label>
+                            </div>
                             <?php if (isset($error['number'])) : ?>
                             <p class="text-danger"><?php echo $error['number'] ?></p>
                             <?php endif ?>

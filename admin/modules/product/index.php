@@ -3,7 +3,23 @@
     require_once __DIR__. "/../../autoload/autoload.php";
 
 
-    $product = $db->fetchAll("product");
+    if(isset($_GET['page']))
+    {
+        $p = $_GET['page'];
+    }
+    else{
+        $p=1;
+    }
+
+   $sql = "SELECT product.*,category.name as namecate FROM product
+    LEFT JOIN category on category.id = product.category_id";
+
+    $product = $db->fetchJone('product',$sql,$p,4,true);
+    if(isset($product['page']))
+    {
+        $sotrang = $product['page'];
+        unset($product['page']);
+    }
 ?>
 
 <?php require_once __DIR__. "/../../layouts/header.php"; ?>
@@ -54,7 +70,7 @@
                             <tr>
                                 <td><?php echo $stt ?></td>
                                 <td><?php echo $item['name'] ?></td>
-                                <td><?php echo $item['category_id'] ?></td>
+                                <td><?php echo $item['namecate'] ?></td>
                                 <td><?php echo $item['slug'] ?></td>
                                  <td>
                                     <img src="<?php echo url_home() ?>/public/uploads/product/<?php echo $item['image'] ?>" width="150px" height="100px" >
@@ -63,6 +79,7 @@
                                     <ul>
                                         <li>Giá: <?php echo $item['price'] ?></li>
                                         <li>Số lượng: <?php echo $item['number'] ?></li>
+                                        <li>Số lượng: <?php echo $item['size'] ?></li>
                                     </ul>
                                 </td>
                                 <td>
@@ -84,9 +101,21 @@
                                         <span aria-hidden="true">&laquo;</span>
                                     </a>
                                 </li>
-                                <li class="page-item"><a class="page-link" href="#">1</a></li>
-                                <li class="page-item"><a class="page-link" href="#">2</a></li>
-                                <li class="page-item"><a class="page-link" href="#">3</a></li>
+                                <?php for( $i = 1; $i <= $sotrang ; $i++) : ?>
+                                <?php 
+                                    if(isset($_GET['page']))
+                                    {
+                                        $p = $_GET['page'];
+                                    }
+                                    else
+                                    {
+                                        $p = 1;
+                                    }
+                                ?>
+                                <li class="<?php echo ($i == $p) ? 'active' : '' ?>">
+                                <a href="?page=<?php echo $i ;?>"><?php echo $i; ?></a>
+                                </li>
+                                <?php endfor; ?>
                                 <li class="page-item">
                                     <a class="page-link" href="#" aria-label="Next">
                                         <span aria-hidden="true">&raquo;</span>
