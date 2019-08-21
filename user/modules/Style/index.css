@@ -134,173 +134,40 @@ h3 a:hover {
 }
 /* ===============End Header================== */
 .banner {
+  width: 100%;
+  height: 600px;
+  margin: 0 auto;
+  position: relative;
+  overflow: hidden;
+  padding: 30px 0; }
+  .banner .banner-img img {
     width: 100%;
-    height: 500px;
-    position: relative;
-}
+    height: auto; }
+  .banner .nut-slide {
+    font-size: 30px; }
+    .banner .nut-slide .nut-next {
+      cursor: pointer;
+      display: inline-block;
+      position: absolute;
+       right: 65px;
+      font-size: 45px;
+      top: 45%;
+    color: white; }
+    .banner .nut-slide .nut-prev {
+      cursor: pointer;
+      display: inline-block;
+      position: absolute;
+      left: 65px;
+      font-size: 45px;
+      top: 45%; 
+    color: white; }
+  .banner .sp-buttons .sp-button {
+    width: 20px;
+    height: 20px;
+    border: 1px solid rgba(68, 68, 68, 0.575); }
+  .banner .sp-buttons .sp-selected-button {
+    background-color: #a0a0a054; }
 
-.details {
-    position: absolute;
-    z-index: 6;
-    top: 75%;
-    height: 50px;
-    width: 100%;
-}
-
-    .details a {
-        color: white;
-        text-decoration: none;
-    }
-
-.details-btn {
-    color: white;
-    font-weight: 600;
-    font-size: 18px;
-    width: 250px;
-    height: 50px;
-    padding: 10px 20px;
-    border: 1px solid white;
-    text-align: center;
-    border-radius: 50px;
-    transition: 0.3s;
-    position: absolute;
-    left: 40%;
-    opacity: 0;
-    visibility: hidden;
-}
-
-.active-1 {
-    opacity: 1;
-    visibility: visible;
-}
-
-.details-btn:hover {
-    background: white;
-    color: #656565e8;
-}
-
-.banner-img {
-    position: relative;
-    width: 100%;
-    height: 500px;
-    overflow: hidden;
-    text-align: center;
-}
-
-.slide-img {
-    position: absolute;
-    top: 0px;
-    left: 0px;
-    opacity: 0;
-    visibility: hidden;
-    width: 100%;
-}
-
-    .slide-img img {
-        width: 100%;
-        height: 500px;
-    }
-
-.prev {
-    position: absolute;
-    z-index: 5;
-    top: 45%;
-    font-size: 30px;
-    color: white;
-    left: 10%;
-    cursor: pointer;
-}
-
-.next {
-    position: absolute;
-    z-index: 5;
-    top: 45%;
-    font-size: 30px;
-    color: white;
-    left: 90%;
-    cursor: pointer;
-}
-
-.active {
-    opacity: 1;
-    visibility: visible;
-}
-
-.slide-img.bienmatubentrai {
-    -webkit-animation: bienmatubentrai 0.8s forwards;
-    animation: bienmatubentrai 0.8s forwards;
-}
-
-@-webkit-keyframes bienmatubentrai {
-    0% {
-        transform: translateX(0%);
-        visibility: visible;
-        opacity: 1;
-    }
-
-    100% {
-        transform: translateX(-100%);
-        visibility: hidden;
-        opacity: 0;
-    }
-}
-
-.slide-img.bienmatubenphai {
-    -webkit-animation: bienmatubenphai 0.8s forwards;
-    animation: bienmatubenphai 0.8s forwards;
-}
-
-@-webkit-keyframes bienmatubenphai {
-    0% {
-        transform: translateX(0%);
-        visibility: visible;
-        opacity: 1;
-    }
-
-    100% {
-        transform: translateX(100%);
-        visibility: hidden;
-        opacity: 0;
-    }
-}
-
-.slide-img.divaotubenphai {
-    -webkit-animation: divaotubenphai 0.8s forwards;
-    animation: divaotubenphai 0.8s forwards;
-}
-
-@-webkit-keyframes divaotubenphai {
-    0% {
-        transform: translateX(100%);
-        visibility: hidden;
-        opacity: 0;
-    }
-
-    100% {
-        transform: translateX(0%);
-        visibility: visible;
-        opacity: 1;
-    }
-}
-
-.slide-img.divaotubentrai {
-    -webkit-animation: divaotubentrai 0.8s forwards;
-    animation: divaotubentrai 0.8s forwards;
-}
-
-@-webkit-keyframes divaotubentrai {
-    0% {
-        transform: translateX(-100%);
-        visibility: hidden;
-        opacity: 0;
-    }
-
-    100% {
-        transform: translateX(0%);
-        visibility: visible;
-        opacity: 1;
-    }
-}
 
 /*================= End-Banner ================*/
 
@@ -434,25 +301,25 @@ h3 a:hover {
     bottom: 0;
     height: auto;
     width: 100%;
-    background: #f0f0f0;
+    background: #0a0808;
 }
 
     .footer h3 {
-        color: black;
+        color: white;
         font-weight: 400;
         font-size: 18px;
         margin-bottom: 20px;
     }
 
 .footer_first {
-    padding: 3% 2% 3% 2%;
+    padding: 2% 2% 1% 2%;
 }
 
 .header3 {
     font-family: "Marck Script", cursive;
     font-size: 43px;
     font-weight: 600;
-    color: black;
+      color: white;
     margin-top: -10px;
 }
 
@@ -463,7 +330,7 @@ h3 a:hover {
     .contact-us p {
         font-size: 14px;
         line-height: 1;
-        color: #1c1c1c;
+        color: white;
     }
 
 .opening {
@@ -473,12 +340,13 @@ h3 a:hover {
     .opening p {
         font-size: 14px;
         line-height: 1;
-        color: #1c1c1c;
+           color: white;
     }
 
     .opening h6 {
         margin-top: -10px;
         margin-bottom: 10px;
+           color: white;
     }
 
 
@@ -493,8 +361,17 @@ h3 a:hover {
         font-size: 20px;
         cursor: pointer;
     }
+    .info-baguetto p {
+         color: white;
+         font-size: 14px;
+    }
+    .info-baguetto a {
+         color: white !important;
+         font-size: 25px;
+         margin-right: 20px;
+    }
+    .info-baguetto a:hover {
+         font-size: 30px;
+         transition: 0.4s;
+    }
 
-        .info-baguetto i:hover {
-            transition: 0.4s;
-            color: #8b4513;
-        }
