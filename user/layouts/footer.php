@@ -38,15 +38,15 @@
     
 
     <!-- jQuery -->
-    <script src="<?php echo base_url() ?>user/modules/Plugin/jquery-3.4.1.min.js"></script>
+    <script src="<?php echo url_home() ?>/user/modules/Plugin/jquery-3.4.1.min.js"></script>
 
     <!-- Bootstrap Core JavaScript -->
-    <script src="<?php echo base_url() ?>user/modules/Plugin/bootstrap.min.js"></script>
-    <script src="<?php echo base_url() ?>user/modules/Plugin/all.js"></script>
-    <script src="<?php echo base_url() ?>user/modules/Plugin/fontawesome.js"></script>
-    <script src="<?php echo base_url() ?>user/modules/Plugin/jquery.sliderPro.js"></script>
-    <script src="<?php echo base_url() ?>user/modules/Plugin/wow.js"></script>
-    <script src="<?php echo base_url() ?>user/modules/Plugin/javascript.js"></script>
+    <script src="<?php echo url_home() ?>/user/modules/Plugin/bootstrap.min.js"></script>
+    <script src="<?php echo url_home() ?>/user/modules/Plugin/all.js"></script>
+    <script src="<?php echo url_home() ?>/user/modules/Plugin/fontawesome.js"></script>
+    <script src="<?php echo url_home() ?>/user/modules/Plugin/jquery.sliderPro.js"></script>
+    <script src="<?php echo url_home() ?>/user/modules/Plugin/wow.js"></script>
+    <script src="<?php echo url_home() ?>/user/modules/Plugin/javascript.js"></script>
 
 
 

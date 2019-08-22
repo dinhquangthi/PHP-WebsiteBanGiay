@@ -2,13 +2,13 @@
     <div class="slider-pro banner-img" id="my-slider">
         <div class="sp-slides">
             <div class="sp-slide">
-                <img class="sp-image" src="image/banner-2.jpg" />
+                <img class="sp-image" src="<?php echo url_home() ?>/user/image/banner-2.jpg" />
             </div>
             <div class="sp-slide">
-                <img class="sp-image" src="image/banner-1.jpg" />
+                <img class="sp-image" src="<?php echo url_home() ?>/user/image/banner-1.jpg" />
             </div>
             <div class="sp-slide">
-                <img class="sp-image" src="image/banner-3.jpg" />
+                <img class="sp-image" src="<?php echo url_home() ?>/user/image/banner-3.jpg" />
             </div>
         </div>
     </div>
