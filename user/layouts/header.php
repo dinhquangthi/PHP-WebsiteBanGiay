@@ -12,20 +12,20 @@
     <title>Bunny Store</title>
 
     <!-- Bootstrap Core CSS -->
-    <link href="<?php echo base_url() ?>user/modules/Plugin/bootstrap.css" rel="stylesheet">
+    <link href="<?php echo url_home() ?>/user/modules/Plugin/bootstrap.css" rel="stylesheet">
 
   
     <!-- Custom CSS -->
-    <link href="<?php echo base_url() ?>user/modules/Plugin/fontawesome.css" rel="stylesheet" type="text/css">
-    <link href="<?php echo base_url() ?>user/modules/Plugin/all.css" rel="stylesheet" type="text/css">
-    <link href="<?php echo base_url() ?>user/modules/Plugin/brands.css" rel="stylesheet" type="text/css">
-    <link href="<?php echo base_url() ?>user/modules/Plugin/solid.css" rel="stylesheet" type="text/css">
-    <link href="<?php echo base_url() ?>user/modules/Plugin/animate.css" rel="stylesheet" type="text/css">
-    <link href="<?php echo base_url() ?>user/modules/Plugin/slider-pro.min.css" rel="stylesheet" type="text/css">
+    <link href="<?php echo url_home() ?>/user/modules/Plugin/fontawesome.css" rel="stylesheet" type="text/css">
+    <link href="<?php echo url_home() ?>/user/modules/Plugin/all.css" rel="stylesheet" type="text/css">
+    <link href="<?php echo url_home() ?>/user/modules/Plugin/brands.css" rel="stylesheet" type="text/css">
+    <link href="<?php echo url_home() ?>/user/modules/Plugin/solid.css" rel="stylesheet" type="text/css">
+    <link href="<?php echo url_home() ?>/user/modules/Plugin/animate.css" rel="stylesheet" type="text/css">
+    <link href="<?php echo url_home() ?>/user/modules/Plugin/slider-pro.min.css" rel="stylesheet" type="text/css">
 
     <!-- My css -->
-    <link href="<?php echo base_url() ?>user/modules/Style/index.css" rel="stylesheet" type="text/css">
-    <link href="<?php echo base_url() ?>user/modules/Style/details.css" rel="stylesheet" type="text/css">
+    <link href="<?php echo url_home() ?>/user/modules/Style/index.css" rel="stylesheet" type="text/css">
+    <link href="<?php echo url_home() ?>/user/modules/Style/details.css" rel="stylesheet" type="text/css">
 
 
 
@@ -43,8 +43,8 @@
                 </button>
 
                 <div class="collapse navbar-collapse justify-content-end" id="navbarSupportedContent">
-                    <ul class="navbar-nav ">
-                        <li class="nav-item dropdown">
+                    <ul class="navbar-nav "     style="padding-right: 100px;">
+                        <!-- <li class="nav-item dropdown">
                             <a class="nav-link dropdown-toggle header2" id="navbarDropdown" role="button" data-toggle="dropdown"
                                aria-haspopup="true" aria-expanded="false" href="#">GIÀY THỂ THAO</a>
                             <div class="dropdown-menu" aria-labelledby="navbarDropdown">
@@ -54,23 +54,15 @@
                             </div>
                         </li>
                         <li class="nav-item dropdown">
-                            <a class="nav-link dropdown-toggle header2" id="navbarDropdown" role="button" data-toggle="dropdown"
+                            <a class="nav-link  header2" id="navbarDropdown" role="button" data-toggle="dropdown"
                                aria-haspopup="true" aria-expanded="false" href="#">ÁO QUẦN THỂ THAO</a>
-                            <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                                <a class="dropdown-item header-navbar" href="#">Áo Dài Tay</a>
-                                <a class="dropdown-item header-navbar" href="#">Áo Khoác</a>
-                                <a class="dropdown-item header-navbar" href="#">Quần Dài</a>
-                            </div>
+                          
                         </li>
                         <li class="nav-item dropdown">
-                            <a class="nav-link dropdown-toggle header2" id="navbarDropdown" role="button" data-toggle="dropdown"
+                            <a class="nav-link  header2" id="navbarDropdown" role="button" data-toggle="dropdown"
                                aria-haspopup="true" aria-expanded="false" href="#">PHỤ KIỆN THỂ THAO</a>
-                            <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                                <a class="dropdown-item header-navbar" href="#">Mũ Thời Trang</a>
-                                <a class="dropdown-item header-navbar" href="#">Tất Thời Trang</a>
-                                <a class="dropdown-item header-navbar" href="#">Vệ Sinh Giày</a>
-                            </div>
-                        </li>
+                         
+                        </li> -->
                         <li class="nav-item">
                             <a class="nav-link header2" href="#">ĐĂNG KÍ</a>
                         </li>
@@ -80,10 +72,10 @@
                         <li class="nav-item">
                             <div class="nav-item__right">
                                 <div class="user">
-                                    <a href=""><img src="image/icon-header-01.png" alt=""></a>
+                                    <a href=""><img src="<?php echo url_home() ?>/user/image/icon-header-01.png" alt=""></a>
                                 </div>
                                 <div class="pay">
-                                    <a href=""><img src="image/icon-header-02.png" alt=""></a>
+                                    <a href=""><img src="<?php echo url_home() ?>/user/image/icon-header-02.png" alt=""></a>
                                     <span class="header-icons-noti">0</span>
                                 </div>
                             </div>
