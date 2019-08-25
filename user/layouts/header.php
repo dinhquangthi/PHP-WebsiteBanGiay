@@ -12,20 +12,20 @@
     <title>Bunny Store</title>
 
     <!-- Bootstrap Core CSS -->
-    <link href="<?php echo url_home() ?>/user/modules/Plugin/bootstrap.css" rel="stylesheet">
+    <link href="<?php echo url_home() ?>/user/modules/plugin/bootstrap.css" rel="stylesheet">
 
   
     <!-- Custom CSS -->
-    <link href="<?php echo url_home() ?>/user/modules/Plugin/fontawesome.css" rel="stylesheet" type="text/css">
-    <link href="<?php echo url_home() ?>/user/modules/Plugin/all.css" rel="stylesheet" type="text/css">
-    <link href="<?php echo url_home() ?>/user/modules/Plugin/brands.css" rel="stylesheet" type="text/css">
-    <link href="<?php echo url_home() ?>/user/modules/Plugin/solid.css" rel="stylesheet" type="text/css">
-    <link href="<?php echo url_home() ?>/user/modules/Plugin/animate.css" rel="stylesheet" type="text/css">
-    <link href="<?php echo url_home() ?>/user/modules/Plugin/slider-pro.min.css" rel="stylesheet" type="text/css">
+    <link href="<?php echo url_home() ?>/user/modules/plugin/fontawesome.css" rel="stylesheet" type="text/css">
+    <link href="<?php echo url_home() ?>/user/modules/plugin/all.css" rel="stylesheet" type="text/css">
+    <link href="<?php echo url_home() ?>/user/modules/plugin/brands.css" rel="stylesheet" type="text/css">
+    <link href="<?php echo url_home() ?>/user/modules/plugin/solid.css" rel="stylesheet" type="text/css">
+    <link href="<?php echo url_home() ?>/user/modules/plugin/animate.css" rel="stylesheet" type="text/css">
+    <link href="<?php echo url_home() ?>/user/modules/plugin/slider-pro.min.css" rel="stylesheet" type="text/css">
 
     <!-- My css -->
-    <link href="<?php echo url_home() ?>/user/modules/Style/index.css" rel="stylesheet" type="text/css">
-    <link href="<?php echo url_home() ?>/user/modules/Style/details.css" rel="stylesheet" type="text/css">
+    <link href="<?php echo url_home() ?>/user/modules/style/index.css" rel="stylesheet" type="text/css">
+    <link href="<?php echo url_home() ?>/user/modules/style/details.css" rel="stylesheet" type="text/css">
 
 
 

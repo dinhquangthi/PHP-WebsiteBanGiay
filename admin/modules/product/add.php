@@ -38,10 +38,6 @@
     {
         $error['size'] = "Mời bạn chọn size";
     }
-    if(postInput('content') == '')
-    {
-        $error['content'] = "Mời bạn thông tin sản phẩm";
-    }
     if( !isset($_FILES['image']))
     {
         $error['image'] = "Chọn hình ảnh";
@@ -198,7 +194,7 @@
 
                     <div class="form-group">
                         <label for="exampleInputEmail1" class="col-sm-2">Hình ảnh</label>
-                        <div class="col-sm-3">
+                        <div class="col-sm-4">
                             <input type="file" name="image" class="form-control" placeholder="10%">
                             <?php if (isset($error['image'])) : ?>
                             <p class="text-danger"><?php echo $error['image'] ?></p>

@@ -75,7 +75,9 @@ h3 a:hover {
   position: fixed;
   border-bottom: 1px solid black;
 }
-
+#logo {
+  margin-left: 55px;
+}
 .header2 ul {
   padding: 4px 0;
 }
@@ -182,6 +184,41 @@ h3 a:hover {
 }
 .banner .sp-buttons .sp-selected-button {
   background-color: #a0a0a054;
+}
+.details {
+  position: absolute;
+  z-index: 6;
+  top: 86%;
+  height: 50px;
+  width: 100%;
+}
+
+.details button {
+  color: white;
+  background: none;
+}
+.details button:focus {
+    outline:0;
+}
+.details-btn {
+  color: white;
+  font-weight: 600;
+  font-size: 18px;
+  width: 250px;
+  height: 50px;
+  padding: 10px 20px;
+  border: 1px solid white;
+  text-align: center;
+  border-radius: 50px;
+  transition: 0.4s;
+  position: absolute;
+  left: 40%;
+}
+
+
+.details-btn:hover {
+  background: white;
+  color: #656565e8;
 }
 
 /*================= End-Banner ================*/

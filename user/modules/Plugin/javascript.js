@@ -1,4 +1,8 @@
 $(function($){
+
+    $(document).ready(function(){
+        $(window).scrollTop(0);
+        });
     $('#my-slider').sliderPro({
         width: 1366,
         height: 600,
@@ -27,8 +31,15 @@ $(function($){
             }  
             $('.counter').text(clickCount);
         });
-     
-       
     }
     $(handleClicks);
+
+    $('.details-btn').click(function() {
+        $('html,body').stop().animate({
+            scrollTop: $('.list-product').offset().top
+          }, 800);
+          event.preventDefault();
+    });
+
+
 })

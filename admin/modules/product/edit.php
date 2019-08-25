@@ -15,52 +15,67 @@
     
       if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
-    $data = 
-    [
-        "name" => postInput('name'),
-        "slug" => to_slug(postInput("name"))
-    ];
+        $data = 
+        [
+            "name" => postInput('name'),
+            "slug" => to_slug(postInput("name")),
+            "category_id" => postInput("category_id"),
+            "price" => postInput("price"),
+            "number" => postInput("number"),
+            "size" => postInput("size"),
+            "content" => postInput("content")
+        ];
 
-    $error = [];
+        $error = [];
 
-    if(postInput('name') == '')
-    {
-        $error['name'] = "Mời bạn nhập đầy đủ tên danh mục";
-    }
+        if(postInput('name') == '')
+        {
+            $error['name'] = "Mời bạn nhập tên sản phẩm";
+        }
+        if(postInput('category_id') == '')
+        {
+            $error['category_id'] = "Mời bạn chọn danh mục";
+        }
+        if(postInput('price') == '')
+        {
+            $error['price'] = "Mời bạn nhập giá sản phẩm";
+        }
+        if(postInput('number') == '')
+        {
+            $error['number'] = "Mời bạn nhập số lượng";
+        }
+        if(postInput('size') == '')
+        {
+            $error['size'] = "Mời bạn chọn size";
+        }
+
     
     if(empty($error))
     {
-            // kiem tra
-            if($EditCategory['name'] != $data['name'])
-            {
-                $isset = $db->fetchOne("category","name = '".$data['name']."'");
-                 if(count($isset) > 0)
-                    {
-                        $_SESSION['error'] = "Tên danh mục đã tồn tại !";
-                    }
-                 else {
-                    
-                    $id_update = $db->update("category", $data,array("id"=>$id));
-                 if($id_update > 0)
-                     {
-                  $_SESSION['success'] = "Cập nhật thành công";
-                   redirectAdmin("category");
-                     }
-                  else
-            {
-                // thêm thất bại
-                $_SESSION['error'] = "Cập nhật thất bại";
-                redirectAdmin("category");
-            }
-                     }
-            }
-            else 
+        if(isset($_FILES['image']))
+        {
+            $file_name = $_FILES['image']['name'];
+            $file_tmp = $_FILES['image']['tmp_name'];
+            $file_type = $_FILES['image']['type'];
+            $file_erro = $_FILES['image']['error'];
+
+            if($file_erro == 0)
                 {
-                    $_SESSION['error'] = "Dữ liệu không thay đổi";
-                         redirectAdmin("category");
+                    $part = ROOT ."product/";
+                    $data['image'] = $file_name;
                 }
-          
-        
+        }
+          $update = $db->update("product",$data,array("id"=>$id));
+          if($update > 0)
+          {
+            move_uploaded_file($file_tmp,$part.$file_name);
+            $_SESSION['success'] = "Cập nhật thành công";
+              redirectAdmin("product");
+          }
+          else {
+            $_SESSION['error'] = "Cập nhật thất bại";
+            redirectAdmin("product");
+          }
     }
    }
     
@@ -76,7 +91,7 @@
         <div class="row">
             <div class="col-lg-12">
                 <h1 class="page-header">
-                    Thêm mới danh mục
+                    Sửa sản phẩm
                 </h1>
                 <ol class="breadcrumb">
                     <li>
@@ -95,7 +110,7 @@
 
         <div class="row">
             <div class="col-md-12">
-                <form class="form-horizontal" action="" method="POST">
+                <form class="form-horizontal" action="" method="POST" enctype="multipart/form-data">
                       <div class="form-group">
                         <label for="exampleInputEmail1" class="col-sm-2">Danh mục sản phẩm</label>
                         <div class="col-sm-8">
@@ -163,12 +178,12 @@
 
                          <div class="form-group">
                         <label for="exampleInputEmail1" class="col-sm-2">Hình ảnh</label>
-                        <div class="col-sm-3">
+                        <div class="col-sm-4">
                             <input type="file" name="image" class="form-control" placeholder="10%">
                             <?php if (isset($error['image'])) : ?>
                             <p class="text-danger"><?php echo $error['image'] ?></p>
                             <?php endif ?>
-           <img src="<?php echo url_home() ?>/public/uploads/product/<?php echo $item['image'] ?>" width="150px" height="100px" >
+           <img src="<?php echo url_home() ?>/public/uploads/product/<?php echo $EditProduct['image'] ?>" width="150px" height="100px" >
 
                         </div>
                     </div>

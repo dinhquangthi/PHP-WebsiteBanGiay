@@ -20,4 +20,7 @@
             <i class="fas fa-chevron-left"></i>
         </div>
     </div>
+    <div class="details">
+      <button href="" class="details-btn">VIEW MORE</button>
+    </div>
 </div>

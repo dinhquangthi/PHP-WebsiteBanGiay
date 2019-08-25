@@ -95,7 +95,7 @@
                             <p>1.250.000 VNĐ</p>
                             <a href=""><button class="add-cart">MUA HÀNG</button></a>
                         </div>
-                        <div class="col-4 product-detail wow fadeInUp" data-wow-duration="2s" data-wow-delay="1.3s">
+                        <div class="col-4 product-detail wow fadeInUp" data-wow-duration="1s">
                             <a href=""><img src="image/product/giay-3.jpg" alt=""></a>
                             <a href="">
                                 <h3>Giày Adidas Ultra 2019</h3>
