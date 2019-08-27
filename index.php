@@ -61,7 +61,7 @@
             <div class="info-product col-9">
                 <div class="row">
                     <div class="col-9">
-                        <h2>GIÀY CHẠY BỘ</h2>
+                        <h2>TẤT CẢ SẢN PHẨM</h2>
                     </div>
                     <div class="search-product col-3">
                         <input type="text" name="search-product" placeholder="Search Products...">
