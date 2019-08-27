@@ -2,7 +2,17 @@
     require_once __DIR__. "/user/autoload/autoload.php";
       
     $category = $db->fetchAll("category");
+
+    $sqlHomecate = "SELECT name , id FROM category ORDER BY updated_at ";
+    $CategoryHome = $db->fetchsql($sqlHomecate);
    
+    $data = [];
+    foreach ($CategoryHome as $item) {
+        $cateId = intval($item['id']) ;
+        $sql = "SELECT * FROM product WHERE category_id = $cateId ";
+        $ProductHome = $db->fetchsql($sql);
+        $data[$item['name']] = $ProductHome;
+    }
 ?>
 
 <?php require_once __DIR__. "/user/layouts/header.php"; ?>
@@ -51,7 +61,7 @@
             <div class="info-product col-9">
                 <div class="row">
                     <div class="col-9">
-                        <h2>GIÀY CHẠY BỘ</h2>
+                        <h2>TẤT CẢ SẢN PHẨM</h2>
                     </div>
                     <div class="search-product col-3">
                         <input type="text" name="search-product" placeholder="Search Products...">
@@ -60,15 +70,31 @@
                 </div>
 
                 <div class="row">
+                    <?php foreach ($data as $key => $value): ?>
+                    <?php foreach ($value as $item): ?>
                     <div class="col-4 product-detail wow fadeInUp" data-wow-duration="2s">
+                   
+                    <a href="#"><img src="<?php echo url_home() ?>/public/uploads/product/<?php echo $item['image'] ?>" alt=""></a>
+                   
+                        <a href="">
+                            <h3><?php echo $item['name'] ?></h3>
+                        </a>
+                        <p><strike class="sale"><?php echo formatPrice($item['price']) ?></strike>
+                        <?php echo formatpricesale($item['price'],$item['sale']) ?>
+                    </p>
+                        <a href=""><button class="add-cart">MUA HÀNG</button></a>
+                    </div>
+                    <?php endforeach ?>
+                    <?php endforeach ?>
+                    <!-- <div class="col-4 product-detail wow fadeInUp" data-wow-duration="2s">
                         <a href="#"><img src="<?php echo url_home() ?>/user/image/product/giay-1.jpg" alt=""></a>
                         <a href="">
                             <h3>Giày Adidas Ultra 2019</h3>
                         </a>
                         <p>1.250.000 VNĐ</p>
                         <a href=""><button class="add-cart">MUA HÀNG</button></a>
-                    </div>
-                    <div class="col-4 product-detail wow fadeInUp" data-wow-duration="2s">
+                    </div> -->
+                    <!-- <div class="col-4 product-detail wow fadeInUp" data-wow-duration="2s">
                         <a href=""><img src="<?php echo url_home() ?>/user/image/product/giay-4.jpg" alt=""></a>
                         <a href="">
                             <h3>Giày Adidas Ultra 2019</h3>
@@ -123,7 +149,7 @@
                         </a>
                         <p>1.250.000 VNĐ</p>
                         <a href=""><button class="add-cart">MUA HÀNG</button></a>
-                    </div>
+                    </div> -->
                 </div>
             </div>
         </div>
