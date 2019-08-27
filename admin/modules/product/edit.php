@@ -23,7 +23,8 @@
             "price" => postInput("price"),
             "number" => postInput("number"),
             "size" => postInput("size"),
-            "content" => postInput("content")
+            "content" => postInput("content"),
+            "sale" => postInput("sale")
         ];
 
         $error = [];
