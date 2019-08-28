@@ -20,6 +20,7 @@
         $sotrang = $product['page'];
         unset($product['page']);
     }
+    
 ?>
 
 <?php require_once __DIR__. "/../../layouts/header.php"; ?>
@@ -72,14 +73,20 @@
                                 <td><?php echo $item['name'] ?></td>
                                 <td><?php echo $item['namecate'] ?></td>
                                 <td><?php echo $item['slug'] ?></td>
-                                 <td>
-                                    <img src="<?php echo url_home() ?>/public/uploads/product/<?php echo $item['image'] ?>" width="150px" height="100px" >
+                                <td>
+                                    <img src="<?php echo url_home() ?>/public/uploads/product/<?php echo $item['image'] ?>"
+                                        width="150px" height="100px">
                                 </td>
                                 <td>
                                     <ul>
-                                        <li>Giá: <?php echo $item['price'] ?></li>
+                                        <li>Giá: <?php echo formatPrice($item['price']) ?></li>
                                         <li>Số lượng: <?php echo $item['number'] ?></li>
-                                        <li>Size: <?php echo $item['size'] ?></li>
+                                        <li>Size:   
+                                           <?php foreach (unserialize($item['size']) as $size) : ?>
+                                           <?php echo $size ?>
+                                           <?php endforeach ?>
+                                        </li> 
+                                        <li>Sale: <?php echo $item['sale'] ?> %</li>
                                     </ul>
                                 </td>
                                 <td>
@@ -113,7 +120,7 @@
                                     }
                                 ?>
                                 <li class="<?php echo ($i == $p) ? 'active' : '' ?>">
-                                <a href="?page=<?php echo $i ;?>"><?php echo $i; ?></a>
+                                    <a href="?page=<?php echo $i ;?>"><?php echo $i; ?></a>
                                 </li>
                                 <?php endfor; ?>
                                 <li class="page-item">
@@ -124,7 +131,6 @@
                             </ul>
                         </nav>
                     </div>
-
 
                 </div>
             </div>

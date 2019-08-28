@@ -12,12 +12,12 @@
         "category_id" => postInput("category_id"),
         "price" => postInput("price"),
         "number" => postInput("number"),
-        "size" => postInput("size"),
+        "size" => serialize(postInput("size")),
         "content" => postInput("content"),
         "sale" => postInput("sale")
     ];
-
     $error = [];
+  
 
     if(postInput('name') == '')
     {
@@ -43,7 +43,7 @@
     {
         $error['image'] = "Chọn hình ảnh";
     }
-    
+
     if(empty($error))
     {
         if(isset($_FILES['image']))
@@ -160,26 +160,31 @@
                     <div class="form-group">
                         <label for="exampleInputEmail1" class="col-sm-2">Size</label>
                         <div class="col-sm-8" style="display:flex;">
-                            <div class="custom-control custom-checkbox" style="margin-right:10px;">
-                                <input name="size" type="checkbox" class="custom-control-input" id="size" value="39"> 
-                                <label class="custom-control-label" for="customCheck1">
-                                    39</label>
+                            <div class="" style="margin-right:22px;">
+                                <label class="container-input">39
+                                    <input type="checkbox"  name="size[]" id="size" value="39">
+                                    <span class="checkmark"></span>
+                                </label>
                             </div>
-                            <div class="custom-control custom-checkbox" style="margin-right:10px;">
-                                <input name="size" type="checkbox" class="custom-control-input" id="size" value="40"> 
-                                <label class="custom-control-label" for="customCheck1">
-                                    40</label>
+                            <div class="" style="margin-right:22px;">
+                                <label class="container-input">40
+                                    <input type="checkbox"  name="size[]" id="size" value="40">
+                                    <span class="checkmark"></span>
+                                </label>
                             </div>
-                            <div class="custom-control custom-checkbox" style="margin-right:10px;">
-                                <input name="size" type="checkbox" class="custom-control-input" id="size" value="41"> 
-                                <label class="custom-control-label" for="customCheck1">
-                                    41</label>
+                            <div class="" style="margin-right:22px;">
+                                <label class="container-input">41
+                                    <input type="checkbox"  name="size[]" id="size" value="41">
+                                    <span class="checkmark"></span>
+                                </label>
                             </div>
-                            <div class="custom-control custom-checkbox" style="margin-right:10px;">
-                                <input name="size" type="checkbox" class="custom-control-input" id="size" value="42"> 
-                                <label class="custom-control-label" for="customCheck1">
-                                    42</label>
+                            <div class="" style="margin-right:22px;">
+                                <label class="container-input">42
+                                    <input type="checkbox"  name="size[]" id="size" value="42">
+                                    <span class="checkmark"></span>
+                                </label>
                             </div>
+
                             <?php if (isset($error['number'])) : ?>
                             <p class="text-danger"><?php echo $error['number'] ?></p>
                             <?php endif ?>
@@ -196,7 +201,7 @@
                     <div class="form-group">
                         <label for="exampleInputEmail1" class="col-sm-2">Hình ảnh</label>
                         <div class="col-sm-4">
-                            <input type="file" name="image" class="form-control" placeholder="10%">
+                            <input type="file" name="image" multiple  class="form-control" placeholder="10%">
                             <?php if (isset($error['image'])) : ?>
                             <p class="text-danger"><?php echo $error['image'] ?></p>
                             <?php endif ?>

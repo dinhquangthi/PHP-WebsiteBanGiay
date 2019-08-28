@@ -25,6 +25,7 @@
     <link href="<?php echo url_home() ?>/public/admin/css/all.min.css" rel="stylesheet" type="text/css">
     <link href="<?php echo url_home() ?>/public/admin/css/brands.min.css" rel="stylesheet" type="text/css">
     <link href="<?php echo url_home() ?>/public/admin/css/solid.min.css" rel="stylesheet" type="text/css">
+    <link href="<?php echo url_home() ?>/public/admin/css/style.css" rel="stylesheet" type="text/css">
 
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
