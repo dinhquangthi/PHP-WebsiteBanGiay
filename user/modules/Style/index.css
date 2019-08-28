@@ -31,10 +31,10 @@ p {
   font-family: "Source Sans Pro", sans-serif;
 }
 .sale {
-  font-size: 13px;
+  font-size: 13px !important;
   margin-right: 8px;
-  color: #a2a2a2;
-  font-weight: 200;
+  color: #a2a2a2 !important;
+  font-weight: 200 !important;
 }
 
 .header .container {
@@ -256,7 +256,13 @@ h3 a:hover {
 .list-product__category ul li:hover {
     background: #F5F5F5;
     font-weight: bold;
+    transition: 0.5s;
+}
+.list-product__category ul li {
     transition: 0.3s;
+}
+.list-product__category ul li a{
+   letter-spacing: 1.2px;
 }
 .list-product__category ul li:last-child {
   border-bottom: none;
@@ -286,11 +292,15 @@ border-bottom: 1px solid #f2f2f2;
   margin-bottom: 28px;
   font-size: 18px;
 }
+.price {
+  color: #8B0000;
+  font-weight: bold;
+}
 .news p {
   width: 255px;
   margin: 10px 0;
   font-weight: 600;
-  font-size: 13px;
+  font-size: 14px;
 }
 
 .news a:hover {
@@ -463,4 +473,16 @@ border-bottom: 1px solid #f2f2f2;
 .info-baguetto a:hover {
   font-size: 30px;
   transition: 0.4s;
+}
+.pagi {
+  color: #8B0000 !important;
+  transition: 0.3s;
+}
+.pagi:hover {
+  font-weight: bold;
+  transition: 0.5s;
+}
+.page-item.active .page-link{
+  background: #ecab8d !important;
+  border-color: #ecab8d !important;
 }

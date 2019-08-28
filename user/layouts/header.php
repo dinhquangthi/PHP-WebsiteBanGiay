@@ -36,7 +36,7 @@
    <div class="header">
         <div class="container">
             <nav class="navbar navbar-expand-lg navbar-light ">
-                <h3><a href="<?php echo url_home(); ?>/user" class="header2" id="logo">Bunny Store</a></h3>
+                <h3><a href="<?php echo url_home(); ?>" class="header2" id="logo">Bunny Store</a></h3>
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
                         aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>

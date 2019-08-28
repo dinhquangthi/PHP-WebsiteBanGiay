@@ -6,33 +6,32 @@
     $sqlHomecate = "SELECT name , id FROM category ORDER BY updated_at ";
     $CategoryHome = $db->fetchsql($sqlHomecate);
    
-    
-    $data = [];
-    foreach ($CategoryHome as $item) {
-        $cateId = intval($item['id']) ;
-        $sql = "SELECT * FROM product WHERE category_id = $cateId ";
-        $ProductHome = $db->fetchsql($sql);
-        $data[$item['name']] = $ProductHome;
-    }
+
+    $id = intval(getInput('id'));
+    $EditCategory = $db->fetchID("category",$id);
 
 
     if(isset($_GET['p']))
-    {
-        $p = $_GET['p'];
-    }
-    else 
-    {
-        $p = 1;
-    }
+        {
+            $p = $_GET['p'];
+        }
+        else 
+        {
+            $p = 1;
+        }
 
 
+    $sql = "SELECT * FROM product WHERE category_id = $id ";
 
-$total = count($db->fetchsql($sql));
+    $total = count($db->fetchsql($sql));
 
 
-$product = $db->fetchJones("product",$sql,$total,$p,12,true);
-$sotrang = $product['page'];
-unset($product['page']);
+    $product = $db->fetchJones("product",$sql,$total,$p,6,true);
+    $sotrang = $product['page'];
+    unset($product['page']);
+
+    $path = $_SERVER['SCRIPT_NAME'];
+ 
 ?>
 
 <?php require_once __DIR__. "/user/layouts/header.php"; ?>
@@ -81,7 +80,7 @@ unset($product['page']);
             <div class="info-product col-9">
                 <div class="row">
                     <div class="col-9">
-                        <h2>TẤT CẢ SẢN PHẨM</h2>
+                        <h2><?php echo $EditCategory['name'] ?></h2>
                     </div>
                     <div class="search-product col-3">
                         <input type="text" name="search-product" placeholder="Search Products...">
@@ -90,8 +89,7 @@ unset($product['page']);
                 </div>
 
                 <div class="row">
-                    <?php foreach ($data as $key => $value): ?>
-                    <?php foreach ($value as $item): ?>
+                    <?php foreach ($product as $item): ?>
                     <div class="col-4 product-detail wow fadeInUp" data-wow-duration="2s">
 
                         <a href="<?php echo url_home()?>/user/details.php?id=<?php echo $item['id'] ?>"><img
@@ -113,8 +111,9 @@ unset($product['page']);
                         <a href=""><button class="add-cart">MUA HÀNG</button></a>
                     </div>
                     <?php endforeach ?>
-                    <?php endforeach ?>
+
                 </div>
+
                 <nav aria-label="Page navigation example ">
                     <ul class="pagination justify-content-center">
                         <li class="page-item">
@@ -123,7 +122,9 @@ unset($product['page']);
                             </a>
                         </li>
                         <?php for($i=1; $i <= $sotrang; $i++): ?>
-                        <li class="page-item "><a class="page-link pagi" href="#"><?php echo $i; ?></a></li>
+                        <li class="page-item <?php echo isset($_GET['p']) && $_GET['p'] == $i ? 'active' : '' ?>">
+                            <a class="page-link pagi" href="<?php echo $path ?>?id=<?php echo $id ?>&&p=<?php echo $i ?>">
+                                <?php echo $i ?></a></li>
                         <?php endfor ?>
                         <li class="page-item">
                             <a class="page-link pagi" href="" aria-label="Next">
