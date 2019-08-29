@@ -6,5 +6,7 @@
     $db = new Database ;
 
     define("ROOT", $_SERVER['DOCUMENT_ROOT'] ."PHP-WebsiteBanGiay/public/uploads/");
+    $connect = mysqli_connect("localhost","root","","websitebangiay");
+    mysqli_set_charset($connect,"utf8");
 
     ?>

@@ -47,7 +47,7 @@
     <script src="<?php echo url_home() ?>/user/modules/plugin/jquery.sliderPro.js"></script>
     <script src="<?php echo url_home() ?>/user/modules/plugin/wow.js"></script>
     <script src="<?php echo url_home() ?>/user/modules/plugin/javascript.js"></script>
-    <script type="text/javascript">
+   
  
 
 

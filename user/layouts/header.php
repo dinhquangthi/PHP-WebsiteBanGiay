@@ -26,6 +26,7 @@
     <!-- My css -->
     <link href="<?php echo url_home() ?>/user/modules/style/index.css" rel="stylesheet" type="text/css">
     <link href="<?php echo url_home() ?>/user/modules/style/details.css" rel="stylesheet" type="text/css">
+
    
 
 
@@ -43,31 +44,12 @@
                 </button>
 
                 <div class="collapse navbar-collapse justify-content-end" id="navbarSupportedContent">
-                    <ul class="navbar-nav "     style="padding-right: 100px;">
-                        <!-- <li class="nav-item dropdown">
-                            <a class="nav-link dropdown-toggle header2" id="navbarDropdown" role="button" data-toggle="dropdown"
-                               aria-haspopup="true" aria-expanded="false" href="#">GIÀY THỂ THAO</a>
-                            <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                                <a class="dropdown-item header-navbar" href="#">Giày Bóng Đá</a>
-                                <a class="dropdown-item header-navbar" href="#">Giày Bóng Rổ</a>
-                                <a class="dropdown-item header-navbar" href="#">Giày Chạy Bộ</a>
-                            </div>
-                        </li>
-                        <li class="nav-item dropdown">
-                            <a class="nav-link  header2" id="navbarDropdown" role="button" data-toggle="dropdown"
-                               aria-haspopup="true" aria-expanded="false" href="#">ÁO QUẦN THỂ THAO</a>
-                          
-                        </li>
-                        <li class="nav-item dropdown">
-                            <a class="nav-link  header2" id="navbarDropdown" role="button" data-toggle="dropdown"
-                               aria-haspopup="true" aria-expanded="false" href="#">PHỤ KIỆN THỂ THAO</a>
-                         
-                        </li> -->
+                    <ul class="navbar-nav "  style="padding-right: 100px;">
                         <li class="nav-item">
-                            <a class="nav-link header2" href="#">ĐĂNG KÍ</a>
+                            <a class="nav-link header2" href="sign-up.php">ĐĂNG KÍ</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link header2" href="#">ĐĂNG NHẬP</a>
+                            <a class="nav-link header2" href="login.php">ĐĂNG NHẬP</a>
                         </li>
                         <li class="nav-item">
                             <div class="nav-item__right">
