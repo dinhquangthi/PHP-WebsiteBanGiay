@@ -9,7 +9,7 @@
 
     $id = intval(getInput('id'));
     $EditCategory = $db->fetchID("category",$id);
-
+    
 
     if(isset($_GET['p']))
         {
@@ -22,7 +22,7 @@
 
 
     $sql = "SELECT * FROM product WHERE category_id = $id ";
-
+       
     $total = count($db->fetchsql($sql));
 
 
@@ -31,7 +31,8 @@
     unset($product['page']);
 
     $path = $_SERVER['SCRIPT_NAME'];
- 
+    _debug($total);
+
 ?>
 
 <?php require_once __DIR__. "/user/layouts/header.php"; ?>

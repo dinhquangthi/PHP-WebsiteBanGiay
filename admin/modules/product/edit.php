@@ -22,7 +22,7 @@
             "category_id" => postInput("category_id"),
             "price" => postInput("price"),
             "number" => postInput("number"),
-            "size" => postInput("size"),
+            "size" => serialize(postInput("size")),
             "content" => postInput("content"),
             "sale" => postInput("sale")
         ];
@@ -162,8 +162,35 @@
                         <div class="form-group">
                         <label for="exampleInputEmail1" class="col-sm-2">Size</label>
                         <div class="col-sm-8">
-                            <input type="text" name="size" class="form-control" placeholder="Size"
-                                value="<?php echo $EditProduct['size']?>">
+                         
+
+                                <div class="col-sm-8" style="display:flex;">
+                            <div class="" style="margin-right:22px;">
+                                <label class="container-input">39
+                                    <input type="checkbox"  name="size[]" id="size" value="39">
+                                    <span class="checkmark"></span>
+                                </label>
+                            </div>
+                            <div class="" style="margin-right:22px;">
+                                <label class="container-input">40
+                                    <input type="checkbox"  name="size[]" id="size" value="40">
+                                    <span class="checkmark"></span>
+                                </label>
+                            </div>
+                            <div class="" style="margin-right:22px;">
+                                <label class="container-input">41
+                                    <input type="checkbox"  name="size[]" id="size" value="41">
+                                    <span class="checkmark"></span>
+                                </label>
+                            </div>
+                            <div class="" style="margin-right:22px;">
+                                <label class="container-input">42
+                                    <input type="checkbox"  name="size[]" id="size" value="42">
+                                    <span class="checkmark"></span>
+                                </label>
+                            </div>
+
+                        </div>
                             <?php require_once __DIR__. "/../../../partials/notification.php"; ?>
                         </div>
                     </div>
@@ -180,7 +207,7 @@
                          <div class="form-group">
                         <label for="exampleInputEmail1" class="col-sm-2">Hình ảnh</label>
                         <div class="col-sm-4">
-                            <input type="file" name="image" class="form-control" placeholder="10%">
+                            <input type="file" name="image" multiple class="form-control" placeholder="10%">
                             <?php if (isset($error['image'])) : ?>
                             <p class="text-danger"><?php echo $error['image'] ?></p>
                             <?php endif ?>

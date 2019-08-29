@@ -26,7 +26,7 @@
     <!-- My css -->
     <link href="<?php echo url_home() ?>/user/modules/style/index.css" rel="stylesheet" type="text/css">
     <link href="<?php echo url_home() ?>/user/modules/style/details.css" rel="stylesheet" type="text/css">
-
+   
 
 
 </head>

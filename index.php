@@ -5,8 +5,7 @@
 
     $sqlHomecate = "SELECT name , id FROM category ORDER BY updated_at ";
     $CategoryHome = $db->fetchsql($sqlHomecate);
-   
-    
+
     $data = [];
     foreach ($CategoryHome as $item) {
         $cateId = intval($item['id']) ;
@@ -15,24 +14,8 @@
         $data[$item['name']] = $ProductHome;
     }
 
+  
 
-    if(isset($_GET['p']))
-    {
-        $p = $_GET['p'];
-    }
-    else 
-    {
-        $p = 1;
-    }
-
-
-
-$total = count($db->fetchsql($sql));
-
-
-$product = $db->fetchJones("product",$sql,$total,$p,12,true);
-$sotrang = $product['page'];
-unset($product['page']);
 ?>
 
 <?php require_once __DIR__. "/user/layouts/header.php"; ?>
@@ -93,7 +76,7 @@ unset($product['page']);
                     <?php foreach ($data as $key => $value): ?>
                     <?php foreach ($value as $item): ?>
                     <div class="col-4 product-detail wow fadeInUp" data-wow-duration="2s">
-
+           
                         <a href="<?php echo url_home()?>/user/details.php?id=<?php echo $item['id'] ?>"><img
                                 src="<?php echo url_home() ?>/public/uploads/product/<?php echo $item['image'] ?>"
                                 alt=""></a>
@@ -115,23 +98,7 @@ unset($product['page']);
                     <?php endforeach ?>
                     <?php endforeach ?>
                 </div>
-                <nav aria-label="Page navigation example ">
-                    <ul class="pagination justify-content-center">
-                        <li class="page-item">
-                            <a class="page-link pagi" href="" aria-label="Previous">
-                                <span aria-hidden="true">&laquo;</span>
-                            </a>
-                        </li>
-                        <?php for($i=1; $i <= $sotrang; $i++): ?>
-                        <li class="page-item "><a class="page-link pagi" href="#"><?php echo $i; ?></a></li>
-                        <?php endfor ?>
-                        <li class="page-item">
-                            <a class="page-link pagi" href="" aria-label="Next">
-                                <span aria-hidden="true">&raquo;</span>
-                            </a>
-                        </li>
-                    </ul>
-                </nav>
+                
             </div>
         </div>
     </div>
