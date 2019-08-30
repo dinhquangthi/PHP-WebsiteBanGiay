@@ -105,6 +105,8 @@ h3 a:hover {
 
 .pay {
   position: relative;
+  margin-left: 15px;
+  margin-top: 6px;
 }
 
 .header-icons-noti {
@@ -485,4 +487,42 @@ border-bottom: 1px solid #f2f2f2;
 .page-item.active .page-link{
   background: #ecab8d !important;
   border-color: #ecab8d !important;
+}
+.my-form
+{
+   padding: 100px 0 50px 0;
+   background-image: linear-gradient(to bottom, #eeeace, #efe8ce, #f0e5ce, #f0e3cf, #efe1d0, #efdfcc, #efdcc9, #efdac5, #efd6bc, #efd2b3, #efceab, #eecaa2);
+}
+
+.my-form .row
+{
+    margin-left: 0;
+    margin-right: 0;
+}
+.col-form-label {
+  font-weight: 600;
+  font-size: 14px
+}
+.login-form
+{
+    padding-top: 1.5rem;
+    padding-bottom: 1.5rem;
+}
+
+.login-form .row
+{
+    margin-left: 0;
+    margin-right: 0;
+}
+.card-header {
+ 
+    text-align: center;
+    font-weight: bold;
+    font-size: 22px;
+    letter-spacing: 1px;
+    color: #880012;
+}
+.canh-bao {
+  font-size: 12px;
+    margin-top: 5px;
 }
