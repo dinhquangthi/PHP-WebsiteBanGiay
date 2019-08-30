@@ -40,5 +40,12 @@ $(function($){
           }, 800);
           event.preventDefault();
     });
-
+    // function signUp() {
+    //     Swal.fire({
+    //         title: 'Đăng ký thành công',
+    //         type: 'success',
+    //       })
+      
+    // }
+    // signUp();
 })

@@ -105,6 +105,8 @@ h3 a:hover {
 
 .pay {
   position: relative;
+  margin-left: 15px;
+  margin-top: 6px;
 }
 
 .header-icons-noti {
