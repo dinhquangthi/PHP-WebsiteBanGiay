@@ -1,8 +1,8 @@
-$(function($){
+$(function ($) {
 
-    $(document).ready(function(){
+    $(document).ready(function () {
         $(window).scrollTop(0);
-        });
+    });
     $('#my-slider').sliderPro({
         width: 1366,
         height: 600,
@@ -14,38 +14,46 @@ $(function($){
         autoScaleLayers: false,
         fadeArrows: false
     });
-    
+
     new WOW().init();
 
-    function handleClicks() {
-        let clickCount = 1;
-        $('.counter').text(clickCount);
-        $('.click-incre').click(event => {
-            clickCount += 1;
-            $('.counter').text(clickCount);
-        });
-            
-        $('.click-reduce').click(event => {
-            if (clickCount > 1){
-                clickCount -= 1;
-            }  
-            $('.counter').text(clickCount);
-        });
-    }
-    $(handleClicks);
+    // function handleClicks() {
+    //     let clickCount = 1;
+    //     $('.counter').text(clickCount);
+    //     $('.click-incre').click(event => {
+    //         clickCount += 1;
+    //         $('.counter').text(clickCount);
 
-    $('.details-btn').click(function() {
+    //     });
+
+    //     $('.click-reduce').click(event => {
+    //         if (clickCount > 1) {
+    //             clickCount -= 1;
+    //         }
+    //         $('.counter').text(clickCount);
+
+    //     });
+    // }
+    // handleClicks();
+    // $('.btn-click').click(function (e) {
+    //     event.preventDefault();
+    //     console.log($('.counter').text());
+    //     // console.log('aaaa');
+    // });
+   
+
+    $('.details-btn').click(function () {
         $('html,body').stop().animate({
             scrollTop: $('.list-product').offset().top
-          }, 800);
-          event.preventDefault();
+        }, 800);
+        event.preventDefault();
     });
     // function signUp() {
     //     Swal.fire({
     //         title: 'Đăng ký thành công',
     //         type: 'success',
     //       })
-      
+
     // }
     // signUp();
 })

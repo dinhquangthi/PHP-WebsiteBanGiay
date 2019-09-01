@@ -6,7 +6,16 @@
     $id = intval(getInput('id'));
     $product = $db->fetchID("product",$id);
 
-   
+    if ($_SERVER["REQUEST_METHOD"] == "POST") {
+    $data = [
+        "name" => $product['name'],
+        "price" => formatPrice($product['price']),    
+        "size" => postInput("size"), 
+    ];
+  
+    
+    
+    }
 ?>
 
 <?php require_once __DIR__. "/layouts/header.php"; ?>
@@ -36,26 +45,27 @@
         <div class="row">
             <div class="col-md-8 product-left">
                 <div class="product-left__img">
-                    <img src="<?php echo url_home() ?>/public/uploads/product/<?php echo $product['image'] ?>" alt="">
-                    <img src="image/product/giay-2.jpg" alt="">
-                    <img src="image/product/giay-1.jpg" alt="">
-                    <img src="image/product/giay-3.jpg" alt="">
+                <?php foreach (unserialize(base64_decode($product['image'])) as $val) : ?>
+                    <img src="<?php echo url_home() ?>/public/uploads/product/<?php echo $val ?>" alt="">
+                 <?php endforeach ?>
                 </div>
                 <div class="product-left__content">
                     <h3>Giới thiệu sản phẩm</h3>
                     <p><?php echo $product['content'] ?></p>
                 </div>
             </div>
+           
             <div class="col-md-4 product-right">
+            <form class="form-horizontal" id="submitForm" action="" method="POST" enctype="multipart/form-data">
                 <h2><?php echo $product['name'] ?></h2>
                 <h3>
-                <?php if ($product['sale'] > 0): ?>
-                        <p class="price"><strike class="sale"><?php echo formatPrice($product['price']) ?></strike><br>
-                            <?php echo formatpricesale($product['price'],$product['sale']) ?>
-                        </p>
-                        <?php else: ?>
-                        <p class="price"> <?php echo formatpricesale($product['price'],$product['sale']) ?></p>
-                        <?php endif ?>
+                    <?php if ($product['sale'] > 0): ?>
+                    <p class="price"><strike class="sale"><?php echo formatPrice($product['price']) ?></strike><br>
+                        <?php echo formatpricesale($product['price'],$product['sale']) ?>
+                    </p>
+                    <?php else: ?>
+                    <p class="price"> <?php echo formatpricesale($product['price'],$product['sale']) ?></p>
+                    <?php endif ?>
 
                 </h3>
                 <p>Chọn size của bạn</p>
@@ -82,16 +92,14 @@
                     </div>
                 </div>
 
-                <div class="product-right__count">
+                <!-- <div class="product-right__count">
                     <p>Số lượng</p>
                     <div class="click-count">
                         <button class="btn-click click-reduce">-</button>
-                        <p class="counter">1</p>
+                        <p class="counter" name="qnty" value="2">1</p>
                         <button class="btn-click click-incre">+</button>
                     </div>
-                </div>
-
-
+                </div> -->
 
                 <div class="product-right__promo">
                     <p>ƯU ĐÃI ĐI KÈM:</p>
@@ -102,12 +110,13 @@
                 </div>
 
                 <div class="product-right__buy">
-                    <a href=""><button class="add-cart">MUA HÀNG</button></a>
-                    <a href=""><button class="add-cart">THÊM VÀO GIỎ</button></a>
+                    <a href="#"><button class="add-cart">THANH TOÁN</button></a>
+                    <a href="#" ><button type="submit" class="add-cart">THÊM VÀO GIỎ</button></a>
                 </div>
-
-
+                </form>
+ 
             </div>
+            
         </div>
 
     </div>

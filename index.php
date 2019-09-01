@@ -14,7 +14,6 @@
         $data[$item['name']] = $ProductHome;
     }
 
-  
 
 ?>
 
@@ -76,10 +75,18 @@
                     <?php foreach ($data as $key => $value): ?>
                     <?php foreach ($value as $item): ?>
                     <div class="col-4 product-detail wow fadeInUp" data-wow-duration="2s">
-           
-                        <a href="<?php echo url_home()?>/user/details.php?id=<?php echo $item['id'] ?>"><img
-                                src="<?php echo url_home() ?>/public/uploads/product/<?php echo $item['image'] ?>"
-                                alt=""></a>
+                    <?php foreach (unserialize(base64_decode($item['image'])) as $key => $val ) : ?> 
+                           <?php 
+                           if($key == 0) {
+                            $ten_anh = $val;
+                           }
+                           ?>
+                    <?php endforeach ?>
+                        
+                        <a href="<?php echo url_home()?>/user/details.php?id=<?php echo $item['id'] ?>">
+                        <img src="<?php echo url_home() ?>/public/uploads/product/<?php echo $ten_anh ?>"
+                                alt="">
+                        </a>
                         <a href="<?php echo url_home()?>/user/details.php?id=<?php echo $item['id'] ?>">
                             <h3><?php echo $item['name'] ?></h3>
                         </a>
@@ -93,7 +100,7 @@
                         <?php endif ?>
 
 
-                        <a href=""><button class="add-cart">MUA HÀNG</button></a>
+                        <a href="add-cart.php?id=<?php echo $item['id'] ?>"><button class="add-cart">XEM CHI TIẾT</button></a>
                     </div>
                     <?php endforeach ?>
                     <?php endforeach ?>
