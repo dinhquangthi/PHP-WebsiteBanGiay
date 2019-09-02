@@ -2,7 +2,6 @@
     $open = "product";
     require_once __DIR__. "/../../autoload/autoload.php";
       
-    
     $id = intval(getInput('id'));
 
     $EditProduct = $db->fetchID("product",$id);
@@ -62,7 +61,9 @@
             
             $numitems = count($file_name);
             $numfiles = 0;
-            $gallery = [];
+            
+                $gallery = [];
+           
             for ($i = 0; $i < $numitems; $i ++) {
                 //Kiểm tra file thứ $i trong mảng file, up thành công không
                 if ($file_erro[$i] == 0)
@@ -71,8 +72,6 @@
                     echo "Bạn upload file thứ $numfiles:<br>";
                     echo "Tên file: $file_name[$i] <br>";
                     echo "Lưu tại: $file_tmp[$i] <br>";
-    
-                    
                     //Ví dụ move_uploaded_file($tmp_names[$i], /upload/'.$names[$i]);
                         $part = ROOT ."product/";
                         $gallery[$i] = $file_name[$i];
@@ -83,6 +82,7 @@
          
         }
           $update = $db->update("product",$data,array("id"=>$id));
+          
           if($update > 0)
           {
             move_uploaded_file($file_tmp,$part.$file_name);
@@ -223,7 +223,7 @@
                          <div class="form-group">
                         <label for="exampleInputEmail1" class="col-sm-2">Hình ảnh</label>
                         <div class="col-sm-4">
-                            <input type="file" name="image[]" multiple class="form-control" placeholder="10%">
+                            <input type="file" name="image[]" multiple class="form-control" >
                             <?php if (isset($error['image'])) : ?>
                             <p class="text-danger"><?php echo $error['image'] ?></p>
                             <?php endif ?>

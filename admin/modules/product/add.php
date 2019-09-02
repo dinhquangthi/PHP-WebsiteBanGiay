@@ -83,7 +83,7 @@
                     move_uploaded_file($file_tmp,$part.$file_name);
                     $_SESSION['success'] = "Thêm mới thành công";
                 
-                    //   redirectAdmin("product");
+                      redirectAdmin("product");
                 }
                 else {
                      $_SESSION['error'] = "Thêm mới thất bại";

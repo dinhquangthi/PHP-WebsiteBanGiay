@@ -4,7 +4,17 @@ require_once __DIR__ . "/user/autoload/autoload.php";
 
 if( !isset($_SESSION['name_id']))
 {
-    echo "<script>alert('Bạn phải đăng nhập mới thực hiện được chức năng này');location.href='index.php'</script>";
+    echo "<script>
+    function myConfirm() {
+        var r = confirm('Bạn phải đăng nhập mới thực hiện được chức năng này');
+        if (r == true) {
+          location.href='login.php'
+        } else {
+          location.href='index.php'
+        }
+      }
+      myConfirm();
+    </script>";
 }
 
 
@@ -29,3 +39,4 @@ else{
 
 echo "<script>alert('Thêm vào giỏ hàng thành công');location.href='cart.php'</script>";
 ?>
+

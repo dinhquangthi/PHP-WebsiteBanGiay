@@ -9,8 +9,7 @@
 
     $id = intval(getInput('id'));
     $EditCategory = $db->fetchID("category",$id);
-    
-
+   
     if(isset($_GET['p']))
         {
             $p = $_GET['p'];
@@ -29,9 +28,8 @@
     $product = $db->fetchJones("product",$sql,$total,$p,6,true);
     $sotrang = $product['page'];
     unset($product['page']);
-
     $path = $_SERVER['SCRIPT_NAME'];
-    _debug($total);
+    
 
 ?>
 
@@ -92,9 +90,14 @@
                 <div class="row">
                     <?php foreach ($product as $item): ?>
                     <div class="col-4 product-detail wow fadeInUp" data-wow-duration="2s">
-
-                        <a href="<?php echo url_home()?>/user/details.php?id=<?php echo $item['id'] ?>"><img
-                                src="<?php echo url_home() ?>/public/uploads/product/<?php echo $item['image'] ?>"
+                    <?php foreach (unserialize(base64_decode($item['image'])) as $key => $val ) : ?> 
+                           <?php 
+                           if($key == 0) {
+                            $ten_anh = $val;
+                           }
+                           ?>
+                    <?php endforeach ?>
+                        <a href="<?php echo url_home()?>/user/details.php?id=<?php echo $item['id'] ?>"> <img src="<?php echo url_home() ?>/public/uploads/product/<?php echo $ten_anh ?>"
                                 alt=""></a>
                         <a href="<?php echo url_home()?>/user/details.php?id=<?php echo $item['id'] ?>">
                             <h3><?php echo $item['name'] ?></h3>

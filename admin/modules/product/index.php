@@ -6,14 +6,16 @@
     if(isset($_GET['page']))
     {
         $p = $_GET['page'];
+       
     }
     else{
         $p=1;
+
     }
 
    $sql = "SELECT product.*,category.name as namecate FROM product
     LEFT JOIN category on category.id = product.category_id";
-
+   
     $product = $db->fetchJone('product',$sql,$p,4,true);
     if(isset($product['page']))
     {
@@ -127,7 +129,7 @@
                                         $p = 1;
                                     }
                                 ?>
-                                <li class="<?php echo ($i == $p) ? 'active' : '' ?>">
+                                <li class="<?php echo ($i == $p) ? 'active' : '' ?> ">
                                     <a href="?page=<?php echo $i ;?>"><?php echo $i; ?></a>
                                 </li>
                                 <?php endfor; ?>

@@ -15,6 +15,29 @@
     }
 
 
+    // Phan trang
+    if(isset($_GET['page']))
+    {
+        $p = $_GET['page'];
+       
+    }
+    else{
+        $p=1;
+
+    }
+
+   $sql = "SELECT *FROM product ";
+   
+    $product = $db->fetchJone('product',$sql,$p,9,true);
+    if(isset($product['page']))
+    {
+        $sotrang = $product['page'];
+        unset($product['page']);
+    }
+
+    // _debug($product);
+    // die();
+ 
 ?>
 
 <?php require_once __DIR__. "/user/layouts/header.php"; ?>
@@ -72,40 +95,60 @@
                 </div>
 
                 <div class="row">
-                    <?php foreach ($data as $key => $value): ?>
-                    <?php foreach ($value as $item): ?>
+
+                    <?php foreach ($product as $key => $value): ?>
+                   
                     <div class="col-4 product-detail wow fadeInUp" data-wow-duration="2s">
-                    <?php foreach (unserialize(base64_decode($item['image'])) as $key => $val ) : ?> 
+                    <?php foreach (unserialize(base64_decode($value['image'])) as $key => $val ) : ?> 
                            <?php 
                            if($key == 0) {
                             $ten_anh = $val;
                            }
                            ?>
                     <?php endforeach ?>
-                        
-                        <a href="<?php echo url_home()?>/user/details.php?id=<?php echo $item['id'] ?>">
+
+                        <a href="<?php echo url_home()?>/user/details.php?id=<?php echo $value['id'] ?>">
                         <img src="<?php echo url_home() ?>/public/uploads/product/<?php echo $ten_anh ?>"
                                 alt="">
                         </a>
-                        <a href="<?php echo url_home()?>/user/details.php?id=<?php echo $item['id'] ?>">
-                            <h3><?php echo $item['name'] ?></h3>
+                        <a href="<?php echo url_home()?>/user/details.php?id=<?php echo $value['id'] ?>">
+                            <h3><?php echo $value['name'] ?></h3>
                         </a>
 
-                        <?php if ($item['sale'] > 0): ?>
-                        <p class="price"><strike class="sale"><?php echo formatPrice($item['price']) ?></strike>
-                            <?php echo formatpricesale($item['price'],$item['sale']) ?>
+                        <?php if ($value['sale'] > 0): ?>
+                        <p class="price"><strike class="sale"><?php echo formatPrice($value['price']) ?></strike>
+                            <?php echo formatpricesale($value['price'],$value['sale']) ?>
                         </p>
                         <?php else: ?>
-                        <p class="price"> <?php echo formatpricesale($item['price'],$item['sale']) ?></p>
+                        <p class="price"> <?php echo formatpricesale($value['price'],$value['sale']) ?></p>
                         <?php endif ?>
 
 
-                        <a href="add-cart.php?id=<?php echo $item['id'] ?>"><button class="add-cart">XEM CHI TIẾT</button></a>
+                        <a href="add-cart.php?id=<?php echo $value['id'] ?>"><button class="add-cart">XEM CHI TIẾT</button></a>
                     </div>
-                    <?php endforeach ?>
+                
                     <?php endforeach ?>
                 </div>
                 
+                <nav aria-label="Page navigation example ">
+                    <ul class="pagination justify-content-center">
+                        <li class="page-item">
+                            <a class="page-link pagi" href="" aria-label="Previous">
+                                <span aria-hidden="true">&laquo;</span>
+                            </a>
+                        </li>
+                        <?php for($i=1; $i <= $sotrang; $i++): ?>
+                        <li class="page-item <?php echo ($i == $p) ? 'active' : '' ?>">
+                        <a class="page-link pagi" href="?page=<?php echo $i ;?>"><?php echo $i; ?></a></li>
+                        <?php endfor ?>
+                        <li class="page-item">
+                            <a class="page-link pagi" href="" aria-label="Next">
+                                <span aria-hidden="true">&raquo;</span>
+                            </a>
+                        </li>
+                    </ul>
+                </nav>
+             
             </div>
         </div>
     </div>

@@ -46,6 +46,7 @@
     <script src="<?php echo url_home() ?>/user/modules/plugin/fontawesome.js"></script>
     <script src="<?php echo url_home() ?>/user/modules/plugin/jquery.sliderPro.js"></script>
     <script src="<?php echo url_home() ?>/user/modules/plugin/wow.js"></script>
+    <script src="<?php echo url_home() ?>/user/modules/plugin/swiper.min.js"></script>
     <script src="<?php echo url_home() ?>/user/modules/plugin/sweetalert2/dist/sweetalert2.min.js"></script>
     <script src="<?php echo url_home() ?>/user/modules/plugin/javascript.js"></script>
    
