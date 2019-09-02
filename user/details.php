@@ -12,22 +12,18 @@
         "price" => formatPrice($product['price']),    
         "size" => postInput("size"), 
     ];
-  
-    
-    
     }
+    // _debug($product);
+    // die();
 ?>
 
 <?php require_once __DIR__. "/layouts/header.php"; ?>
 
-<section class="top-page">
-    <div class="top-page__content"><i class="fas fa-truck-moving"></i>MIỄN PHÍ 3 NGÀY ĐỔI HÀNG</div>
-    <div class="top-page__content"><i class="fas fa-truck-moving"></i>MIỄN PHÍ GIAO HÀNG NỘI THÀNH</div>
-    <div class="top-page__content"><i class="far fa-money-bill-alt"></i>THANH TOÁN KHI NHẬN HÀNG</div>
-</section>
-
 
 <!-- Breadcrumb -->
+
+
+<section class="mid-page">
 <div class="container">
     <nav aria-label="breadcrumb">
         <ol class="breadcrumb">
@@ -36,18 +32,11 @@
         </ol>
     </nav>
 </div>
-
-
-
-
-<section class="mid-page">
     <div class="container product">
         <div class="row">
             <div class="col-md-8 product-left">
                 <div class="product-left__img">
                    
-
-
                     <!-- Swiper -->
                     <div class="swiper-container gallery-top">
                         <div class="swiper-wrapper">

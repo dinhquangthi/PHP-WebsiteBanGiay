@@ -80,6 +80,7 @@ h3 a:hover {
   z-index: 10;
   position: fixed;
   border-bottom: 1px solid black;
+  top: 0;
 }
 #logo {
   margin-left: 55px;
@@ -486,7 +487,7 @@ border-bottom: 1px solid #f2f2f2;
   font-weight: bold;
   transition: 0.5s;
 }
-.page-item.active .page-link{
+.active{
   background:#ecab8d7a !important;
   border-color: #ecab8d7a !important;
 }
@@ -555,4 +556,37 @@ border-bottom: 1px solid #f2f2f2;
  color: #862d02;
  font-weight: bold;
  transition: 0.1s;
+}
+.top-page{
+  display: flex;
+  justify-content: space-around;
+  background-color:#f3f3f34f;
+  border-bottom: 1px solid #d8d8d8c9;
+}
+.top-page__content {
+  padding: 70px 98px;
+  text-align: center;
+  width: 25%;
+  border-right: 1px solid #d8d8d8c9;
+  font-family: "Source Sans Pro", sans-serif;
+  line-height: 1.5;
+  letter-spacing: 1.2px;
+  color: #232323d9;
+  transition: 0.5s;
+}
+.top-page__content:hover {
+  transition: 0.3s;
+ background-color: white;
+}
+.top-page__content:last-child {
+    border-right: none;
+}
+.top-page__content svg{
+  margin: 15px auto;
+  font-size: 30px;
+  color: #bdbdbdd1;
+  display: block;
+}
+.mid-page {
+  margin-top: 100px;
 }

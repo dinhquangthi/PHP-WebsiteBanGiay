@@ -30,7 +30,6 @@
     unset($product['page']);
     $path = $_SERVER['SCRIPT_NAME'];
     
-
 ?>
 
 <?php require_once __DIR__. "/user/layouts/header.php"; ?>
@@ -120,21 +119,21 @@
 
                 <nav aria-label="Page navigation example ">
                     <ul class="pagination justify-content-center">
-                        <li class="page-item">
-                            <a class="page-link pagi" href="" aria-label="Previous">
+                        
+                            <a class="page-link pagi nutprev" href="" aria-label="Previous">
                                 <span aria-hidden="true">&laquo;</span>
                             </a>
-                        </li>
+                    
                         <?php for($i=1; $i <= $sotrang; $i++): ?>
-                        <li class="page-item <?php echo isset($_GET['p']) && $_GET['p'] == $i ? 'active' : '' ?>">
-                            <a class="page-link pagi" href="<?php echo $path ?>?id=<?php echo $id ?>&&p=<?php echo $i ?>">
-                                <?php echo $i ?></a></li>
+                     
+                            <a class="page-link pagi <?php echo isset($_GET['p']) && $_GET['p'] == $i ? 'active' : '' ?>" href="<?php echo $path ?>?id=<?php echo $id ?>&&p=<?php echo $i ?>">
+                                <?php echo $i ?></a>
                         <?php endfor ?>
-                        <li class="page-item">
-                            <a class="page-link pagi" href="" aria-label="Next">
+                        
+                            <a class="page-link pagi nutnext" href="" aria-label="Next">
                                 <span aria-hidden="true">&raquo;</span>
                             </a>
-                        </li>
+                      
                     </ul>
                 </nav>
             </div>

@@ -61,5 +61,26 @@ $(function ($) {
         location.href='index.php'
       }
     }
-
+    // Phan trang
+     //viet cho nut next
+  var next = $('.nutnext');
+  $('.nutnext').click(function() {
+      var tranghientai = $('.active');
+    var trangtieptheo = $('.active').next();
+    var laygiatri =$('.active').next().attr('href');
+    $(this).attr('href', laygiatri);
+    $('.active').removeClass('active');
+    trangtieptheo.addClass('active');
+ 
+  });
+  //viet cho nut prev
+  var prev = $('.nutprev');
+  $('.nutprev').click(function() {
+    var tranghientai = $('.active');
+    var trangtruoc = $('.active').prev();
+    var laygiatri =$('.active').prev().attr('href');
+    $(this).attr('href', laygiatri);
+    $('.active').removeClass('active');
+    trangtruoc.addClass('active');
+  });
 })
