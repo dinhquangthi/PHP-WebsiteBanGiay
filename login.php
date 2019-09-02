@@ -88,7 +88,9 @@
                                     Đăng nhập
                                 </button>
                             </div>
-
+                            <div class="row" style="float:left">
+                            <a class="not-account" href="<?php echo url_home() ?>/sign-up.php">Nếu chưa có tài khoản, bấm vào đây để đăng ký</a>
+                            </div>
                         </form>
                     </div>
                 </div>

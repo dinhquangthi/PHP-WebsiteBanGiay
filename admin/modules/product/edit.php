@@ -2,7 +2,6 @@
     $open = "product";
     require_once __DIR__. "/../../autoload/autoload.php";
       
-    
     $id = intval(getInput('id'));
 
     $EditProduct = $db->fetchID("product",$id);
@@ -59,14 +58,31 @@
             $file_tmp = $_FILES['image']['tmp_name'];
             $file_type = $_FILES['image']['type'];
             $file_erro = $_FILES['image']['error'];
-
-            if($file_erro == 0)
-                {
-                    $part = ROOT ."product/";
-                    $data['image'] = $file_name;
+            
+            $numitems = count($file_name);
+            $numfiles = 0;
+            
+                $gallery = [];
+           
+            for ($i = 0; $i < $numitems; $i ++) {
+                //Kiểm tra file thứ $i trong mảng file, up thành công không
+                if ($file_erro[$i] == 0)
+                {   
+                    $numfiles++;
+                    echo "Bạn upload file thứ $numfiles:<br>";
+                    echo "Tên file: $file_name[$i] <br>";
+                    echo "Lưu tại: $file_tmp[$i] <br>";
+                    //Ví dụ move_uploaded_file($tmp_names[$i], /upload/'.$names[$i]);
+                        $part = ROOT ."product/";
+                        $gallery[$i] = $file_name[$i];
+                        // $data['image'] = $file_name[$i];
                 }
+            }
+            $data['image'] = base64_encode(serialize($gallery));
+         
         }
           $update = $db->update("product",$data,array("id"=>$id));
+          
           if($update > 0)
           {
             move_uploaded_file($file_tmp,$part.$file_name);
@@ -179,7 +195,7 @@
                             </div>
                             <div class="" style="margin-right:22px;">
                                 <label class="container-input">41
-                                    <input type="checkbox"  name="size[]" id="size" value="41">
+                                    <input type="checkbox" checked  name="size[]" id="size" value="41">
                                     <span class="checkmark"></span>
                                 </label>
                             </div>
@@ -207,12 +223,21 @@
                          <div class="form-group">
                         <label for="exampleInputEmail1" class="col-sm-2">Hình ảnh</label>
                         <div class="col-sm-4">
-                            <input type="file" name="image" multiple class="form-control" placeholder="10%">
+                            <input type="file" name="image[]" multiple class="form-control" >
                             <?php if (isset($error['image'])) : ?>
                             <p class="text-danger"><?php echo $error['image'] ?></p>
                             <?php endif ?>
-           <img src="<?php echo url_home() ?>/public/uploads/product/<?php echo $EditProduct['image'] ?>" width="150px" height="100px" >
-
+                            <div class="show-gallery" style="display: flex;">
+                            <?php foreach (unserialize(base64_decode($EditProduct['image'])) as $val) : ?>
+                                <div style=" padding-right: 10px;">
+                                    <img src="<?php echo url_home() ?>/public/uploads/product/<?php echo $val ?>"
+                                        width="80px" height="80px">
+                                        <p style=""><?php echo ($val) ?></p>
+                                        </div>
+                                        <?php endforeach ?>
+                            </div>
+                       
+     
                         </div>
                     </div>
 

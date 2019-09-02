@@ -22,6 +22,7 @@
     <link href="<?php echo url_home() ?>/user/modules/plugin/solid.css" rel="stylesheet" type="text/css">
     <link href="<?php echo url_home() ?>/user/modules/plugin/animate.css" rel="stylesheet" type="text/css">
     <link href="<?php echo url_home() ?>/user/modules/plugin/slider-pro.min.css" rel="stylesheet" type="text/css">
+    <link href="<?php echo url_home() ?>/user/modules/plugin/swiper.min.css" rel="stylesheet" type="text/css">
     <link href="<?php echo url_home() ?>/user/modules/plugin/sweetalert2/dist/sweetalert2.min.css" rel="stylesheet"
         type="text/css">
 
@@ -64,10 +65,10 @@
                                 </div>
                         <?php else : ?>
                         <li class="nav-item">
-                            <a class="nav-link header2" href="sign-up.php">ĐĂNG KÍ</a>
+                            <a class="nav-link header2" href="<?php echo url_home()?>/sign-up.php">ĐĂNG KÍ</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link header2" href="login.php">ĐĂNG NHẬP</a>
+                            <a class="nav-link header2" href="<?php echo url_home()?>/login.php">ĐĂNG NHẬP</a>
                         </li>
                        
                         <li class="nav-item">

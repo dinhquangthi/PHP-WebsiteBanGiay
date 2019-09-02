@@ -43,35 +43,53 @@
     {
         $error['image'] = "Chọn hình ảnh";
     }
-
+    
     if(empty($error))
     {
         if(isset($_FILES['image']))
+      
             {
                 $file_name = $_FILES['image']['name'];
                 $file_tmp = $_FILES['image']['tmp_name'];
                 $file_type = $_FILES['image']['type'];
-                $file_name = $_FILES['image']['name'];
                 $file_erro = $_FILES['image']['error'];
-
-                if($file_erro == 0)
-                    {
-                        $part = ROOT ."product/";
-                        $data['image'] = $file_name;
+                
+                $numitems = count($file_name);
+                $numfiles = 0;
+                $gallery = [];
+                for ($i = 0; $i < $numitems; $i ++) {
+                    //Kiểm tra file thứ $i trong mảng file, up thành công không
+                    if ($file_erro[$i] == 0)
+                    {   
+                        $numfiles++;
+                        echo "Bạn upload file thứ $numfiles:<br>";
+                        echo "Tên file: $file_name[$i] <br>";
+                        echo "Lưu tại: $file_tmp[$i] <br>";
+        
+                        
+                        //Ví dụ move_uploaded_file($tmp_names[$i], /upload/'.$names[$i]);
+                            $part = ROOT ."product/";
+                            $gallery[$i] = $file_name[$i];
+                            // $data['image'] = $file_name[$i];
                     }
+                }
+                $data['image'] = base64_encode(serialize($gallery));
+             
             }
-
-            $id_insert = $db->insert("product", $data);
+       
+             $id_insert = $db->insert("product", $data);
             if($id_insert) 
                 {
                     move_uploaded_file($file_tmp,$part.$file_name);
                     $_SESSION['success'] = "Thêm mới thành công";
+                
                       redirectAdmin("product");
                 }
                 else {
                      $_SESSION['error'] = "Thêm mới thất bại";
                 }
      }
+    
 }
     
 ?>
@@ -79,7 +97,6 @@
 <?php require_once __DIR__. "/../../layouts/header.php"; ?>
 
 <div id="page-wrapper">
-
     <div class="container-fluid">
         <!-- Page Heading -->
         <div class="row">
@@ -168,7 +185,7 @@
                             </div>
                             <div class="" style="margin-right:22px;">
                                 <label class="container-input">40
-                                    <input type="checkbox"  name="size[]" id="size" value="40">
+                                    <input type="checkbox"checked  name="size[]" id="size" value="40">
                                     <span class="checkmark"></span>
                                 </label>
                             </div>
@@ -201,7 +218,7 @@
                     <div class="form-group">
                         <label for="exampleInputEmail1" class="col-sm-2">Hình ảnh</label>
                         <div class="col-sm-4">
-                            <input type="file" name="image" multiple  class="form-control" placeholder="10%">
+                            <input type="file" name="image[]" multiple  class="form-control" placeholder="10%">
                             <?php if (isset($error['image'])) : ?>
                             <p class="text-danger"><?php echo $error['image'] ?></p>
                             <?php endif ?>
@@ -226,7 +243,7 @@
             </form>
         </div>
     </div>
-
+   
 </div>
 <!-- /.container-fluid -->
 

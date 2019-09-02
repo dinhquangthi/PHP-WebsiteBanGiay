@@ -23,6 +23,7 @@
   },
   "dependencies": {
     "browser-sync": "^2.26.7",
-    "sweetalert2": "^8.16.3"
+    "sweetalert2": "^8.16.3",
+    "swiper": "^4.5.0"
   }
 }

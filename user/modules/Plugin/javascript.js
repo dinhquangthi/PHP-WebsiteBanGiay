@@ -1,8 +1,8 @@
-$(function($){
+$(function ($) {
 
-    $(document).ready(function(){
+    $(document).ready(function () {
         $(window).scrollTop(0);
-        });
+    });
     $('#my-slider').sliderPro({
         width: 1366,
         height: 600,
@@ -14,38 +14,52 @@ $(function($){
         autoScaleLayers: false,
         fadeArrows: false
     });
-    
+
     new WOW().init();
 
-    function handleClicks() {
-        let clickCount = 1;
-        $('.counter').text(clickCount);
-        $('.click-incre').click(event => {
-            clickCount += 1;
-            $('.counter').text(clickCount);
-        });
-            
-        $('.click-reduce').click(event => {
-            if (clickCount > 1){
-                clickCount -= 1;
-            }  
-            $('.counter').text(clickCount);
-        });
-    }
-    $(handleClicks);
+  
+   
 
-    $('.details-btn').click(function() {
+    $('.details-btn').click(function () {
         $('html,body').stop().animate({
             scrollTop: $('.list-product').offset().top
-          }, 800);
-          event.preventDefault();
+        }, 800);
+        event.preventDefault();
     });
-    // function signUp() {
-    //     Swal.fire({
-    //         title: 'Đăng ký thành công',
-    //         type: 'success',
-    //       })
-      
-    // }
-    // signUp();
+    function gallery(){
+        var galleryThumbs = new Swiper('.gallery-thumbs', {
+            spaceBetween: 10,
+            slidesPerView: 3,
+            loop: false,
+            freeMode: true,
+            loopedSlides: 3, //looped slides should be the same
+            watchSlidesVisibility: true,
+            watchSlidesProgress: true,
+          });
+          var galleryTop = new Swiper('.gallery-top', {
+            spaceBetween: 10,
+            loop:true,
+            loopedSlides: 4, //looped slides should be the same
+            navigation: {
+              nextEl: '.swiper-button-next',
+              prevEl: '.swiper-button-prev',
+            },
+            thumbs: {
+              swiper: galleryThumbs,
+            },
+          });
+    }
+    gallery();
+
+    // Ham Confirm 
+    function myConfirm() {
+      var txt;
+      var r = confirm("Bạn phải đăng nhập mới thực hiện được chức năng này");
+      if (r == true) {
+        location.href='login.php'
+      } else {
+        location.href='index.php'
+      }
+    }
+
 })
