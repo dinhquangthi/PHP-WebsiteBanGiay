@@ -37,6 +37,8 @@ else{
     $_SESSION['cart'][$id]['quantity'] += 1;
 }
 
-echo "<script>alert('Thêm vào giỏ hàng thành công');location.href='cart.php'</script>";
+echo "<script>alert('Thêm vào giỏ hàng thành công');</script>";
+
+_debug($product);
 ?>
 

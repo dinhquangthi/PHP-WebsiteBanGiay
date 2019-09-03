@@ -55,11 +55,11 @@
                                     style="font-size: 18px;margin-top: 5px;padding-right:3px"></i>Xin chào: <?php echo $_SESSION['name_user'] ?></a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link header2" href="dang-xuat.php"> <i class="fas fa-sign-out-alt"
+                            <a class="nav-link header2" href="<?php echo url_home() ?>/dang-xuat.php"> <i class="fas fa-sign-out-alt"
                                     style="font-size: 18px;margin-top: 5px;padding-right:3px"></i>Đăng xuất</a>
                         </li>
                         <div class="pay">
-                                    <a href=""><img src="<?php echo url_home() ?>/user/image/icon-header-02.png"
+                                    <a href="<?php echo url_home() ?>/cart.php"><img src="<?php echo url_home() ?>/user/image/icon-header-02.png"
                                             alt=""></a>
                                     <span class="header-icons-noti">0</span>
                                 </div>
