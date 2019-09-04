@@ -111,7 +111,7 @@
                         <?php endif ?>
 
 
-                        <a href=""><button class="add-cart">MUA HÀNG</button></a>
+                        <a href="<?php echo url_home()?>/user/details.php?id=<?php echo $item['id'] ?>"><button class="add-cart">XEM CHI TIẾT</button></a>
                     </div>
                     <?php endforeach ?>
 

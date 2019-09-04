@@ -168,4 +168,20 @@
        return  $number = number_format($number,0,',','.')." VND";
 
     }
+
+    function sale($number){
+        $number = intval($number);
+        if($number <= 4000000) 
+        {
+            return 0;
+        }
+        else if( $number >= 4000001 && $number <= 5000000 )
+        {
+            return 5;
+        }
+        else if($number >= 5000001)
+        {
+            return 10;
+        }
+    }
  ?>
