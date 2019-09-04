@@ -114,16 +114,17 @@ h3 a:hover {
   display: flex;
   justify-content: center;
   align-items: center;
-  width: 16px;
-  height: 16px;
+  width: 20px;
+  height: 20px;
   border-radius: 50%;
   background-color: #111111;
   color: white;
   font-family: Montserrat-Medium;
-  font-size: 12px;
+  font-size: 13px;
   position: absolute;
-  top: 2px;
+  top: -1px;
   left: 15px;
+  font-weight: bold;
 }
 
 .header ul li a {

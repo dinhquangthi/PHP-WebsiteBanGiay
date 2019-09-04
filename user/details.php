@@ -127,7 +127,7 @@ if (isset($_POST['Submit'])) {
                         <p>Số lượng</p>
                         <div class="click-count">
                             <!-- <button class="btn-click click-reduce">-</button> -->
-                            <input class="form-control" type="number"  min="1" max="10" name="quantity" value="1" style="width:30%;font-weight:bold;"/>
+                            <input class="form-control" type="number"  min="1" max="100" name="quantity" value="1" style="width:30%;font-weight:bold;"/>
                             <!-- <button class="btn-click click-incre">+</button> -->
                         </div>
                     </div>

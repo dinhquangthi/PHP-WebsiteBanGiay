@@ -1,3 +1,14 @@
+<?php 
+// _debug($_SESSION['cart']);
+$_SESSION['totalQuantity'] = 0;
+if (isset($_SESSION['cart'])) {
+    foreach ($_SESSION['cart'] as $value) {
+        $_SESSION['totalQuantity'] += $value['quantity'];
+      }
+}
+
+// _debug( $_SESSION['totalQuantity']);
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -55,13 +66,21 @@
                                     style="font-size: 18px;margin-top: 5px;padding-right:3px"></i>Xin chào: <?php echo $_SESSION['name_user'] ?></a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link header2" href="<?php echo url_home() ?>/dang-xuat.php"> <i class="fas fa-sign-out-alt"
+                            <a class="nav-link header2" href="<?php echo url_home(); ?>/dang-xuat.php"> <i class="fas fa-sign-out-alt"
                                     style="font-size: 18px;margin-top: 5px;padding-right:3px"></i>Đăng xuất</a>
                         </li>
                         <div class="pay">
                                     <a href="<?php echo url_home() ?>/cart.php"><img src="<?php echo url_home() ?>/user/image/icon-header-02.png"
                                             alt=""></a>
-                                    <span class="header-icons-noti">0</span>
+                                    <span class="header-icons-noti">
+                                    <?php 
+                                            if(isset($_SESSION['totalQuantity'])){
+                                                echo $_SESSION['totalQuantity'];
+                                            } else{
+                                                echo 0;
+                                            }
+                                        ?>
+                                    </span>
                                 </div>
                         <?php else : ?>
                         <li class="nav-item">

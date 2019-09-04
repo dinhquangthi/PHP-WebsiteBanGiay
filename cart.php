@@ -105,7 +105,7 @@ if($idtran > 0)
                 </div>
 
 
-                <form class="" id="submitForm" action="" method="POST" enctype="multipart/form-data">
+                <form class="" id="submitForm" action="<?php echo url_home() ?>/notifications.php" method="POST" enctype="multipart/form-data" >
                     <div class="row py-5 p-4 bg-white rounded shadow-sm">
                         <div class="col-lg-6">
                             <div class="bg-light rounded-pill px-4 py-3 text-uppercase font-weight-bold">Thông tin thanh toán</div>
@@ -130,7 +130,7 @@ if($idtran > 0)
                             <div class="pl-2">
                                 <div class="form-group">
                                     <strong class="text-muted">Địa chỉ giao hàng</strong>
-                                    <input type="text" class="form-control form-control-sm">
+                                    <input type="text" class="form-control form-control-sm" required>
                                 </div>
                             </div>
                             <div class="pl-2">
@@ -155,7 +155,7 @@ if($idtran > 0)
 
                             </div>
                         </div>
-                        <a href="<?php echo url_home() ?>/notifications.php" type="submit" class="btn btn-dark rounded-pill py-2 mt-4 btn-block font-weight-bold" style="width:50%;margin: 0 auto;">Xác nhận đặt hàng</a>
+                        <button  type="submit" class="btn btn-dark rounded-pill py-2 mt-4 btn-block font-weight-bold" style="width:50%;margin: 0 auto;">Xác nhận đặt hàng</button>
                     </div>
 
             </div>

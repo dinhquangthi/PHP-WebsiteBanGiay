@@ -1,6 +1,6 @@
 <?php 
     require_once __DIR__. "/user/autoload/autoload.php";
-      
+
     $category = $db->fetchAll("category");
 
     $sqlHomecate = "SELECT name , id FROM category ORDER BY updated_at ";
