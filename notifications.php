@@ -12,7 +12,7 @@ unset($_SESSION['cart']);
 ?>
 
 <?php require_once __DIR__ . "/user/layouts/header.php"; ?>
-<?php require_once __DIR__ . "/user/layouts/banner.php"; ?>
+
 
 <div class="top-page">
     <div class="top-page__content"><i class="fas fa-truck-moving"></i>MIỄN PHÍ 3 NGÀY ĐỔI HÀNG</div>
