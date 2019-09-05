@@ -1,5 +1,5 @@
 <?php 
-// _debug($_SESSION['cart']);
+//  _debug($_SESSION['cart']);
 $_SESSION['totalQuantity'] = 0;
 if (isset($_SESSION['cart'])) {
     foreach ($_SESSION['cart'] as $value) {
@@ -96,7 +96,7 @@ if (isset($_SESSION['cart'])) {
 
                                 </div>
                                 <div class="pay">
-                                    <a href=""><img src="<?php echo url_home() ?>/user/image/icon-header-02.png"
+                                    <a href="<?php echo url_home() ?>/cart.php"><img src="<?php echo url_home() ?>/user/image/icon-header-02.png"
                                             alt=""></a>
                                     <span class="header-icons-noti">0</span>
                                 </div>

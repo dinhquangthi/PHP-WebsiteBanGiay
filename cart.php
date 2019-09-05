@@ -1,6 +1,9 @@
 <?php
 require_once __DIR__ . "/user/autoload/autoload.php";
-// unset($_SESSION['cart']);
+if (!isset($_SESSION['cart']) || count($_SESSION['cart']) == 0) {
+    echo "<script>alert('Không có sản phẩm trong giỏ hàng '); location.href='index.php'</script>";
+}
+
 // tinh tong gia don hang
 $toltalPrice = 0;
 $shipPrice = 30000;
@@ -17,25 +20,30 @@ if ($_SERVER["REQUEST_MEHOD"] = "POST") {
     $data =
         [
             'amount' => $prices,
-            'user_id' => $_SESSION['name_id'],
+            'users_id' => $_SESSION['name_id'],
             'note' => postInput('note')
         ];
 }
 // luu thong tin vao table orders
 $idtran = $db->insert("transaction", $data);
-if($idtran > 0)
-{
-    foreach ($_SESSION['cart'] as $key => $value) {
-        $data2 = 
-        [
-            'transaction_id' => $idtran,
-            'product_id' => $key,
-            'qty' => $value['quantity'],
-            'price' => $value['price']
-        ];
-        $id_insert = $db->insert("orders",$data2);
+
+if ($idtran > 0) {
+    if ($_SERVER["REQUEST_MEHOD"] = "POST" ) {
+        $data2 =
+            [
+                'transaction_id' => $idtran,
+                'product_id' => $key,
+                'quantityOrder' => $value['quantity'],
+                'priceOrder' => $prices,
+                'productOrder' => $value['name'],
+                'addOrder' => postInput('address'),
+                'noteOrder' => postInput('note')
+            ];
+            $id_insert = $db->insert("orders", $data2);
     }
-    $_SESSION['success'] = "Thông tin đơn hàng của bạn đã được lưu lại.<br> Chúng tôi sẽ liên hệ với bạn sớm nhất !";
+    _debug($data2);
+   
+    $_SESSION['success2'] = "Thông tin đơn hàng của bạn đã được lưu lại.<br> Chúng tôi sẽ liên hệ với bạn sớm nhất !";
 }
 
 ?>
@@ -92,7 +100,7 @@ if($idtran > 0)
                                             <td class="border-0 align-middle"><strong style="color:#8B0000;"><?php echo formatPrice($value['price']) ?></strong></td>
                                             <td class="border-0 align-middle"><strong><?php echo $value['quantity'] ?></strong></td>
                                             <td class="border-0 align-middle"><strong><?php echo $value['size'][0] ?></strong></td>
-                                            <td class="border-0 align-middle"><a href="#" class="text-dark"><i class="fa fa-trash"></i></a></td>
+                                            <td class="border-0 align-middle"><a href="remove.php?key=<?php echo $key ?>" class="text-dark"><i class="fa fa-trash"></i></a></td>
                                         </tr>
                                     <?php $stt++;
                                     endforeach ?>
@@ -105,7 +113,7 @@ if($idtran > 0)
                 </div>
 
 
-                <form class="" id="submitForm" action="<?php echo url_home() ?>/notifications.php" method="POST" enctype="multipart/form-data" >
+                <form class="" id="submitForm" action="" method="POST" enctype="multipart/form-data">
                     <div class="row py-5 p-4 bg-white rounded shadow-sm">
                         <div class="col-lg-6">
                             <div class="bg-light rounded-pill px-4 py-3 text-uppercase font-weight-bold">Thông tin thanh toán</div>
@@ -124,19 +132,19 @@ if($idtran > 0)
                             <div class="pl-2">
                                 <div class="form-group">
                                     <strong class="text-muted">Số điện thoại</strong>
-                                    <input type="text" class="form-control form-control-sm" value="<?php echo $user['phone'] ?>">
+                                    <input type="text" class="form-control form-control-sm" required value="<?php echo $user['phone'] ?>">
                                 </div>
                             </div>
                             <div class="pl-2">
                                 <div class="form-group">
                                     <strong class="text-muted">Địa chỉ giao hàng</strong>
-                                    <input type="text" class="form-control form-control-sm" required>
+                                    <input type="text" name="address" class="form-control form-control-sm" required>
                                 </div>
                             </div>
                             <div class="pl-2">
                                 <div class="form-group">
                                     <strong class="text-muted">Ghi chú</strong>
-                                    <textarea type="text" name='note' class="form-control"></textarea>
+                                    <textarea type="text" name="note" class="form-control"></textarea>
                                 </div>
                             </div>
                         </div>
@@ -152,16 +160,13 @@ if($idtran > 0)
                                         <h5 class="font-weight-bold"><?php echo formatPrice($prices)  ?></h5>
                                     </li>
                                 </ul>
-
                             </div>
                         </div>
-                        <button  type="submit" class="btn btn-dark rounded-pill py-2 mt-4 btn-block font-weight-bold" style="width:50%;margin: 0 auto;">Xác nhận đặt hàng</button>
+                        <button type="submit" class="btn btn-dark rounded-pill py-2 mt-4 btn-block font-weight-bold" style="width:50%;margin: 0 auto;">Xác nhận đặt hàng</button>
                     </div>
-
+                </form>
             </div>
-            </form>
         </div>
-    </div>
 </section>
 
 
