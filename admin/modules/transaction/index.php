@@ -13,16 +13,17 @@
 
     }
 
-   $sql = "SELECT transaction. *,users.name as nameuser, users.phone as phoneusers FROM transaction LEFT JOIN users ON users.id = transaction.users_id
+   $sql = "SELECT orders. *,users.name as nameuser, users.phone as phoneusers FROM orders LEFT JOIN users ON users.id = orders.users_id
    ORDER BY ID DESC ";
 
-    $transaction = $db->fetchJone('transaction',$sql,$p,4,true);
-    if(isset($transaction['page']))
+    $orderInfo = $db->fetchJone('orders',$sql,$p,4,true);
+    if(isset($orderInfo['page']))
     {
-        $sotrang = $transaction['page'];
-        unset($transaction['page']);
+        $sotrang = $orderInfo['page'];
+        unset($orderInfo['page']);
     }
-
+    // $orderInfo = $db->fetchAll('orders');
+    // _debug($orderInfo);
 ?>
 
 <?php require_once __DIR__. "/../../layouts/header.php"; ?>
@@ -37,7 +38,6 @@
                 <h1 class="page-header">
                     Danh sách đơn hàng
                 </h1>
-                <?php   _debug($transaction); ?>
                 <ol class="breadcrumb">
                     <li>
                         <i class="fa fa-dashboard"></i> <a href="index.html">Home</a>
@@ -68,21 +68,32 @@
                             </tr>
                         </thead>
                         <tbody>
-                            <?php $stt=1; foreach ($transaction as $item) : ?>
+                            <?php $stt=1; foreach ($orderInfo as $val) : ?>
                             <tr>
                                 <td><?php echo $stt ?></td>
-                                <td><?php echo $item['nameuser'] ?></td>
-                                <td><?php echo $item['amount'] ?></td>
-                                <td><?php echo $item['phoneusers'] ?></td>
+                                <td><?php echo $val['nameuser'] ?></td>
+                                <td>
+                                    <ul>
+                                     
+                                         <li>Mã đơn hàng: <?php echo $val['id'] ?></li>
+                                         <li>Tên sản phẩm: <?php echo $val['productOrder'] ?></li>
+                                        <li>Số lượng: <?php echo $val['quantityOrder'] ?></li>
+                                        <li>Giá đơn hàng: <?php echo formatPrice($val['priceOrder']) ?> </li> 
+                                        <li>Địa chỉ giao hàng: <?php echo $val['addOrder'] ?> </li> 
+                                        <li>Ghi chú: <?php echo $val['noteOrder'] ?> </li> 
+                                       
+                                    </ul>
+                                </td>
+                                <td><?php echo $val['phoneusers'] ?></td>
                                
                                 <td>
-                                    <a href="status.php?id=<?php echo $item['id'] ?>" class="btn btn-xs <?php echo $item['status'] == 0 ? 'btn-warning' : 'btn-success' ?>">
-                                        <?php echo $item['status'] == 0 ? 'Chưa xử lý' : 'Đã xử lý' ?></a>
+                                    <a href="status.php?id=<?php echo $val['id'] ?>" class="btn btn-xs <?php echo $val['status'] == 0 ? 'btn-warning' : 'btn-success' ?>">
+                                        <?php echo $val['status'] == 0 ? 'Chưa xử lý' : 'Đã xử lý' ?></a>
                                     
                                 </td>
                                
                                 <td>
-                                    <a class="btn btn-danger" href="delete.php?id=<?php echo $item['id'] ?>"><i
+                                    <a class="btn btn-danger" href="delete.php?id=<?php echo $val['id'] ?>"><i
                                             class="far fa-trash-alt"></i>Xóa</a>
                                 </td>
                             </tr>
