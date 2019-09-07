@@ -88,7 +88,7 @@
                                 </td>
                               
                                 <td>
-                                    <ul>
+                                    <ul style="width:180px">
                                         <li>Giá: <?php echo formatPrice($item['price']) ?></li>
                                         <li>Số lượng: <?php echo $item['number'] ?></li>
                                         <li>Size:   
@@ -100,9 +100,9 @@
                                     </ul>
                                 </td>
                                 <td>
-                                    <a class="btn btn-info" href="edit.php?id=<?php echo $item['id'] ?>"><i
+                                    <a style="width: 100%; margin-bottom: 10px;" class="btn btn-info" href="edit.php?id=<?php echo $item['id'] ?>"><i
                                             class="far fa-edit"></i>Sửa</a>
-                                    <a class="btn btn-danger" href="delete.php?id=<?php echo $item['id'] ?>"><i
+                                    <a style="width: 100%;" class="btn btn-danger" href="delete.php?id=<?php echo $item['id'] ?>"><i
                                             class="far fa-trash-alt"></i>Xóa</a>
                                 </td>
                             </tr>

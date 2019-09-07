@@ -65,3 +65,6 @@
     -ms-transform: rotate(45deg);
     transform: rotate(45deg);
   }
+.table-responsive > table > tbody > tr > td{
+    vertical-align: middle;
+  }

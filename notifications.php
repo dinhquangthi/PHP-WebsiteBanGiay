@@ -12,7 +12,7 @@ unset($_SESSION['cart']);
 ?>
 
 <?php require_once __DIR__ . "/user/layouts/header.php"; ?>
-<?php require_once __DIR__ . "/user/layouts/banner.php"; ?>
+
 
 <div class="top-page">
     <div class="top-page__content"><i class="fas fa-truck-moving"></i>MIỄN PHÍ 3 NGÀY ĐỔI HÀNG</div>
@@ -65,7 +65,7 @@ unset($_SESSION['cart']);
                 <div class="card">
                     <h3 class="card-header card-header-2 text-uppercase">Thông báo thanh toán</h3>
                     <div class="card-body">
-                        <p class="alert alert-success" ><?php echo $_SESSION['success']; unset($_SESSION['success']) ?></p>
+                        <p class="alert alert-success" ><?php echo $_SESSION['success2']; unset($_SESSION['success']) ?></p>
                         <a href="<?php echo url_home() ?>" class="btn btn-dark">Quay lại trang chủ</a>
                     </div>
                 </div>
