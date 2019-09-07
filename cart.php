@@ -28,10 +28,9 @@
 
   
     // luu thong tin vao table orders
-     _debug($_SESSION['cart']);
+
         if ($_SERVER["REQUEST_MEHOD"] = "POST" && isset($_POST['sb_cart'])) {
-            foreach ($_SESSION['cart'] as $key => $value) {
-                $data2 =
+            $data2 =
                 [
                     'users_id' => $_SESSION['name_id'],
                     'product_id' => $key,
@@ -39,17 +38,12 @@
                     'priceOrder' => $prices,
                     'productOrder' => $value['name'],
                     'addOrder' => postInput('address'),
-                    'noteOrder' => postInput('note'),
-                    'sizeOrder' => $value['size'][0]
+                    'noteOrder' => postInput('note')
                 ];
-
                 $id_insert = $db->insert("orders", $data2);
-                _debug($data2);
-            }
                 $_SESSION['success2'] = "Thông tin đơn hàng của bạn đã được lưu lại.<br> Chúng tôi sẽ liên hệ với bạn sớm nhất !";
-             //  header('location: notifications.php'); 
-            
-            //  _debug($data2);
+             //   header('location: notifications.php'); 
+             _debug($data2);
         } 
 
     ?>
