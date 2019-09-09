@@ -15,26 +15,26 @@
     }
 
 
-    // Phan trang
-    if(isset($_GET['page']))
-    {
-        $p = $_GET['page'];
-       
-    }
-    else{
-        $p=1;
+    $product = $db->fetchAll("product");
 
-    }
+    $result = "SELECT * FROM product WHERE name LIKE '%nike%'";
+    $searchProduct = $db->fetchsql($result);
 
-   $sql = "SELECT *FROM product ";
    
-    $product = $db->fetchJone('product',$sql,$p,9,true);
-    if(isset($product['page']))
+    // chuc nang tim kiem
+    if ($_SERVER["REQUEST_METHOD"] == "GET" && isset($_GET['ok']) ) 
     {
-        $sotrang = $product['page'];
-        unset($product['page']);
-    }
+        $search = addslashes($_GET['search-product']);
 
+        $result = "SELECT * FROM product WHERE name LIKE '%$search%'";
+        $searchProduct = $db->fetchsql($result);
+
+
+        // Nếu $search rỗng thì báo lỗi, tức là người dùng chưa nhập liệu mà đã nhấn submit.
+        if (empty($search)) {
+            echo "<script>alert('Ban chua nhap du lieu');location.href='http://localhost:5000/PHP-WebsiteBanGiay'</script>";
+        } 
+    }
     // _debug($product);
     // die();
  
@@ -93,19 +93,20 @@
             <div class="info-product col-9">
                 <div class="row">
                     <div class="col-9">
-                        <h2>TẤT CẢ SẢN PHẨM</h2>
+                        <h2>Tìm kiếm: <?php echo  $search ?></h2>
+                       
                     </div>
                     <div class="search-product col-3">
                         <form action="search.php" method="GET">
                         <input type="text" name="search-product" placeholder="Search Products...">
-                        <button type="submit" name="ok" value="search"><i class="fas fa-search"></i></button>
+                        <button type="submit" name="ok"><i class="fas fa-search"></i></button>
                         </form>
                     </div>
                 </div>
-
+                
                 <div class="row">
 
-                    <?php foreach ($product as $key => $value): ?>
+                    <?php foreach ($searchProduct as $key => $value): ?>
                    
                     <div class="col-4 product-detail wow fadeInUp" data-wow-duration="2s">
                     <?php foreach (unserialize(base64_decode($value['image'])) as $key => $val ) : ?> 
@@ -138,23 +139,6 @@
                 
                     <?php endforeach ?>
                 </div>
-                
-                <nav aria-label="Page navigation example ">
-                    <ul class="pagination justify-content-center">
-                      
-                        <a class="page-link pagi nutprev" href="" aria-label="Previous">
-                             <span aria-hidden="true">&laquo;</span>
-                        </a>
-                             <?php for($i=1; $i <= $sotrang; $i++): ?>
-                                 <a class="page-link pagi <?php echo ($i == $p) ? 'active' : '' ?>" href="?page=<?php echo $i ;?>"><?php echo $i; ?></a></li>
-                                 <?php endfor ?>
-                        <a class="page-link pagi nutnext" href="" aria-label="Next">
-                            <span aria-hidden="true">&raquo;</span>
-                        </a>
-                        
-                    </ul>
-                </nav>
-             
             </div>
         </div>
     </div>

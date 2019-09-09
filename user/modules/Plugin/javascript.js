@@ -83,4 +83,5 @@ $(function ($) {
     $('.active').removeClass('active');
     trangtruoc.addClass('active');
   });
+  
 })

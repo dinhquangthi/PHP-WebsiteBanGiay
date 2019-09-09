@@ -329,6 +329,7 @@ border-bottom: 1px solid #f2f2f2;
   height: 45px;
   border: 1px solid #eee;
   padding-right: 0;
+  position: relative;
 }
 
 .search-product input {
@@ -348,6 +349,8 @@ border-bottom: 1px solid #f2f2f2;
   background: none;
   border: none;
   transition: 0.1s;
+  position: absolute;
+  right: 0;
 }
 
 .search-product button:hover {
