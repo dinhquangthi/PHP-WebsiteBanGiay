@@ -83,5 +83,7 @@ $(function ($) {
     $('.active').removeClass('active');
     trangtruoc.addClass('active');
   });
-  
+    // Ajax load thanh pho 
+   
+    
 })

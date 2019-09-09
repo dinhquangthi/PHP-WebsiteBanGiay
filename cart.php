@@ -16,36 +16,36 @@
 
     // luu thong tin don hang
     $user = $db->fetchID("users", intval($_SESSION['name_id']));
-    // if ($_SERVER["REQUEST_MEHOD"] = "POST" && isset($_POST['sb_cart'])) {
-    //     $data =
-    //         [
-    //             'amount' => $prices,
-    //             'users_id' => $_SESSION['name_id'],
-    //             'note' => postInput('note')
-    //         ];
-    // }
-    // $idtran = $db->insert("transaction", $data);
 
-  
     // luu thong tin vao table orders
 
-        if ($_SERVER["REQUEST_MEHOD"] = "POST" && isset($_POST['sb_cart'])) {
+    if ($_SERVER["REQUEST_MEHOD"] = "POST" && isset($_POST['sb_cart'])) {
+        $id_order_user = strtotime("now");
+        foreach ($_SESSION['cart'] as $key => $value) {
             $data2 =
                 [
                     'users_id' => $_SESSION['name_id'],
                     'product_id' => $key,
-                    'quantityOrder' => $value['quantity'],
                     'priceOrder' => $prices,
                     'productOrder' => $value['name'],
+                    'sizeOrder' => $value['size'][0],
+                    'quantityOrder' => $value['quantity'],
                     'addOrder' => postInput('address'),
-                    'noteOrder' => postInput('note')
+                    'noteOrder' => postInput('note'),
+                    'id_order_user' => $id_order_user
                 ];
-                $id_insert = $db->insert("orders", $data2);
-                $_SESSION['success2'] = "Thông tin đơn hàng của bạn đã được lưu lại.<br> Chúng tôi sẽ liên hệ với bạn sớm nhất !";
-             //   header('location: notifications.php'); 
-             _debug($data2);
-        } 
+            // _debug($_SESSION['cart']);
+            $id_insert = $db->insert("orders", $data2);
+            $_SESSION['success2'] = "Thông tin đơn hàng của bạn đã được lưu lại.<br> Chúng tôi sẽ liên hệ với bạn sớm nhất !";
+            //   header('location: notifications.php'); 
 
+
+        }
+    }
+    $str = file_get_contents('tinh_tp.json');
+    $json = json_decode($str, true);
+   
+//    _debug($str);
     ?>
 
     <?php require_once __DIR__ . "/user/layouts/header.php"; ?>
@@ -141,6 +141,30 @@
                                         <input type="text" name="address" class="form-control form-control-sm" required>
                                     </div>
                                 </div>
+
+                                <!-- <div class="pl-2">
+                                    <div class="row">
+                                        <div class="form-group">
+                                            <strong class="text-muted">Thành Phố</strong>
+                                            <select name="thanhPho" id="thanhPho-list" class="form-control" onChange="getState(this.value);">
+                                             
+                                            </select>
+                                        </div>
+                                        <div class="form-group">
+                                            <strong class="text-muted">Quận</strong>
+                                            <select name="quan" id="quan-list" class="form-control" onChange="getCity(this.value);">
+                                                <option value="">Chọn Quận</option>
+                                            </select>
+                                        </div>
+                                        <div class="form-group">
+                                            <strong class="text-muted">Phường</strong>
+                                            <select name="phuong" id="phuong-list" class="form-control">
+                                                <option value="">Chọn Phường</option>
+                                            </select>
+                                        </div>
+                                    </div>
+
+                                </div> -->
                                 <div class="pl-2">
                                     <div class="form-group">
                                         <strong class="text-muted">Ghi chú</strong>

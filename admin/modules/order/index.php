@@ -1,32 +1,31 @@
-<?php 
- $open = "transaction";
-    require_once __DIR__. "/../../autoload/autoload.php";
+<?php
+$open = "transaction";
+require_once __DIR__ . "/../../autoload/autoload.php";
 
 
-    if(isset($_GET['page']))
-    {
-        $p = $_GET['page'];
-       
-    }
-    else{
-        $p=1;
+if (isset($_GET['page'])) {
+    $p = $_GET['page'];
+} else {
+    $p = 1;
+}
 
-    }
-
-   $sql = "SELECT orders. *,users.name as nameuser, users.phone as phoneusers FROM orders LEFT JOIN users ON users.id = orders.users_id
+$sql = "SELECT orders. *,users.name as nameuser, users.phone as phoneusers FROM orders LEFT JOIN users ON users.id = orders.users_id
    ORDER BY ID DESC ";
 
-    $orderInfo = $db->fetchJone('orders',$sql,$p,4,true);
-    if(isset($orderInfo['page']))
-    {
-        $sotrang = $orderInfo['page'];
-        unset($orderInfo['page']);
-    }
-    // $orderInfo = $db->fetchAll('orders');
-    // _debug($orderInfo);
+$sql2 = "SELECT DISTINCT id_order_user FROM orders";
+
+$sqlOrder = $db->fetchsql($sql2);
+
+$orderInfo = $db->fetchJone('orders', $sql, $p, 6, true);
+if (isset($orderInfo['page'])) {
+    $sotrang = $orderInfo['page'];
+    unset($orderInfo['page']);
+}
+// $orderInfo = $db->fetchAll('orders');
+
 ?>
 
-<?php require_once __DIR__. "/../../layouts/header.php"; ?>
+<?php require_once __DIR__ . "/../../layouts/header.php"; ?>
 
 <div id="page-wrapper">
 
@@ -48,11 +47,21 @@
                 </ol>
                 <div class="clearfix"></div>
                 <!-- thong bao loi -->
-                <?php require_once __DIR__. "/../../../partials/notification.php"; ?>
+                <?php require_once __DIR__ . "/../../../partials/notification.php"; ?>
             </div>
         </div>
 
         <div class="row">
+            <?php
+
+            foreach ($orderInfo as $key => $val) {
+
+                _debug($val);
+            }
+            foreach ($sqlOrder as $key => $value) {
+                _debug($value);
+            }
+            ?>
             <div class="col-lg-12">
                 <div class="table-responsive">
                     <table class="table table-bordered table-hover">
@@ -64,40 +73,50 @@
                                 <th>Phone</th>
                                 <th>Status</th>
                                 <th>Action</th>
-                             
+
                             </tr>
                         </thead>
                         <tbody>
-                            <?php $stt=1; foreach ($orderInfo as $val) : ?>
-                            <tr>
-                                <td><?php echo $stt ?></td>
-                                <td><?php echo $val['nameuser'] ?></td>
-                                <td>
-                                    <ul>
-                                     
-                                         <li>Mã đơn hàng: <?php echo $val['id'] ?></li>
-                                         <li>Tên sản phẩm: <?php echo $val['productOrder'] ?></li>
-                                        <li>Số lượng: <?php echo $val['quantityOrder'] ?></li>
-                                        <li>Giá đơn hàng: <?php echo formatPrice($val['priceOrder']) ?> </li> 
-                                        <li>Địa chỉ giao hàng: <?php echo $val['addOrder'] ?> </li> 
-                                        <li>Ghi chú: <?php echo $val['noteOrder'] ?> </li> 
-                                       
-                                    </ul>
-                                </td>
-                                <td><?php echo $val['phoneusers'] ?></td>
+                            <?php $stt = 1; foreach ($orderInfo as $key => $val) : ?>
+                            <?php if($val['id_order_user'] == '1568033703') : ?>
+                                 
+                                <tr>
+                                    <td><?php echo $stt ?></td>
+                                    <td><?php echo $val['nameuser'] ?></td>
+                                    <td>
+                                        <ul>
+
+                                            <li>Mã đơn hàng: <?php echo $val['id_order_user'] ?><br>---------------------------------------------</li>
+
+                                         
+                                          
+                                                <li>Tên sản phẩm thứ : <?php echo "<strong>{$val['productOrder']}</strong>" ?></li>
+                                                <li>Size <?php echo $val['sizeOrder'] ?></li>
+                                                <li>Số lượng: <?php echo $val['quantityOrder'] ?><br>---------------------------------------------</li>
+                                
+
+                                            <li>Giá đơn hàng: <?php echo formatPrice($val['priceOrder']) ?> </li>
+                                            <li>Địa chỉ giao hàng: <?php echo $val['addOrder'] ?> </li>
+                                            <li>Ghi chú: <?php echo $val['noteOrder'] ?> </li>
+                                            <li>Ngày đặt hàng: <?php echo $val['created_at'] ?> </li>
+
+                                        </ul>
+                                    </td>
+                                    <td><?php echo $val['phoneusers'] ?></td>
+
+                                    <td>
+                                        <a href="status.php?id=<?php echo $val['id'] ?>" class="btn btn-xs <?php echo $val['status'] == 0 ? 'btn-warning' : 'btn-success' ?>">
+                                            <?php echo $val['status'] == 0 ? 'Chưa xử lý' : 'Đã xử lý' ?></a>
+
+                                    </td>
+
+                                    <td>
+                                        <a class="btn btn-danger" href="delete.php?id=<?php echo $val['id'] ?>"><i class="far fa-trash-alt"></i>Xóa</a>
+                                    </td>
+                                </tr>
                                
-                                <td>
-                                    <a href="status.php?id=<?php echo $val['id'] ?>" class="btn btn-xs <?php echo $val['status'] == 0 ? 'btn-warning' : 'btn-success' ?>">
-                                        <?php echo $val['status'] == 0 ? 'Chưa xử lý' : 'Đã xử lý' ?></a>
-                                    
-                                </td>
-                               
-                                <td>
-                                    <a class="btn btn-danger" href="delete.php?id=<?php echo $val['id'] ?>"><i
-                                            class="far fa-trash-alt"></i>Xóa</a>
-                                </td>
-                            </tr>
-                            <?php $stt++; endforeach ?>
+                                <?php endif ?>
+                            <?php $stt++;endforeach ?>
                         </tbody>
                     </table>
 
@@ -109,20 +128,17 @@
                                         <span aria-hidden="true">&laquo;</span>
                                     </a>
                                 </li>
-                                <?php for( $i = 1; $i <= $sotrang ; $i++) : ?>
-                                <?php 
-                                    if(isset($_GET['page']))
-                                    {
-                                        $p = $_GET['page'];
-                                    }
-                                    else
-                                    {
-                                        $p = 1;
-                                    }
-                                ?>
-                                <li class="<?php echo ($i == $p) ? 'active' : '' ?> ">
-                                    <a href="?page=<?php echo $i ;?>"><?php echo $i; ?></a>
-                                </li>
+                                <?php for ($i = 1; $i <= $sotrang; $i++) : ?>
+                                    <?php
+                                        if (isset($_GET['page'])) {
+                                            $p = $_GET['page'];
+                                        } else {
+                                            $p = 1;
+                                        }
+                                        ?>
+                                    <li class="<?php echo ($i == $p) ? 'active' : '' ?> ">
+                                        <a href="?page=<?php echo $i; ?>"><?php echo $i; ?></a>
+                                    </li>
                                 <?php endfor; ?>
                                 <li class="page-item">
                                     <a class="page-link" href="#" aria-label="Next">
@@ -132,7 +148,7 @@
                             </ul>
                         </nav>
                     </div>
-                             
+
                 </div>
             </div>
             <!-- /.row -->
@@ -142,4 +158,4 @@
 
     </div>
 
-    <?php require_once __DIR__. "/../../layouts/footer.php"; ?>
+    <?php require_once __DIR__ . "/../../layouts/footer.php"; ?>
