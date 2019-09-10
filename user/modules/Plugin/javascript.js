@@ -1,5 +1,9 @@
 
 (function($){
+  var maCodeTP;
+  var maCodeQuan;
+  var maCodePhuong;
+
   ({
     init: function(){
 			var self = this;
@@ -10,7 +14,16 @@
 				self.gallery();
 				self.phanTrang();
 				self.load_thanhPho();
-				self.load_quan();
+        $('#thanhPho-list').change(function() {
+            self.load_quan($(this));
+            maCodeQuan = maCodeTP;
+            $('#quan-list').change(function() {
+              self.load_phuong($(this));
+              maCodePhuong = maCodeQuan;
+              console.log(maCodePhuong);
+           });
+         });
+       
 				
 			});
     },
@@ -94,46 +107,56 @@
       xhr.onload = function ()
         {
           var thanhPho = JSON.parse(xhr.responseText);
-         
-         $.each(thanhPho,function()
-            {
-              var key = Object.keys(this)[0];
-              var value = this[key];
-              var code = Object.keys(this)[4];
-              var value2 = this[code];
-
-              var op1 = document.createElement('option');
-              op1.innerText = value;
-              op1.setAttribute('value',value2);
-              $('#thanhPho-list').append(op1);
-
+         $.each(thanhPho,function(index,value)
+            { 
+              $("#thanhPho-list").attr('value',value.code);
+              $("#thanhPho-list").append('<option selected value="'+value.code+'">'+value.name+'</option>');
             });
         }
         xhr.send();
     },
 
-    load_quan: function() {
-      $('#quan-list').innerHTML = '';
+    load_quan: function($this) {
+
+      maCodeTP = ($this).find(":selected").attr('value');
+      $('#thanhPho-list').attr("value",maCodeTP);
+
+      $('#quan-list option').remove();
       var xhr = new XMLHttpRequest();
       xhr.open('POST','http://localhost:5000/PHP-WebsiteBanGiay/quan_huyen.json',true);
-      xhr.onload = function (id)
-        {
-          var thanhPho = JSON.parse(xhr.responseText);
-         
-         $.each(thanhPho,function()
-            {
-              var key = Object.keys(this)[0];
-              var value = this[key];
-              var code = Object.keys(this)[4];
-              var value2 = this[code];
+      xhr.onload = function ()
+      {
+        var quan = JSON.parse(xhr.responseText);
+       
+       $.each(quan,function(index,value2)
+          {
+            if(value2.parent_code == maCodeQuan){
+              $("#quan-list").append('<option selected value="'+value2.code+'">'+value2.name+'</option>');
+              }
+          });
+      }
+        xhr.send();
+    },
 
-              var op1 = document.createElement('option');
-              op1.innerText = value;
-              op1.setAttribute('value',value2);
-              $('#quan-list').append(op1);
+    load_phuong: function($this) {
 
-            });
-        }
+      maCodeQuan = ($this).find(":selected").attr('value');
+      $('#quan-list').attr("value",maCodeQuan);
+
+      $('#phuong-list option').remove();
+      var xhr = new XMLHttpRequest();
+      xhr.open('POST','http://localhost:5000/PHP-WebsiteBanGiay/xa_phuong.json',true);
+      xhr.onload = function ()
+      {
+        var phuong = JSON.parse(xhr.responseText);
+       
+       $.each(phuong,function(index,value3)
+          {
+            if(value3.parent_code == maCodeQuan){
+              $("#phuong-list").append('<option value="'+value3.code+'">'+value3.name+'</option>');
+              }
+          });
+      }
         xhr.send();
     }
 
