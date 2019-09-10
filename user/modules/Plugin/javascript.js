@@ -17,11 +17,10 @@
         $('#thanhPho-list').change(function() {
             self.load_quan($(this));
             maCodeQuan = maCodeTP;
-            $('#quan-list').change(function() {
-              self.load_phuong($(this));
-              maCodePhuong = maCodeQuan;
-              console.log(maCodePhuong);
-           });
+         });
+        $('#quan-list').change(function() {
+            self.load_phuong($(this));
+            maCodePhuong = maCodeQuan;
          });
        
 				
@@ -122,6 +121,7 @@
       $('#thanhPho-list').attr("value",maCodeTP);
 
       $('#quan-list option').remove();
+      $('#phuong-list option').remove();
       var xhr = new XMLHttpRequest();
       xhr.open('POST','http://localhost:5000/PHP-WebsiteBanGiay/quan_huyen.json',true);
       xhr.onload = function ()
