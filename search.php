@@ -1,6 +1,10 @@
 <?php 
     require_once __DIR__. "/user/autoload/autoload.php";
 
+    if (!isset($_GET['ok']) ) {
+        echo "<script>alert('Chưa nhập dữ liệu tìm kiếm'); location.href='index.php'</script>";
+    }
+
     $category = $db->fetchAll("category");
 
     $sqlHomecate = "SELECT name , id FROM category ORDER BY updated_at ";
@@ -32,7 +36,7 @@
 
         // Nếu $search rỗng thì báo lỗi, tức là người dùng chưa nhập liệu mà đã nhấn submit.
         if (empty($search)) {
-            echo "<script>alert('Ban chua nhap du lieu');location.href='http://localhost:5000/PHP-WebsiteBanGiay'</script>";
+            echo "<script>alert('Bạn chưa nhập sản phẩm cần tìm');location.href='http://localhost:5000/PHP-WebsiteBanGiay'</script>";
         } 
     }
     // _debug($product);

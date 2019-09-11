@@ -20,12 +20,12 @@
         }
 
 
-    $sql = "SELECT * FROM product WHERE category_id = $id ";
+  
+        $sql = "SELECT * FROM product WHERE category_id = $id ";
        
     $total = count($db->fetchsql($sql));
 
-
-    $product = $db->fetchJones("product",$sql,$total,$p,6,true);
+    $product = $db->fetchJones("product",$sql,$total,$p,9,true);
     $sotrang = $product['page'];
     unset($product['page']);
     $path = $_SERVER['SCRIPT_NAME'];

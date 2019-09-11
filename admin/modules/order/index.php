@@ -52,24 +52,15 @@ if (isset($orderInfo['page'])) {
         </div>
 
         <div class="row">
-            <?php
 
-            foreach ($orderInfo as $key => $val) {
-
-                _debug($val);
-            }
-            foreach ($sqlOrder as $key => $value) {
-                _debug($value);
-            }
-            ?>
             <div class="col-lg-12">
                 <div class="table-responsive">
                     <table class="table table-bordered table-hover">
                         <thead>
                             <tr>
-                                <th>STT</th>
-                                <th>Name</th>
-                                <th>Order Infomation</th>
+                                <th style="width:11%">Code Orders</th>
+                                <th style="width:15%">Name</th>
+                                <th style="width:45%">Order Infomation</th>
                                 <th>Phone</th>
                                 <th>Status</th>
                                 <th>Action</th>
@@ -77,24 +68,18 @@ if (isset($orderInfo['page'])) {
                             </tr>
                         </thead>
                         <tbody>
-                            <?php $stt = 1; foreach ($orderInfo as $key => $val) : ?>
-                           
-                                 
+                            <?php $stt = 1;
+                            foreach ($orderInfo as $key => $val) : ?>
+
                                 <tr>
-                                    <td><?php echo $stt ?></td>
+                                    <td>
+                                        <?php echo $val['id_order_user'] ?></td>
                                     <td><?php echo $val['nameuser'] ?></td>
                                     <td>
                                         <ul>
-
-                                            <li>Mã đơn hàng: <?php echo $val['id_order_user'] ?><br>---------------------------------------------</li>
-
-                                         
-                                          
-                                                <li>Tên sản phẩm thứ : <?php echo "<strong>{$val['productOrder']}</strong>" ?></li>
-                                                <li>Size <?php echo $val['sizeOrder'] ?></li>
-                                                <li>Số lượng: <?php echo $val['quantityOrder'] ?><br>---------------------------------------------</li>
-                                
-
+                                            <li>Tên sản phẩm : <?php echo "<strong>{$val['productOrder']}</strong>" ?></li>
+                                            <li>Size <?php echo $val['sizeOrder'] ?></li>
+                                            <li>Số lượng: <?php echo $val['quantityOrder'] ?><br>---------------------------------------------</li>
                                             <li>Giá đơn hàng: <?php echo formatPrice($val['priceOrder']) ?> </li>
                                             <li>Địa chỉ giao hàng: <?php echo $val['addOrder'] ?> </li>
                                             <li>Ghi chú: <?php echo $val['noteOrder'] ?> </li>
@@ -114,9 +99,12 @@ if (isset($orderInfo['page'])) {
                                         <a class="btn btn-danger" href="delete.php?id=<?php echo $val['id'] ?>"><i class="far fa-trash-alt"></i>Xóa</a>
                                     </td>
                                 </tr>
-                               
-                        
-                            <?php $stt++;endforeach ?>
+
+
+
+
+                            <?php $stt++;
+                            endforeach ?>
                         </tbody>
                     </table>
 

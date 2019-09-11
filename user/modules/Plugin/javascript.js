@@ -12,6 +12,7 @@
 				self.sliderBanner();
 				self.viewMore();
 				self.gallery();
+				self.gallery2();
 				self.phanTrang();
 				self.load_thanhPho();
         $('#thanhPho-list').change(function() {
@@ -38,6 +39,7 @@
         responsive: true,
         autoScaleLayers: false,
         fadeArrows: false
+
     });
 
     new WOW().init();
@@ -76,6 +78,17 @@
       });
     },
 
+    gallery2: function(){
+       var productOthers = new Swiper('.product-others', {
+        slidesPerView: 3,
+        spaceBetween: 30,
+        pagination: {
+          el: '.swiper-pagination',
+        clickable: true,
+        },
+      });
+    },
+ 
     phanTrang: function(){
        //viet cho nut next
        var next = $('.nutnext');

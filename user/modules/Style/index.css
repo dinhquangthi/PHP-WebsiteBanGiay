@@ -371,6 +371,9 @@ border-bottom: 1px solid #f2f2f2;
 
 .info-product .product-detail {
   margin-bottom: 50px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
 }
 
 .info-product .product-detail h3 {
@@ -380,9 +383,8 @@ border-bottom: 1px solid #f2f2f2;
 }
 
 .product-detail img {
-  width: 100%;
-  max-width: 250px;
-  height: auto;
+  width: 250px;
+  height: 225px;
   transition: 0.3s;
 }
 
@@ -406,7 +408,17 @@ border-bottom: 1px solid #f2f2f2;
   transition: 0.2s;
   color: white;
 }
-
+.product-others__all{
+  width: 200px !important;
+  height: 180px !important;
+}
+.product-others__all img{
+  width: 200px !important;
+  height: 180px !important;
+}
+.product-others__all h5{
+font-size: 15px;
+}
 /* ================Footer=============== */
 .footer {
   bottom: 0;

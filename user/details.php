@@ -20,23 +20,24 @@ if (isset($_POST['Submit'])) {
       myConfirm();
     </script>";
     } else {
-        if(! isset($_SESSION['cart'][$id])){ 
-        $_SESSION['cart'][$id]['name'] = $product['name'];
-        $_SESSION['cart'][$id]['price'] = $product['price'];
-        $_SESSION['cart'][$id]['size'] = ($_POST['size']);
-        $_SESSION['cart'][$id]['quantity'] = $_POST['quantity'];
-        $_SESSION['cart'][$id]['image'] = unserialize(base64_decode($product['image']));
-        echo "<script>alert('Thêm giỏ hàng thành công')</script>";  
-        }
-        else {
+        if (!isset($_SESSION['cart'][$id])) {
+            $_SESSION['cart'][$id]['name'] = $product['name'];
+            $_SESSION['cart'][$id]['price'] = $product['price'];
+            $_SESSION['cart'][$id]['size'] = ($_POST['size']);
+            $_SESSION['cart'][$id]['quantity'] = $_POST['quantity'];
+            $_SESSION['cart'][$id]['image'] = unserialize(base64_decode($product['image']));
+            echo "<script>alert('Thêm giỏ hàng thành công')</script>";
+        } else {
             $_SESSION['cart'][$id]['quantity'] += 1;
         }
-        
     }
-    
 } else { }
 
-   
+//===============================================
+
+$productAll = $db->fetchAll('product');
+// _debug($productAll);
+//===============================================
 ?>
 
 <?php require_once __DIR__ . "/layouts/header.php"; ?>
@@ -87,6 +88,46 @@ if (isset($_POST['Submit'])) {
                 <div class="product-left__content">
                     <h3>Giới thiệu sản phẩm</h3>
                     <p><?php echo $product['content'] ?></p>
+                    <h3 style="margin-top: 50px;">Những mẫu giày khác</h3>
+                    <div class="row">
+
+                        <div class="swiper-container product-others">
+                            <div class="swiper-wrapper">
+                                <?php foreach ($productAll as $key => $value) : ?>
+                                    <div class="swiper-slide product-others__all">
+                                        <?php foreach (unserialize(base64_decode($value['image'])) as $key => $val) : ?>
+                                            <?php
+                                                    if ($key == 0) {
+                                                        $ten_anh = $val;
+                                                    }
+                                                    ?>
+                                        <?php endforeach ?>
+
+                                        <a href="<?php echo url_home() ?>/user/details.php?id=<?php echo $value['id'] ?>">
+                                            <img src="<?php echo url_home() ?>/public/uploads/product/<?php echo $ten_anh ?>" alt="">
+                                        </a>
+                                        <a href="<?php echo url_home() ?>/user/details.php?id=<?php echo $value['id'] ?>">
+                                            <h5><?php echo $value['name'] ?></h5>
+                                        </a>
+
+                                        <?php if ($value['sale'] > 0) : ?>
+                                            <p class="price"><strike class="sale"><?php echo formatPrice($value['price']) ?></strike>
+                                                <?php echo formatpricesale($value['price'], $value['sale']) ?>
+                                            </p>
+                                        <?php else : ?>
+                                            <p class="price"> <?php echo formatpricesale($value['price'], $value['sale']) ?></p>
+                                        <?php endif ?>
+
+
+                                    </div>
+                                <?php endforeach ?>
+                            </div>
+                            <!-- Add Pagination -->
+                            <div class="swiper-pagination"></div>
+                        </div>
+
+                        <!-- =============================================== -->
+                    </div>
                 </div>
             </div>
 
@@ -127,7 +168,7 @@ if (isset($_POST['Submit'])) {
                         <p>Số lượng</p>
                         <div class="click-count">
                             <!-- <button class="btn-click click-reduce">-</button> -->
-                            <input class="form-control" type="number"  min="1" max="100" name="quantity" value="1" style="width:30%;font-weight:bold;"/>
+                            <input class="form-control" type="number" min="1" max="100" name="quantity" value="1" style="width:30%;font-weight:bold;" />
                             <!-- <button class="btn-click click-incre">+</button> -->
                         </div>
                     </div>
