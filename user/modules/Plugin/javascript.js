@@ -108,8 +108,8 @@
           var thanhPho = JSON.parse(xhr.responseText);
          $.each(thanhPho,function(index,value)
             { 
-              $("#thanhPho-list").attr('value',value.code);
-              $("#thanhPho-list").append('<option selected value="'+value.code+'">'+value.name+'</option>');
+              $("#thanhPho-list").attr('value',value.code+'-'+value.name);
+              $("#thanhPho-list").append('<option selected value="'+value.code+'-'+value.name+'">'+value.name+'</option>');
             });
         }
         xhr.send();
@@ -117,7 +117,8 @@
 
     load_quan: function($this) {
 
-      maCodeTP = ($this).find(":selected").attr('value');
+      maCodeTP = ($this).find(":selected").attr('value').slice(0,2);
+      
       $('#thanhPho-list').attr("value",maCodeTP);
 
       $('#quan-list option').remove();
@@ -131,7 +132,7 @@
        $.each(quan,function(index,value2)
           {
             if(value2.parent_code == maCodeQuan){
-              $("#quan-list").append('<option selected value="'+value2.code+'">'+value2.name+'</option>');
+              $("#quan-list").append('<option selected value="'+value2.code+'-'+value2.name+'">'+value2.name+'</option>');
               }
           });
       }
@@ -140,7 +141,8 @@
 
     load_phuong: function($this) {
 
-      maCodeQuan = ($this).find(":selected").attr('value');
+      maCodeQuan = ($this).find(":selected").attr('value').slice(0,3);
+      console.log(maCodeQuan);
       $('#quan-list').attr("value",maCodeQuan);
 
       $('#phuong-list option').remove();
@@ -153,7 +155,7 @@
        $.each(phuong,function(index,value3)
           {
             if(value3.parent_code == maCodeQuan){
-              $("#phuong-list").append('<option value="'+value3.code+'">'+value3.name+'</option>');
+              $("#phuong-list").append('<option value="'+value3.code+'-'+value3.name+'">'+value3.name+'</option>');
               }
           });
       }

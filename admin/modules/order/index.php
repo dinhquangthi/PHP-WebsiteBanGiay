@@ -78,7 +78,7 @@ if (isset($orderInfo['page'])) {
                         </thead>
                         <tbody>
                             <?php $stt = 1; foreach ($orderInfo as $key => $val) : ?>
-                            <?php if($val['id_order_user'] == '1568033703') : ?>
+                           
                                  
                                 <tr>
                                     <td><?php echo $stt ?></td>
@@ -115,7 +115,7 @@ if (isset($orderInfo['page'])) {
                                     </td>
                                 </tr>
                                
-                                <?php endif ?>
+                        
                             <?php $stt++;endforeach ?>
                         </tbody>
                     </table>

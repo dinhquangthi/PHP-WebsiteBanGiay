@@ -30,25 +30,20 @@
                     'productOrder' => $value['name'],
                     'sizeOrder' => $value['size'][0],
                     'quantityOrder' => $value['quantity'],
-                    'addOrder' => postInput('address'),
                     'noteOrder' => postInput('note'),
-                    'id_order_user' => $id_order_user
+                    'id_order_user' => $id_order_user,
+                    'addOrder' => postInput('address') . ", phường " . substr($_POST['phuong'],6) . ", quận " . substr($_POST['quan'],4) . ", thành phố " . substr($_POST['thanhPho'],3),
                 ];
-            // _debug($_SESSION['cart']);
+                _debug($data2);
+            
             $id_insert = $db->insert("orders", $data2);
             $_SESSION['success2'] = "Thông tin đơn hàng của bạn đã được lưu lại.<br> Chúng tôi sẽ liên hệ với bạn sớm nhất !";
-            //   header('location: notifications.php'); 
+              header('location: notifications.php'); 
 
 
         }
     }
-    $str = file_get_contents('tinh_tp.json');
-    $str2 = file_get_contents('quan_huyen.json');
 
-    $thanhPho = json_decode($str, true);
-    $quan = json_decode($str2, true);
-
-//    _debug($quan);
 
     ?>
 
@@ -115,7 +110,7 @@
                             <!-- End -->
                         </div>
                     </div>
-
+    
 
                     <form class="" id="submitForm" action="" method="POST" enctype="multipart/form-data">
                         <div class="row py-5 p-4 bg-white rounded shadow-sm">
@@ -150,17 +145,17 @@
                                     <div class="row pl-3">
                                         <div class="form-group" style="width: 150px;margin-right:10px;">
                                             <strong class="text-muted">Thành Phố</strong>
-                                            <select name="thanhPho" id="thanhPho-list" class="form-control" >
+                                            <select name="thanhPho" id="thanhPho-list" class="form-control" required>
                                             </select>
                                         </div>
                                         <div class="form-group" style="width: 150px;margin-right:10px;">
                                             <strong class="text-muted">Quận</strong>
-                                            <select name="quan" id="quan-list" class="form-control ">
+                                            <select name="quan" id="quan-list" class="form-control " required>
                                             </select>
                                         </div>  
                                         <div class="form-group" style="width: 150px">
                                             <strong class="text-muted">Phường</strong>
-                                            <select name="phuong" id="phuong-list" class="form-control ">
+                                            <select name="phuong" id="phuong-list" class="form-control " required>
                                               
                                             </select>
                                         </div>
