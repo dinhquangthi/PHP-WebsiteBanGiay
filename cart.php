@@ -16,41 +16,34 @@
 
     // luu thong tin don hang
     $user = $db->fetchID("users", intval($_SESSION['name_id']));
-    // if ($_SERVER["REQUEST_MEHOD"] = "POST" && isset($_POST['sb_cart'])) {
-    //     $data =
-    //         [
-    //             'amount' => $prices,
-    //             'users_id' => $_SESSION['name_id'],
-    //             'note' => postInput('note')
-    //         ];
-    // }
-    // $idtran = $db->insert("transaction", $data);
 
-  
     // luu thong tin vao table orders
-     _debug($_SESSION['cart']);
-        if ($_SERVER["REQUEST_MEHOD"] = "POST" && isset($_POST['sb_cart'])) {
-            foreach ($_SESSION['cart'] as $key => $value) {
-                $data2 =
+
+    if ($_SERVER["REQUEST_MEHOD"] = "POST" && isset($_POST['sb_cart'])) {
+        $id_order_user = strtotime("now");
+        foreach ($_SESSION['cart'] as $key => $value) {
+            $data2 =
                 [
                     'users_id' => $_SESSION['name_id'],
                     'product_id' => $key,
-                    'quantityOrder' => $value['quantity'],
                     'priceOrder' => $prices,
                     'productOrder' => $value['name'],
-                    'addOrder' => postInput('address'),
+                    'sizeOrder' => $value['size'][0],
+                    'quantityOrder' => $value['quantity'],
                     'noteOrder' => postInput('note'),
-                    'sizeOrder' => $value['size'][0]
+                    'id_order_user' => $id_order_user,
+                    'addOrder' => postInput('address') . ", phường " . substr($_POST['phuong'],6) . ", quận " . substr($_POST['quan'],4) . ", thành phố " . substr($_POST['thanhPho'],3),
                 ];
-
-                $id_insert = $db->insert("orders", $data2);
                 _debug($data2);
-            }
-                $_SESSION['success2'] = "Thông tin đơn hàng của bạn đã được lưu lại.<br> Chúng tôi sẽ liên hệ với bạn sớm nhất !";
-             //  header('location: notifications.php'); 
             
-            //  _debug($data2);
-        } 
+            $id_insert = $db->insert("orders", $data2);
+            $_SESSION['success2'] = "Thông tin đơn hàng của bạn đã được lưu lại.<br> Chúng tôi sẽ liên hệ với bạn sớm nhất !";
+              header('location: notifications.php'); 
+
+
+        }
+    }
+
 
     ?>
 
@@ -117,7 +110,7 @@
                             <!-- End -->
                         </div>
                     </div>
-
+    
 
                     <form class="" id="submitForm" action="" method="POST" enctype="multipart/form-data">
                         <div class="row py-5 p-4 bg-white rounded shadow-sm">
@@ -146,6 +139,28 @@
                                         <strong class="text-muted">Địa chỉ giao hàng</strong>
                                         <input type="text" name="address" class="form-control form-control-sm" required>
                                     </div>
+                                </div>
+
+                                <div class="pl-2">
+                                    <div class="row pl-3">
+                                        <div class="form-group" style="width: 150px;margin-right:10px;">
+                                            <strong class="text-muted">Thành Phố</strong>
+                                            <select name="thanhPho" id="thanhPho-list" class="form-control" required>
+                                            </select>
+                                        </div>
+                                        <div class="form-group" style="width: 150px;margin-right:10px;">
+                                            <strong class="text-muted">Quận</strong>
+                                            <select name="quan" id="quan-list" class="form-control " required>
+                                            </select>
+                                        </div>  
+                                        <div class="form-group" style="width: 150px">
+                                            <strong class="text-muted">Phường</strong>
+                                            <select name="phuong" id="phuong-list" class="form-control " required>
+                                              
+                                            </select>
+                                        </div>
+                                    </div>
+
                                 </div>
                                 <div class="pl-2">
                                     <div class="form-group">

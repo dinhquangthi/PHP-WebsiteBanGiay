@@ -1,6 +1,6 @@
 <?php 
     require_once __DIR__. "/user/autoload/autoload.php";
-
+  
     $category = $db->fetchAll("category");
 
     $sqlHomecate = "SELECT name , id FROM category ORDER BY updated_at ";
@@ -9,7 +9,7 @@
     $data = [];
     foreach ($CategoryHome as $item) {
         $cateId = intval($item['id']) ;
-        $sql = "SELECT * FROM product WHERE category_id = $cateId ";
+        $sql = "SELECT * FROM product  WHERE category_id = $cateId";
         $ProductHome = $db->fetchsql($sql);
         $data[$item['name']] = $ProductHome;
     }
@@ -96,8 +96,10 @@
                         <h2>TẤT CẢ SẢN PHẨM</h2>
                     </div>
                     <div class="search-product col-3">
-                        <input type="text" name="search-product" placeholder="Search Products...">
-                        <button><i class="fas fa-search"></i></button>
+                        <form action="search.php" method="GET">
+                            <input type="text" name="search-product" placeholder="Search Products...">
+                            <button type="submit" name="ok" value="search"><i class="fas fa-search"></i></button>
+                        </form>
                     </div>
                 </div>
 

@@ -145,7 +145,7 @@
                         <a href="<?php echo url_home(); ?>/admin/modules/user/"><i class="fas fa-database"></i>Quản lý thành viên</a>
                     </li>
                     <li class="<?php echo isset($open) && $open == 'transaction' ? 'active' : '' ?>">
-                        <a href="<?php echo url_home(); ?>/admin/modules/transaction/"><i class="fas fa-database"></i>Quản lý đơn hàng</a>
+                        <a href="<?php echo url_home(); ?>/admin/modules/order/"><i class="fas fa-database"></i>Quản lý đơn hàng</a>
                     </li>
                
                 </ul>
