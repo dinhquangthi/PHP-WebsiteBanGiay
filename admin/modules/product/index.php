@@ -6,21 +6,23 @@
     if(isset($_GET['page']))
     {
         $p = $_GET['page'];
+       
     }
     else{
         $p=1;
+
     }
 
    $sql = "SELECT product.*,category.name as namecate FROM product
     LEFT JOIN category on category.id = product.category_id";
-
+   
     $product = $db->fetchJone('product',$sql,$p,4,true);
     if(isset($product['page']))
     {
         $sotrang = $product['page'];
         unset($product['page']);
     }
-    
+  
 ?>
 
 <?php require_once __DIR__. "/../../layouts/header.php"; ?>
@@ -36,7 +38,7 @@
                     Danh sách sản phẩm
                     <a href="add.php" class="btn btn-success">Thêm mới</a>
                 </h1>
-
+              
                 <ol class="breadcrumb">
                     <li>
                         <i class="fa fa-dashboard"></i> <a href="index.html">Home</a>
@@ -73,12 +75,20 @@
                                 <td><?php echo $item['name'] ?></td>
                                 <td><?php echo $item['namecate'] ?></td>
                                 <td><?php echo $item['slug'] ?></td>
-                                <td>
-                                    <img src="<?php echo url_home() ?>/public/uploads/product/<?php echo $item['image'] ?>"
-                                        width="150px" height="100px">
+                                <td style="display: flex;">
+                                
+                                <?php foreach (unserialize(base64_decode($item['image'])) as $val) : ?>
+                                <div style=" padding-right: 10px;">
+                                    <img src="<?php echo url_home() ?>/public/uploads/product/<?php echo $val ?>"
+                                        width="80px" height="80px">
+                                        <p style=""><?php echo ($val) ?></p>
+                                        </div>
+                                        <?php endforeach ?>
+                                    
                                 </td>
+                              
                                 <td>
-                                    <ul>
+                                    <ul style="width:180px">
                                         <li>Giá: <?php echo formatPrice($item['price']) ?></li>
                                         <li>Số lượng: <?php echo $item['number'] ?></li>
                                         <li>Size:   
@@ -90,9 +100,9 @@
                                     </ul>
                                 </td>
                                 <td>
-                                    <a class="btn btn-info" href="edit.php?id=<?php echo $item['id'] ?>"><i
+                                    <a style="width: 100%; margin-bottom: 10px;" class="btn btn-info" href="edit.php?id=<?php echo $item['id'] ?>"><i
                                             class="far fa-edit"></i>Sửa</a>
-                                    <a class="btn btn-danger" href="delete.php?id=<?php echo $item['id'] ?>"><i
+                                    <a style="width: 100%;" class="btn btn-danger" href="delete.php?id=<?php echo $item['id'] ?>"><i
                                             class="far fa-trash-alt"></i>Xóa</a>
                                 </td>
                             </tr>
@@ -119,7 +129,7 @@
                                         $p = 1;
                                     }
                                 ?>
-                                <li class="<?php echo ($i == $p) ? 'active' : '' ?>">
+                                <li class="<?php echo ($i == $p) ? 'active' : '' ?> ">
                                     <a href="?page=<?php echo $i ;?>"><?php echo $i; ?></a>
                                 </li>
                                 <?php endfor; ?>
@@ -131,7 +141,7 @@
                             </ul>
                         </nav>
                     </div>
-
+                             
                 </div>
             </div>
             <!-- /.row -->

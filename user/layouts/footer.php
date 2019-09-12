@@ -36,18 +36,21 @@
     </div>
 
     
-
+    
     <!-- jQuery -->
-    <script src="<?php echo url_home() ?>/user/modules/Plugin/jquery-3.4.1.min.js"></script>
+    <script src="<?php echo url_home() ?>/user/modules/plugin/jquery-3.4.1.min.js"></script>
 
     <!-- Bootstrap Core JavaScript -->
-    <script src="<?php echo url_home() ?>/user/modules/Plugin/bootstrap.min.js"></script>
-    <script src="<?php echo url_home() ?>/user/modules/Plugin/all.js"></script>
-    <script src="<?php echo url_home() ?>/user/modules/Plugin/fontawesome.js"></script>
-    <script src="<?php echo url_home() ?>/user/modules/Plugin/jquery.sliderPro.js"></script>
-    <script src="<?php echo url_home() ?>/user/modules/Plugin/wow.js"></script>
-    <script src="<?php echo url_home() ?>/user/modules/Plugin/javascript.js"></script>
-
+    <script src="<?php echo url_home() ?>/user/modules/plugin/bootstrap.min.js"></script>
+    <script src="<?php echo url_home() ?>/user/modules/plugin/all.js"></script>
+    <script src="<?php echo url_home() ?>/user/modules/plugin/fontawesome.js"></script>
+    <script src="<?php echo url_home() ?>/user/modules/plugin/jquery.sliderPro.js"></script>
+    <script src="<?php echo url_home() ?>/user/modules/plugin/wow.js"></script>
+    <script src="<?php echo url_home() ?>/user/modules/plugin/swiper.min.js"></script>
+    <script src="<?php echo url_home() ?>/user/modules/plugin/sweetalert2/dist/sweetalert2.min.js"></script>
+    <script src="<?php echo url_home() ?>/user/modules/plugin/javascript.js"></script>
+   
+ 
 
 
 </body>
