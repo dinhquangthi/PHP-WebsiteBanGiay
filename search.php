@@ -1,39 +1,58 @@
 <?php 
     require_once __DIR__. "/user/autoload/autoload.php";
-      
+
+    if (!isset($_GET['ok']) ) {
+        echo "<script>alert('Chưa nhập dữ liệu tìm kiếm'); location.href='index.php'</script>";
+    }
+
     $category = $db->fetchAll("category");
 
     $sqlHomecate = "SELECT name , id FROM category ORDER BY updated_at ";
     $CategoryHome = $db->fetchsql($sqlHomecate);
+
+    $data = [];
+    foreach ($CategoryHome as $item) {
+        $cateId = intval($item['id']) ;
+        $sql = "SELECT * FROM product WHERE category_id = $cateId ";
+        $ProductHome = $db->fetchsql($sql);
+        $data[$item['name']] = $ProductHome;
+    }
+
+
+    $product = $db->fetchAll("product");
+
+    $result = "SELECT * FROM product WHERE name LIKE '%nike%'";
+    $searchProduct = $db->fetchsql($result);
+
    
+    // chuc nang tim kiem
+    if ($_SERVER["REQUEST_METHOD"] == "GET" && isset($_GET['ok']) ) 
+    {
+        $search = addslashes($_GET['search-product']);
 
-    $id = intval(getInput('id'));
-    $EditCategory = $db->fetchID("category",$id);
-   
-    if(isset($_GET['p']))
-        {
-            $p = $_GET['p'];
-        }
-        else 
-        {
-            $p = 1;
-        }
+        $result = "SELECT * FROM product WHERE name LIKE '%$search%'";
+        $searchProduct = $db->fetchsql($result);
 
 
-  
-        $sql = "SELECT * FROM product WHERE category_id = $id ";
-       
-    $total = count($db->fetchsql($sql));
-
-    $product = $db->fetchJones("product",$sql,$total,$p,9,true);
-    $sotrang = $product['page'];
-    unset($product['page']);
-    $path = $_SERVER['SCRIPT_NAME'];
-    
+        // Nếu $search rỗng thì báo lỗi, tức là người dùng chưa nhập liệu mà đã nhấn submit.
+        if (empty($search)) {
+            echo "<script>alert('Bạn chưa nhập sản phẩm cần tìm');location.href='http://localhost:5000/PHP-WebsiteBanGiay'</script>";
+        } 
+    }
+    // _debug($product);
+    // die();
+ 
 ?>
 
 <?php require_once __DIR__. "/user/layouts/header.php"; ?>
 <?php require_once __DIR__. "/user/layouts/banner.php"; ?>
+
+<div class="top-page">
+    <div class="top-page__content"><i class="fas fa-truck-moving"></i>MIỄN PHÍ 3 NGÀY ĐỔI HÀNG</div>
+    <div class="top-page__content"><i class="fas fa-exchange-alt"></i>ĐỔI TRẢ TRONG VÒNG 7 NGÀY</div>
+    <div class="top-page__content"><i class="fas fa-dolly"></i>MIỄN PHÍ GIAO HÀNG NỘI THÀNH</div>
+    <div class="top-page__content"><i class="far fa-money-bill-alt"></i>THANH TOÁN KHI NHẬN HÀNG</div>
+</div>
 
 <section>
     <div class="container">
@@ -78,64 +97,52 @@
             <div class="info-product col-9">
                 <div class="row">
                     <div class="col-9">
-                        <h2><?php echo $EditCategory['name'] ?></h2>
+                        <h2>Tìm kiếm: <?php echo  $search ?></h2>
+                       
                     </div>
                     <div class="search-product col-3">
+                        <form action="search.php" method="GET">
                         <input type="text" name="search-product" placeholder="Search Products...">
-                        <button><i class="fas fa-search"></i></button>
+                        <button type="submit" name="ok"><i class="fas fa-search"></i></button>
+                        </form>
                     </div>
                 </div>
-
+                
                 <div class="row">
-                    <?php foreach ($product as $item): ?>
+
+                    <?php foreach ($searchProduct as $key => $value): ?>
+                   
                     <div class="col-4 product-detail wow fadeInUp" data-wow-duration="2s">
-                    <?php foreach (unserialize(base64_decode($item['image'])) as $key => $val ) : ?> 
+                    <?php foreach (unserialize(base64_decode($value['image'])) as $key => $val ) : ?> 
                            <?php 
                            if($key == 0) {
                             $ten_anh = $val;
                            }
                            ?>
                     <?php endforeach ?>
-                        <a href="<?php echo url_home()?>/user/details.php?id=<?php echo $item['id'] ?>"> <img src="<?php echo url_home() ?>/public/uploads/product/<?php echo $ten_anh ?>"
-                                alt=""></a>
-                        <a href="<?php echo url_home()?>/user/details.php?id=<?php echo $item['id'] ?>">
-                            <h3><?php echo $item['name'] ?></h3>
+
+                        <a href="<?php echo url_home()?>/user/details.php?id=<?php echo $value['id'] ?>">
+                        <img src="<?php echo url_home() ?>/public/uploads/product/<?php echo $ten_anh ?>"
+                                alt="">
+                        </a>
+                        <a href="<?php echo url_home()?>/user/details.php?id=<?php echo $value['id'] ?>">
+                            <h3><?php echo $value['name'] ?></h3>
                         </a>
 
-                        <?php if ($item['sale'] > 0): ?>
-                        <p class="price"><strike class="sale"><?php echo formatPrice($item['price']) ?></strike>
-                            <?php echo formatpricesale($item['price'],$item['sale']) ?>
+                        <?php if ($value['sale'] > 0): ?>
+                        <p class="price"><strike class="sale"><?php echo formatPrice($value['price']) ?></strike>
+                            <?php echo formatpricesale($value['price'],$value['sale']) ?>
                         </p>
                         <?php else: ?>
-                        <p class="price"> <?php echo formatpricesale($item['price'],$item['sale']) ?></p>
+                        <p class="price"> <?php echo formatpricesale($value['price'],$value['sale']) ?></p>
                         <?php endif ?>
 
 
-                        <a href="<?php echo url_home()?>/user/details.php?id=<?php echo $item['id'] ?>"><button class="add-cart">XEM CHI TIẾT</button></a>
+                        <a href="<?php echo url_home()?>/user/details.php?id=<?php echo $value['id'] ?>"><button class="add-cart">XEM CHI TIẾT</button></a>
                     </div>
+                
                     <?php endforeach ?>
-
                 </div>
-
-                <nav aria-label="Page navigation example ">
-                    <ul class="pagination justify-content-center">
-                        
-                            <a class="page-link pagi nutprev" href="" aria-label="Previous">
-                                <span aria-hidden="true">&laquo;</span>
-                            </a>
-                    
-                        <?php for($i=1; $i <= $sotrang; $i++): ?>
-                     
-                            <a class="page-link pagi <?php echo isset($_GET['p']) && $_GET['p'] == $i ? 'active' : '' ?>" href="<?php echo $path ?>?id=<?php echo $id ?>&&p=<?php echo $i ?>">
-                                <?php echo $i ?></a>
-                        <?php endfor ?>
-                        
-                            <a class="page-link pagi nutnext" href="" aria-label="Next">
-                                <span aria-hidden="true">&raquo;</span>
-                            </a>
-                      
-                    </ul>
-                </nav>
             </div>
         </div>
     </div>
