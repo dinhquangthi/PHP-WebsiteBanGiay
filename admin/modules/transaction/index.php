@@ -13,8 +13,8 @@
 
     }
 
-   $sql = "SELECT orders. *,users.name as nameuser, users.phone as phoneusers FROM orders LEFT JOIN users ON users.id = orders.users_id
-   ORDER BY ID DESC ";
+   $sql = "SELECT orders.*,users.name as nameuser, users.phone as phoneusers FROM orders, users Where users.id = orders.users_id
+   /*Group by orders.users_id*/  ORDER BY ID DESC ";
 
     $orderInfo = $db->fetchJone('orders',$sql,$p,4,true);
     if(isset($orderInfo['page']))
