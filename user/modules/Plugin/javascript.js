@@ -11,6 +11,7 @@
 			$(function(){
 				self.sliderBanner();
 				self.viewMore();
+				self.setSmoothScroll();
 				self.gallery();
 				self.gallery2();
 				self.phanTrang();
@@ -44,6 +45,23 @@
 
     new WOW().init();
     },
+
+    setSmoothScroll: function () {
+			var anchors = $('a[href^="#"]');
+			var win = $(window);
+			win.on('load', function () {
+				anchors.each(function () {
+					var hash = this.hash;
+					var hashOffset;
+
+					$(this).on('click', function (e) {
+						e.preventDefault();
+						hashOffset = (hash === '') ? { top: 0, left: 0 } : $(hash).offset();
+						$('html, body').animate({ scrollTop: hashOffset.top }, 400, 'swing');
+					});
+				});
+			});
+		},
 
     viewMore: function(){
       $('.details-btn').click(function () {
