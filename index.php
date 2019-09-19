@@ -14,7 +14,7 @@
         $data[$item['name']] = $ProductHome;
     }
 
-
+   
     // Phan trang
     if(isset($_GET['page']))
     {
@@ -26,7 +26,7 @@
 
     }
 
-   $sql = "SELECT *FROM product ";
+   $sql = "SELECT *FROM product ORDER BY RAND()";
    
     $product = $db->fetchJone('product',$sql,$p,9,true);
     if(isset($product['page']))

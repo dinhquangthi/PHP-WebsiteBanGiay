@@ -34,7 +34,6 @@ if (isset($_SESSION['cart'])) {
     <link href="<?php echo url_home() ?>/user/modules/plugin/animate.css" rel="stylesheet" type="text/css">
     <link href="<?php echo url_home() ?>/user/modules/plugin/slider-pro.min.css" rel="stylesheet" type="text/css">
     <link href="<?php echo url_home() ?>/user/modules/plugin/swiper.min.css" rel="stylesheet" type="text/css">
-    <link href="<?php echo url_home() ?>/user/modules/plugin/sweetalert2/dist/sweetalert2.min.css" rel="stylesheet"
         type="text/css">
 
     <!-- My css -->

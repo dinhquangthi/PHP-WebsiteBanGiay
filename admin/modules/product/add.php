@@ -202,8 +202,8 @@
                                 </label>
                             </div>
 
-                            <?php if (isset($error['number'])) : ?>
-                            <p class="text-danger"><?php echo $error['number'] ?></p>
+                            <?php if (isset($error['size'])) : ?>
+                            <p class="text-danger"><?php echo $error['size'] ?></p>
                             <?php endif ?>
                         </div>
                     </div>
