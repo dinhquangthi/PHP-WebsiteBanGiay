@@ -99,7 +99,7 @@
     gallery2: function(){
        var productOthers = new Swiper('.product-others', {
         slidesPerView: 3,
-        spaceBetween: 30,
+        spaceBetween: 80,
         pagination: {
           el: '.swiper-pagination',
         clickable: true,
