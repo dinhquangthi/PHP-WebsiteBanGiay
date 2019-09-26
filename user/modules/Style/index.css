@@ -622,6 +622,7 @@ font-size: 13px;
   letter-spacing: 1.2px;
   color: #232323d9;
   transition: 0.5s;
+  cursor: default;
 }
 .top-page__content:hover {
   transition: 0.3s;
