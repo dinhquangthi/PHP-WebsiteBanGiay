@@ -51,7 +51,14 @@ h1 {
   font-weight: bold;
   font-size: 50px;
 }
-
+.disabled{
+  cursor: not-allowed;
+  pointer-events: none;
+  border: none !important;
+  background: #ffffff6b !important;
+  color: black !important;
+  border: 1px solid black !important;
+}
 #logo {
   font-family: "Marck Script", cursive;
   font-size: 35px;
@@ -499,15 +506,14 @@ font-size: 13px;
   border: none;
 }
 .pagi {
-  /* color: #8B0000 !important;
-  transition: 0.3s; */
   position: relative;
   display: inline-block;
-  color: #2c3e50;
   text-decoration: none;
-  font-size: 1.2rem;
-  padding: 8px 16px 10px;
-  margin: 0 5px;
+  font-size: 1rem;
+  padding: 5px 13px 6px;
+  border-color: #ddd;
+  color: #fff;
+  background: #292929;
 }
 .pagination a:before{
   z-index: -1;
@@ -525,15 +531,25 @@ font-size: 13px;
 }
 .pagi:hover {
   font-weight: bold;
-  transition: 0.5s;
+  transition: 0.4s;
+  background: #ffffff6b !important;
+  color: black !important;
+  border: 1px solid black !important;
 }
 .active{
-  /* background:#ecab8d7a !important;
-  border-color: #ecab8d7a !important; */
   border: 1px solid #1d232942;
-  border-radius: 50px;
   background: #1c1e21;
   color: white;
+}
+.pagination a:first-child {
+  -moz-border-radius: 50px 0 0 50px;
+    -webkit-border-radius: 50px;
+    border-radius: 50px 0 0 50px;
+}
+.pagination a:last-child {
+    -moz-border-radius: 0 50px 50px 0;
+    -webkit-border-radius: 0;
+    border-radius: 0 50px 50px 0;
 }
 .my-form
 {
