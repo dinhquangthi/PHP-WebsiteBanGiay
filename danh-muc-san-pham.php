@@ -120,17 +120,17 @@
                 <nav aria-label="Page navigation example ">
                     <ul class="pagination justify-content-center">
                         
-                            <a class="page-link pagi nutprev" href="#" aria-label="Previous">
+                            <a class="page-link pagi nutprev" href="" aria-label="Previous">
                                 <span aria-hidden="true">&laquo;</span>
                             </a>
                     
-                        <?php for($i=1; $i <= $sotrang; $i++): ?>
+                        <?php for($i=1; $i <= $sotrang; $i++):  ?>
                      
-                            <a class="page-link pagi <?php echo isset($_GET['p']) && $_GET['p'] == $i ? 'active' : '' ?>" href="<?php echo $path ?>?id=<?php echo $id ?>&&p=<?php echo $i ?>">
+                            <a class="page-link pagi <?php echo (!isset($_GET['p']) && $i==1) || ($_GET['p'] == $i) ? 'active' : '' ?>" href="<?php echo $path ?>?id=<?php echo $id ?>&&p=<?php echo $i ?>">
                                 <?php echo $i ?></a>
                         <?php endfor ?>
                         
-                            <a class="page-link pagi nutnext" href="#" aria-label="Next">
+                            <a class="page-link pagi nutnext" href="" aria-label="Next">
                                 <span aria-hidden="true">&raquo;</span>
                             </a>
                       

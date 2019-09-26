@@ -142,13 +142,13 @@
                 <nav aria-label="Page navigation example ">
                     <ul class="pagination justify-content-center">
                       
-                        <a class="page-link pagi nutprev" href="#" aria-label="Previous">
+                        <a class="page-link pagi nutprev" href="" aria-label="Previous">
                              <span aria-hidden="true">&laquo;</span>
                         </a>
                              <?php for($i=1; $i <= $sotrang; $i++): ?>
-                                 <a class="page-link pagi <?php echo ($i == $p) ? 'active' : '' ?>" href="?page=<?php echo $i ;?>"><?php echo $i; ?></a></li>
+                                 <a class="page-link pagi <?php echo ($i == $p) ? 'active ' : '' ?>" href="?page=<?php echo $i ;?>"><?php echo $i; ?></a></li>
                                  <?php endfor ?>
-                        <a class="page-link pagi nutnext" href="#" aria-label="Next">
+                        <a class="page-link pagi nutnext" href="" aria-label="Next">
                             <span aria-hidden="true">&raquo;</span>
                         </a>
                         
