@@ -20,7 +20,7 @@
     // luu thong tin vao table orders
 
     if ($_SERVER["REQUEST_MEHOD"] = "POST" && isset($_POST['sb_cart'])) {
-        $id_order_user = strtotime("now");
+        //$id_order_user = strtotime("now");
         foreach ($_SESSION['cart'] as $key => $value) {
             $data2 =
                 [
@@ -31,7 +31,7 @@
                     'sizeOrder' => $value['size'][0],
                     'quantityOrder' => $value['quantity'],
                     'noteOrder' => postInput('note'),
-                    'id_order_user' => $id_order_user,
+                //'id_order_user' => $id_order_user,
                     'addOrder' => postInput('address') . ", phường " . substr($_POST['phuong'],6) . ", quận " . substr($_POST['quan'],4) . ", thành phố " . substr($_POST['thanhPho'],3),
                 ];
                 _debug($data2);
