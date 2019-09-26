@@ -89,7 +89,7 @@ if (isset($orderInfo['page'])) {
                                         <td><?php echo $val['phoneusers'] ?></td>
 
                                         <td>
-                                            <a href="status.php?id=<?php echo $val['id'] ?>" class="btn btn-xs <?php echo $val['status'] == 0 ? 'btn-warning' : 'btn-success' ?>">
+                                            <a href="status.php?id=<?php echo $val['id'] ?>" class="btn btn-xs <?php echo $val['status'] == 0 ? 'btn-warning' : 'btn-success disabled' ?>">
                                                 <?php echo $val['status'] == 0 ? 'Chưa xử lý' : 'Đã xử lý' ?></a>
 
                                         </td>
