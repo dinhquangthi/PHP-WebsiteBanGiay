@@ -115,7 +115,7 @@
 
     load_thanhPho: function() {
       var xhr = new XMLHttpRequest();
-      xhr.open('POST','http://localhost:5000/PHP-WebsiteBanGiay/tinh_tp.json',true);
+      xhr.open('POST','http://localhost:5000/PHP-WebsiteBanGiay/JSON/tinh_tp.json',true);
       xhr.onload = function ()
         {
           var thanhPho = JSON.parse(xhr.responseText);
@@ -137,7 +137,7 @@
       $('#quan-list option').remove();
       $('#phuong-list option').remove();
       var xhr = new XMLHttpRequest();
-      xhr.open('POST','http://localhost:5000/PHP-WebsiteBanGiay/quan_huyen.json',true);
+      xhr.open('POST','http://localhost:5000/PHP-WebsiteBanGiay/JSON/quan_huyen.json',true);
       xhr.onload = function ()
       {
         var quan = JSON.parse(xhr.responseText);
@@ -160,7 +160,7 @@
 
       $('#phuong-list option').remove();
       var xhr = new XMLHttpRequest();
-      xhr.open('POST','http://localhost:5000/PHP-WebsiteBanGiay/xa_phuong.json',true);
+      xhr.open('POST','http://localhost:5000/PHP-WebsiteBanGiay/JSON/xa_phuong.json',true);
       xhr.onload = function ()
       {
         var phuong = JSON.parse(xhr.responseText);

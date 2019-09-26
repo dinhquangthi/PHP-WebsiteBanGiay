@@ -49,7 +49,7 @@
 
     <?php require_once __DIR__ . "/user/layouts/header.php"; ?>
 
-    <section class="cart">
+    <section class="color-change-4x">
         <div class="px-4 px-lg-0">
             <!-- For demo purpose -->
             <div class="container text-white py-5 text-center">
@@ -92,7 +92,7 @@
                                                     <div class="p-2  d-block">
                                                         <img src="<?php echo url_home() ?>/public/uploads/product/<?php echo $value['image'][0] ?>" alt="" width="70" class="img-fluid rounded shadow-sm">
                                                         <div class="ml-3 d-inline-block align-middle">
-                                                            <p class="mb-0"> <a href="#" class="text-dark d-inline-block align-middle"><?php echo $value['name'] ?></a></p>
+                                                            <p class="mb-0"> <?php echo $value['name'] ?></p>
                                                         </div>
                                                     </div>
                                                 </th>
