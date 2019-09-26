@@ -417,7 +417,7 @@ border-bottom: 1px solid #f2f2f2;
   height: 180px !important;
 }
 .product-others__all h5{
-font-size: 15px;
+font-size: 13px;
 }
 /* ================Footer=============== */
 .footer {
@@ -495,17 +495,45 @@ font-size: 15px;
   font-size: 30px;
   transition: 0.4s;
 }
+.page-link{
+  border: none;
+}
 .pagi {
-  color: #8B0000 !important;
-  transition: 0.3s;
+  /* color: #8B0000 !important;
+  transition: 0.3s; */
+  position: relative;
+  display: inline-block;
+  color: #2c3e50;
+  text-decoration: none;
+  font-size: 1.2rem;
+  padding: 8px 16px 10px;
+  margin: 0 5px;
+}
+.pagination a:before{
+  z-index: -1;
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    content: "";
+    top: 0;
+    left: 0;
+    background-color: #2c3e50;
+    border-radius: 24px;
+    -webkit-transform: scale(0);
+    transform: scale(0);
+    transition: all 0.2s;
 }
 .pagi:hover {
   font-weight: bold;
   transition: 0.5s;
 }
 .active{
-  background:#ecab8d7a !important;
-  border-color: #ecab8d7a !important;
+  /* background:#ecab8d7a !important;
+  border-color: #ecab8d7a !important; */
+  border: 1px solid #1d232942;
+  border-radius: 50px;
+  background: #1c1e21;
+  color: white;
 }
 .my-form
 {
@@ -594,6 +622,7 @@ font-size: 15px;
   letter-spacing: 1.2px;
   color: #232323d9;
   transition: 0.5s;
+  cursor: default;
 }
 .top-page__content:hover {
   transition: 0.3s;

@@ -26,9 +26,9 @@
                         trang khổng
                         lồ đến từ nhiều thương hiệu lớn, nhỏ và cả ở Việt Nam.
                     </p>
-                    <a href=""> <i class="fab fa-facebook-f"></i></a>
-                    <a href=""> <i class="fab fa-twitter"></i></a>
-                    <a href=""> <i class="fab fa-instagram"></i></a>
+                    <a href="#"> <i class="fab fa-facebook-f"></i></a>
+                    <a href="#"> <i class="fab fa-twitter"></i></a>
+                    <a href="#"> <i class="fab fa-instagram"></i></a>
                 </div>
 
             </div>

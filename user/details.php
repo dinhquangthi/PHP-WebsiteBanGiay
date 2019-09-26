@@ -34,8 +34,8 @@ if (isset($_POST['Submit'])) {
 } else { }
 
 //===============================================
-
-$productAll = $db->fetchAll('product');
+$sqlOther = "SELECT *FROM product ORDER BY RAND()";
+$productAll = $db->fetchsql($sqlOther);
 // _debug($productAll);
 //===============================================
 ?>
@@ -93,7 +93,7 @@ $productAll = $db->fetchAll('product');
 
                         <div class="swiper-container product-others">
                             <div class="swiper-wrapper">
-                                <?php foreach ($productAll as $key => $value) : ?>
+                                <?php $soluong=1;  foreach ($productAll as $key => $value) : ?>
                                     <div class="swiper-slide product-others__all">
                                         <?php foreach (unserialize(base64_decode($value['image'])) as $key => $val) : ?>
                                             <?php
@@ -117,10 +117,10 @@ $productAll = $db->fetchAll('product');
                                         <?php else : ?>
                                             <p class="price"> <?php echo formatpricesale($value['price'], $value['sale']) ?></p>
                                         <?php endif ?>
-
-
+   
                                     </div>
-                                <?php endforeach ?>
+                                    <?php if($soluong >= 10) break; ?>
+                                <?php $soluong++; endforeach ?>
                             </div>
                             <!-- Add Pagination -->
                             <div class="swiper-pagination"></div>

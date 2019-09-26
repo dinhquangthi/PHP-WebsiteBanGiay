@@ -21,6 +21,6 @@
         </div>
     </div>
     <div class="details">
-      <button href="" class="details-btn">VIEW MORE</button>
+      <button href="#" class="details-btn">VIEW MORE</button>
     </div>
 </div>
