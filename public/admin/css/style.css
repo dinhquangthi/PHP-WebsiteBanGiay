@@ -68,3 +68,8 @@
 .table-responsive > table > tbody > tr > td{
     vertical-align: middle;
   }
+  .disabled{
+    cursor: not-allowed;
+    pointer-events: none;
+    
+  }
