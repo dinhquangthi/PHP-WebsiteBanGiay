@@ -12,9 +12,9 @@ if (isset($_GET['page'])) {
 $sql = "SELECT orders. *,users.name as nameuser, users.phone as phoneusers FROM orders LEFT JOIN users ON users.id = orders.users_id
    ORDER BY ID DESC ";
 
-$sql2 = "SELECT DISTINCT id_order_user FROM orders";
+//$sql2 = "SELECT DISTINCT id_order_user FROM orders";
 
-$sqlOrder = $db->fetchsql($sql2);
+//$sqlOrder = $db->fetchsql($sql2);
 
 $orderInfo = $db->fetchJone('orders', $sql, $p, 6, true);
 if (isset($orderInfo['page'])) {
@@ -72,8 +72,7 @@ if (isset($orderInfo['page'])) {
                             foreach ($orderInfo as $key => $val) : ?>
                           
                                     <tr>
-                                        <td>
-                                            <?php echo $val['id_order_user'] ?></td>
+                                        <!----<td><?php// echo $val['id_order_user'] ?></td>--->
                                         <td><?php echo $val['nameuser'] ?></td>
                                         <td>
                                             <ul>
