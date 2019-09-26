@@ -15,6 +15,7 @@
 				self.gallery();
 				self.gallery2();
 				self.phanTrang();
+				self.pagiDisable();
 				self.load_thanhPho();
         $('#thanhPho-list').change(function() {
             self.load_quan($(this));
@@ -191,6 +192,11 @@
           });
       }
         xhr.send();
+    },
+
+    pagiDisable: function() {
+      var dis = $('.pagination .active');
+      dis.addClass('disabled');
     }
 
   }.init());
