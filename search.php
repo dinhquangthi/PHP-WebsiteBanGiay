@@ -74,19 +74,19 @@
                         <h4><i class="far fa-newspaper" style="margin-right:10px;"></i>Tin Tức</h4>
                         <div class="row news">
                             <img src="<?php echo url_home() ?>/user/image/banner-3.jpg" alt="">
-                            <a href="">
+                            <a href="#">
                                 <p>Top những phụ kiện giúp outfit của bạn bớt “nhạt nhẽo” khi ra đường</p>
                             </a>
                         </div>
                         <div class="row news">
                             <img src="<?php echo url_home() ?>/user/image/banner-1.jpg" alt="">
-                            <a href="">
+                            <a href="#">
                                 <p>Xuống phố ngày lễ phải mix match thế nào cho chất?</p>
                             </a>
                         </div>
                         <div class="row news">
                             <img src="<?php echo url_home() ?>/user/image/banner-3.jpg" alt="">
-                            <a href="">
+                            <a href="#">
                                 <p>Diện giày thể thao khi đi chơi cần lưu ý điều gì?</p>
                             </a>
                         </div>

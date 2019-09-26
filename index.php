@@ -70,19 +70,19 @@
                         <h4><i class="far fa-newspaper" style="margin-right:10px;"></i>Tin Tức</h4>
                         <div class="row news">
                             <img src="<?php echo url_home() ?>/user/image/banner-3.jpg" alt="">
-                            <a href="">
+                            <a href="#">
                                 <p>Top những phụ kiện giúp outfit của bạn bớt “nhạt nhẽo” khi ra đường</p>
                             </a>
                         </div>
                         <div class="row news">
                             <img src="<?php echo url_home() ?>/user/image/banner-1.jpg" alt="">
-                            <a href="">
+                            <a href="#">
                                 <p>Xuống phố ngày lễ phải mix match thế nào cho chất?</p>
                             </a>
                         </div>
                         <div class="row news">
                             <img src="<?php echo url_home() ?>/user/image/banner-3.jpg" alt="">
-                            <a href="">
+                            <a href="#">
                                 <p>Diện giày thể thao khi đi chơi cần lưu ý điều gì?</p>
                             </a>
                         </div>
@@ -142,13 +142,13 @@
                 <nav aria-label="Page navigation example ">
                     <ul class="pagination justify-content-center">
                       
-                        <a class="page-link pagi nutprev" href="" aria-label="Previous">
+                        <a class="page-link pagi nutprev" href="#" aria-label="Previous">
                              <span aria-hidden="true">&laquo;</span>
                         </a>
                              <?php for($i=1; $i <= $sotrang; $i++): ?>
                                  <a class="page-link pagi <?php echo ($i == $p) ? 'active' : '' ?>" href="?page=<?php echo $i ;?>"><?php echo $i; ?></a></li>
                                  <?php endfor ?>
-                        <a class="page-link pagi nutnext" href="" aria-label="Next">
+                        <a class="page-link pagi nutnext" href="#" aria-label="Next">
                             <span aria-hidden="true">&raquo;</span>
                         </a>
                         
