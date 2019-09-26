@@ -168,7 +168,7 @@ $productAll = $db->fetchsql($sqlOther);
                         <p>Số lượng</p>
                         <div class="click-count">
                             <!-- <button class="btn-click click-reduce">-</button> -->
-                            <input class="form-control" type="number" min="1" max="100" name="quantity" value="1" style="width:30%;font-weight:bold;" />
+                            <input class="form-control" type="number" min="1" max=<?php echo $product['number'] ?> name="quantity" value="1" style="width:30%;font-weight:bold;" />
                             <!-- <button class="btn-click click-incre">+</button> -->
                         </div>
                     </div>
@@ -180,11 +180,19 @@ $productAll = $db->fetchsql($sqlOther);
                             <li>- Sản phẩm được bảo hành keo 1 năm</li>
                         </ul>
                     </div>
-
+                                                
+                    <?php if($product['number'] > 0) : ?>
                     <div class="product-right__buy">
                         <a href="<?php echo url_home() ?>/cart.php" class="add-cart">THANH TOÁN</a>
                         <button class="add-cart" type="submit" name="Submit">THÊM VÀO GIỎ</button>
+                    </div>                     
+                  <?php else: ?>
+                  <div class="product-right__buy">
+                        <button class="btn btn-danger" disabled>HẾT HÀNG</button>
                     </div>
+                    <?php endif ?>
+                    
+                    
                 </form>
 
             </div>
