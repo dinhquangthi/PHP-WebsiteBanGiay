@@ -100,20 +100,30 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                                 <label class="col-md-4 col-form-label text-md-right">Mật
                                     khẩu</label>
                                 <div class="col-md-6">
-                                    <input type="password" id="password" class="form-control" name="password" value="<?php echo $data['password'] ?>">
+                                    <div class="password">
+                                        <input type="password" id="password" class="form-control" name="password" value="<?php echo $data['password'] ?>">
+                                        <i class="fas fa-check d-none" id="check1"></i>
+                                    </div>
                                     <?php if (isset($error['password'])) : ?>
                                         <p class="text-danger canh-bao"><?php echo $error['password'] ?></p>
                                     <?php endif ?>
-
-                                   
-                                        <div class="progress d-none">
-                                            <div class="progress-bar" role="progressbar" style="width: 25%" ></div>
-                                        </div>
-                                    <p class="text-danger canh-bao d-none">Yếu</p>
+                                    <div class="progress d-none">
+                                        <div class="progress-bar" role="progressbar" style="width: 25%"></div>
+                                    </div>
+                                    <p class="canh-bao d-none" id="notiPass">Yếu</p>
                                 </div>
+                            </div>
 
-
-
+                            <div class="form-group row">
+                                <label class="col-md-4 col-form-label text-md-right">Nhập lại mật
+                                    khẩu</label>
+                                <div class="col-md-6">
+                                    <div class="password">
+                                        <input type="password" id="rePassword" class="form-control" name="password" value="<?php echo $data['password'] ?>">
+                                        <i class="fas fa-check d-none" id="checkSucess"></i>
+                                        <i class="fas fa-times d-none" id="errorWarning"></i>
+                                    </div>
+                                </div>
                             </div>
 
                             <div class="form-group row">

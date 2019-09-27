@@ -689,3 +689,15 @@ font-size: 13px;
   height: 6px;
   margin: 10px 0;
 }
+.password input{
+  position: relative;
+}
+.password svg {
+  position: absolute;
+  right: -13px;
+  top: 10px;
+  color: #00FF00;
+}
+.password #errorWarning{
+  color: #CC0000;
+}
