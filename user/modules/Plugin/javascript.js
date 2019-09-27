@@ -16,6 +16,7 @@
 				self.gallery2();
 				self.phanTrang();
 				self.pagiDisable();
+				self.validatePassword();
 				self.load_thanhPho();
         $('#thanhPho-list').change(function() {
             self.load_quan($(this));
@@ -197,7 +198,35 @@
     pagiDisable: function() {
       var dis = $('.pagination .active');
       dis.addClass('disabled');
+    },
+
+    validatePassword: function() {
+     var barr = $('.progress-bar');
+      $("#password").keyup(function() {
+        var password = $("#password").val().length;
+        // console.log(password);
+
+        if (password <= 4 && password >= 1) {
+          $('.progress').removeClass('d-none');
+          barr.attr("style","width: 25%");
+          $('.progress-bar').addClass('bg-danger');
+        }
+        else if(password <= 8 && password >=5){
+            $('.progress-bar').removeClass('bg-danger bg-success');
+            barr.attr("style","width: 50%");
+            $('.progress-bar').addClass('bg-warning');
+        }
+        else  if(password > 8 ){
+            $('.progress-bar').removeClass('bg-warning');
+            barr.attr("style","width: 100%");
+            $('.progress-bar').addClass('bg-success');
+        }
+        else if(password < 1 ){
+          $('.progress').addClass('d-none');
+        }
+      });
     }
+
 
   }.init());
 }(jQuery));
