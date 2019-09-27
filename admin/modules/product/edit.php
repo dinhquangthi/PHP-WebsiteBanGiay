@@ -75,11 +75,18 @@
                     //Ví dụ move_uploaded_file($tmp_names[$i], /upload/'.$names[$i]);
                         $part = ROOT ."product/";
                         $gallery[$i] = $file_name[$i];
-                        // $data['image'] = $file_name[$i];
+                        
+                      
                 }
             }
-            $data['image'] = base64_encode(serialize($gallery));
-         
+            if(empty($gallery))
+            {
+                $data['image'] = $EditProduct['image'];
+            } 
+            else {
+                $data['image'] = base64_encode(serialize($gallery));
+            }
+           
         }
           $update = $db->update("product",$data,array("id"=>$id));
           
