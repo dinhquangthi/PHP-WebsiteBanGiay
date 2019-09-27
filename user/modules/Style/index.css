@@ -684,3 +684,20 @@ font-size: 13px;
     background: #0c0c0c80;
   }
 }
+.progress{
+  width: 100%;
+  height: 6px;
+  margin: 10px 0;
+}
+.password input{
+  position: relative;
+}
+.password svg {
+  position: absolute;
+  right: -13px;
+  top: 10px;
+  color: #00FF00;
+}
+.password #errorWarning{
+  color: #CC0000;
+}
