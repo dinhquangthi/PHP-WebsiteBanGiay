@@ -61,7 +61,7 @@ if (isset($_SESSION['cart'])) {
                     <ul class="navbar-nav " style="padding-right: 100px;">
                         <?php if(isset($_SESSION['name_user'])) : ?>
                         <li class="nav-item">
-                            <a class="nav-link header2" href="index.php"> <i class="fas fa-user-friends"
+                            <a class="nav-link header2" href="<?php echo url_home(); ?>"> <i class="fas fa-user-friends"
                                     style="font-size: 18px;margin-top: 5px;padding-right:3px"></i>Xin chào: <?php echo $_SESSION['name_user'] ?></a>
                         </li>
                         <li class="nav-item">

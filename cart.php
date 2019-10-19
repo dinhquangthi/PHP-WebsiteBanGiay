@@ -34,7 +34,7 @@
                     'id_order_user' => $id_order_user,
                     'addOrder' => postInput('address') . ", phường " . substr($_POST['phuong'],6) . ", quận " . substr($_POST['quan'],4) . ", thành phố " . substr($_POST['thanhPho'],3),
                 ];
-                _debug($data2);
+                // _debug($data2);
             
             $id_insert = $db->insert("orders", $data2);
             $_SESSION['success2'] = "Thông tin đơn hàng của bạn đã được lưu lại.<br> Chúng tôi sẽ liên hệ với bạn sớm nhất !";

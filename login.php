@@ -4,7 +4,8 @@ require_once __DIR__ . "/user/autoload/autoload.php";
 $data =
     [
         'username' => postInput("username"),
-        'password' => (postInput("password"))
+        'password' => (postInput("password")),
+        'permission' => (postInput("permission"))
     ];
 $error = [];
 
@@ -22,24 +23,36 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     if (empty($error)) {
 
         $is_check = $db->fetchOne("users", " username = '" . $data['username'] . "' AND password = '" . md5($data['password']) . " '");
-
+            // echo "<pre>";
+            // print_r($is_check);
+            // echo "</pre>";
+            // die();
         $input = $_POST['inputCap'];
        
         
-
-        if ($is_check != NULL && $input == $_SESSION['captcha']) {
+        if($is_check != NULL && $input == $_SESSION['captcha'] && $is_check['permission']== '1'){
             $_SESSION['name_user'] = $is_check['name'];
             $_SESSION['name_id'] = $is_check['id'];
-            echo "<script>alert('Đăng nhập thành công');location.href='index.php'</script>";
-        } else {
-            // dang nhap that bai
-            $_SESSION['error'] = "Tên đăng nhập hoặc mật khẩu không đúng.<br>Vui lòng nhập lại";
-            if ($input != $_SESSION['captcha'])
-            {
-                $_SESSION['message'] = "Mã xác nhận không đúng. Vui lòng nhập lại !!";
-    
+            $_SESSION['permission'] = $is_check['permission'];
+            echo "<script>alert('Đăng nhập admin thành công');location.href='http://localhost:5000/PHP-WebsiteBanGiay/admin'</script>";
+        }
+        elseif($is_check != NULL && $input == $_SESSION['captcha'] && $is_check['permission']== '0'){
+            if ($is_check != NULL && $input == $_SESSION['captcha']) {
+                $_SESSION['name_user'] = $is_check['name'];
+                $_SESSION['name_id'] = $is_check['id'];
+                $_SESSION['permission'] = $is_check['permission'];
+                echo "<script>alert('Đăng nhập thành công');location.href='index.php'</script>";
+            } else {
+                // dang nhap that bai
+                $_SESSION['error'] = "Tên đăng nhập hoặc mật khẩu không đúng.<br>Vui lòng nhập lại";
+                if ($input != $_SESSION['captcha'])
+                {
+                    $_SESSION['message'] = "Mã xác nhận không đúng. Vui lòng nhập lại !!";
+        
+                }
             }
         }
+        
     }
 }
 ?>
