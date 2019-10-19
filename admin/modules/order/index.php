@@ -9,18 +9,23 @@ if (isset($_GET['page'])) {
     $p = 1;
 }
 
-$sql = "SELECT orders. *,users.name as nameuser, users.phone as phoneusers FROM orders LEFT JOIN users ON users.id = orders.users_id
+$sql = "SELECT orders. *,users.name as nameuser, users.phone as phoneusers FROM orders LEFT JOIN users ON users.id = orders.users_id 
    ORDER BY ID DESC ";
 
 $sql2 = "SELECT DISTINCT id_order_user FROM orders";
 
 $sqlOrder = $db->fetchsql($sql2);
 
+
 $orderInfo = $db->fetchJone('orders', $sql, $p, 6, true);
 if (isset($orderInfo['page'])) {
     $sotrang = $orderInfo['page'];
     unset($orderInfo['page']);
 }
+// echo "<pre>";
+// print_r($orderInfo);
+// echo "</pre>";
+// die();
 // $orderInfo = $db->fetchAll('orders');
 
 ?>
