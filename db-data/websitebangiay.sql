@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost
--- Generation Time: Oct 19, 2019 at 02:28 PM
+-- Generation Time: Oct 21, 2019 at 09:42 AM
 -- Server version: 10.4.6-MariaDB
 -- PHP Version: 7.1.32
 
@@ -83,6 +83,32 @@ INSERT INTO `category` (`id`, `name`, `slug`, `image`, `banner`, `home`, `status
 (1, 'Giày Bóng Đá', 'giay-bong-da', NULL, NULL, '', '1', '2019-08-28 08:31:51', '2019-08-28 08:31:51'),
 (2, 'Giày Bóng Rổ', 'giay-bong-ro', NULL, NULL, '', '1', '2019-08-28 08:31:54', '2019-08-28 08:31:54'),
 (3, 'Giày Chạy Bộ', 'giay-chay-bo', NULL, NULL, '', '1', '2019-08-28 08:31:57', '2019-08-28 08:31:57');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `news`
+--
+
+DROP TABLE IF EXISTS `news`;
+CREATE TABLE `news` (
+  `id` int(11) NOT NULL,
+  `title` varchar(100) CHARACTER SET utf8 DEFAULT NULL,
+  `slug` varchar(100) CHARACTER SET utf8 DEFAULT NULL,
+  `content` longtext CHARACTER SET utf8 DEFAULT NULL,
+  `content2` longtext CHARACTER SET utf8 DEFAULT NULL,
+  `image` varchar(255) CHARACTER SET utf8 DEFAULT NULL,
+  `created_at` timestamp NULL DEFAULT current_timestamp()
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `news`
+--
+
+INSERT INTO `news` (`id`, `title`, `slug`, `content`, `content2`, `image`, `created_at`) VALUES
+(9, 'TOP NHỮNG PHỤ KIỆN GIÚP OUTFIT CỦA BẠN BỚT “NHẠT NHẼO” KHI RA ĐƯỜNG', 'top-nhung-phu-kien-giup-outfit-cua-ban-bot-nhat-nheo-khi-ra-duong', 'Bất cứ tín đồ thời trang nào cũng nắm rõ một quy tắc, bất cứ bộ outfit nào cũng không thể thiếu phụ kiện. Những bộ trang phục tưởng chừng vô cùng đơn giản như áo thun, jeans hay shorts sẽ bắt mắt hơn nhiều nếu bạn kết hợp chúng với một loại phụ kiện nào đó. Từ nón, thắt lưng, ví, túi xách… tất cả đều sẽ là những điểm nhấn giúp bạn ấn tượng hơn trong mắt người đối diện. Và chắc chắn những món đồ mà shop giày thể thao Fandy sắp giới thiệu bên dưới đây sẽ khiến bận phải cân nhắc sở hữu.', 'điểm nhấn giúp bạn ấn tượng hơn trong mắt người đối diện. Và chắc chắn những món đồ mà shop giày thể thao Fandy sắp giới thiệu bên dưới đây sẽ khiến bận phải cân nhắc sở hữu.', 'YToxOntpOjA7czozMToicGh1LWtpZW4tY2hhdC1jaG8tb3V0Zml0LTAxLmpwZyI7fQ==', '2019-10-21 05:55:56'),
+(10, 'CHÀO MỪNG NGÀY PHỤ NỮ VIỆT NAM 20/10 – TẶNG NỬA GIÁ CHO NỬA THỂ GIỚI', 'chao-mung-ngay-phu-nu-viet-nam-2010-tang-nua-gia-cho-nua-the-gioi', 'Nhân dịp 20/10 tập thể Fandy xin kính chúc các bà, các mẹ, các chị và em gái luôn luôn vui vẻ, xinh đẹp, tràn ngập niềm vui và hạnh phúc. Phụ nữ sinh ra là được để yêu thương – Hãy cùng Fandy gửi những lời chúc ngập tràn tình yêu thương đến những người phụ nữ của chúng ta.\r\n\r\nĐể dành những tình yêu thương đó hệ thống cửa hàng thời trang thể thao cao cấp Fandy dành chương trình đặc biệt : “TẶNG NỬA GIÁ CHO NỬA THẾ GIỚI”', 'Nội dung chương trình:\r\nGiảm 50% cho đôi giày thứ 2 cùng với rất nhiều những quà tặng khác.\r\n\r\nĐối tượng áp dụng:\r\n– Dành cho các bạn nữ đến mua giày\r\n– Dành cho các bạn nam đến mua giày tặng mẹ, chị, em gái, người yêu.\r\n\r\nThời gian: Trong 3 ngày 18/10/2019 – 20/10/2019\r\n\r\nChương trình áp dụng tại tất cả cửa hàng thuộc hệ thống cửa hàng của Fandy:\r\n– Fandy 409 Lê Duẩn, Đà Nẵng\r\n– Fandy Tam kỳ, Quảng Nam\r\n\r\nVới phương châm đặt chữ Tín và Chất Lượng lên hàng đầu. Fandy luôn tự hào nâng niu từng bước chân của bạn. “ Một đôi giày có thể thay đổi cả cuộc đời bạn!” – Lọ Lem. Hãy trở nên thật tự tin nhé những người phụ nữ của chúng tôi!', 'YToxOntpOjA7czozNjoiZmFuZHktY2h1b25nLXRyaW5oLTIwLjEwLTgwMHgzMTMuanBnIjt9', '2019-10-21 05:56:53'),
+(11, 'CỨ DU HÍ KHẮP NƠI VỚI ĐÔI SNEAKER YÊU THÍCH ĐI VÌ ĐÃ CÓ BÍ KÍP VỆ SINH SIÊU ĐỈNH NÀY', 'cu-du-hi-khap-noi-voi-doi-sneaker-yeu-thich-di-vi-da-co-bi-kip-ve-sinh-sieu-dinh-nay', '1. Sử dụng đúng dụng cụ vệ sinh, bộ vệ sinh chuyên dụng <br>\r\n2. Tẩy ố đế giày bằng kem đánh răng<br>\r\n3. Tuyệt đối không dùng máy sấy và tránh ánh nắng mặt trời.<br>', 'Để làm sạch các đôi sneaker thì việc lựa chọn loại bàn chải, dung dịch tẩy rửa nên được chú ý. Bên cạnh đó bạn cũng có thể mua những bộ sản phẩm chuyên dụng như Crep Protect Cure tại các shop bán giày thể thao ở Đà Nẵng để thuận tiện hơn mỗi lần vệ sinh cho giày.', 'YToxOntpOjA7czoxNzoiMXVZdEUxaS1JbWd1ci5qcGciO30=', '2019-10-21 05:58:57');
 
 -- --------------------------------------------------------
 
@@ -239,6 +265,12 @@ ALTER TABLE `category`
   ADD PRIMARY KEY (`id`);
 
 --
+-- Indexes for table `news`
+--
+ALTER TABLE `news`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- Indexes for table `orders`
 --
 ALTER TABLE `orders`
@@ -271,6 +303,12 @@ ALTER TABLE `admin`
 --
 ALTER TABLE `category`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+
+--
+-- AUTO_INCREMENT for table `news`
+--
+ALTER TABLE `news`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
 
 --
 -- AUTO_INCREMENT for table `orders`
