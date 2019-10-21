@@ -2,7 +2,7 @@
     $open = "news";
     require_once __DIR__. "/../../autoload/autoload.php";
       
-    $news = $db->fetchAll("category");
+    // $news = $db->fetchAll("category");
    if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
     $data = 
