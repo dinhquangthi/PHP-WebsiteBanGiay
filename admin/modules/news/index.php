@@ -1,10 +1,10 @@
 <?php 
- $open = "user";
+ $open = "news";
     require_once __DIR__. "/../../autoload/autoload.php";
 
-    $sql = "SELECT users. * FROM users ORDER BY ID DESC";
-    $users = $db->fetchAll("users");
-   
+    $new = $db->fetchAll('news');
+
+  
 ?>
 
 <?php require_once __DIR__. "/../../layouts/header.php"; ?>
@@ -17,7 +17,7 @@
         <div class="row">
             <div class="col-lg-12">
                 <h1 class="page-header">
-                    Danh sách thành viên
+                    Danh sách bài viết
                     <a href="add.php" class="btn btn-success">Thêm mới</a>
                 </h1>
               
@@ -26,7 +26,7 @@
                         <i class="fa fa-dashboard"></i> <a href="index.html">Home</a>
                     </li>
                     <li class="active">
-                        <i class="fa fa-file"></i> Danh sách thành viên
+                        <i class="fa fa-file"></i> Bài viết
                     </li>
                 </ol>
                 <div class="clearfix"></div>
@@ -42,26 +42,42 @@
                         <thead>
                             <tr>
                                 <th>STT</th>
-                                <th>Name</th>
-                                <th>Username</th>
-                                <th>Email</th>
-                                <th>Phone</th>
-                                <th>Action</th>
+                                <th>Title</th>
+                                <th>Content</th>
+                                <th>Content-2</th>
+                                <th>Slug</th>
+                                <th>Image</th>
                             </tr>
                         </thead>
                         <tbody>
-                            <?php $stt=1; foreach ($users as $item) : ?>
+                            <?php $stt=1; foreach ($new as $item) : ?>
                             <tr>
                                 <td><?php echo $stt ?></td>
-                                <td><?php echo $item['name'] ?></td>
-                                <td><?php echo $item['username'] ?></td>
-                                <td><?php echo $item['email'] ?></td>
-                                <td><?php echo $item['phone'] ?></td>
-                              
+                                <td><?php echo $item['title'] ?></td>
                                 <td>
-                                    <a class="btn btn-info" href="edit.php?id=<?php echo $item['id'] ?>"><i
+                                    <p>
+                                    <?php echo $item['content'] ?>
+                                    </p>
+                                   
+                                </td>
+                                <td><?php echo $item['content2'] ?></td>
+                                <td><?php echo $item['slug'] ?></td>
+                                <td style="display: flex;">
+                                
+                                <?php foreach (unserialize(base64_decode($item['image'])) as $val) : ?>
+                                <div style=" padding-right: 10px;">
+                                    <img src="<?php echo url_home() ?>/public/uploads/uploads-new/<?php echo $val ?>"
+                                        width="80px" height="80px">
+                                        <p style=""><?php echo ($val) ?></p>
+                                        </div>
+                                        <?php endforeach ?>
+                                    
+                                </td>
+                          
+                                <td>
+                                    <a style="width: 100%; margin-bottom: 10px;" class="btn btn-info" href="edit.php?id=<?php echo $item['id'] ?>"><i
                                             class="far fa-edit"></i>Sửa</a>
-                                    <a class="btn btn-danger" href="delete.php?id=<?php echo $item['id'] ?>"><i
+                                    <a style="width: 100%;" class="btn btn-danger" href="delete.php?id=<?php echo $item['id'] ?>"><i
                                             class="far fa-trash-alt"></i>Xóa</a>
                                 </td>
                             </tr>

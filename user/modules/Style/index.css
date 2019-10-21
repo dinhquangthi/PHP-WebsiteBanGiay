@@ -285,7 +285,7 @@ h3 a:hover {
 }
 
 .news {
-margin: 0 0 40px 0;
+margin: 0 0 25px 0;
   border-bottom: 1px solid #f2f2f2;
   width: 90%;
 }
@@ -324,7 +324,7 @@ border-bottom: 1px solid #f2f2f2;
 .news img {
   width: 100%;
   height: auto;
-  max-height: 230px;
+  max-height: 150px;
 
 }
 

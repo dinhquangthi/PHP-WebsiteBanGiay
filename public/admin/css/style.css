@@ -65,8 +65,12 @@
     -ms-transform: rotate(45deg);
     transform: rotate(45deg);
   }
+.table-responsive > table > tbody > tr > td:first-child{
+  width: 50px;
+}
 .table-responsive > table > tbody > tr > td{
     vertical-align: middle;
+    width: 30%;
   }
   .disabled{
     cursor: not-allowed;

@@ -7,4 +7,5 @@
 
     define("ROOT", $_SERVER['DOCUMENT_ROOT'] ."PHP-WebsiteBanGiay/public/uploads/");
 
+
     ?>

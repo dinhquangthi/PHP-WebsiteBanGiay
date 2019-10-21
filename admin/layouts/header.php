@@ -1,3 +1,26 @@
+<?php 
+        if( !isset($_SESSION['name_id']))
+        {
+                echo "<script>
+            function myConfirm() {
+                var r = confirm('Bạn chưa đăng nhập');
+                if (r == true) {
+                  location.href='http://localhost:5000/PHP-WebsiteBanGiay/login.php'
+                } else {
+                  location.href='http://localhost:5000/PHP-WebsiteBanGiay/admin'
+                }
+              }
+              myConfirm();
+            </script>";
+        } elseif(isset($_SESSION['name_id']) && $_SESSION['permission'] == '1'){
+            header("http://localhost:5000/PHP-WebsiteBanGiay/admin");
+        }elseif(isset($_SESSION['name_id']) && $_SESSION['permission'] == '0'){
+            echo "<script>
+                alert('Bạn không có quyền truy cập vào trang này');
+                location.href='http://localhost:5000/PHP-WebsiteBanGiay/'
+            </script>";
+        }
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -93,6 +116,9 @@
                     </li>
                     <li class="<?php echo isset($open) && $open == 'transaction' ? 'active' : '' ?>">
                         <a href="<?php echo url_home(); ?>/admin/modules/order/"><i class="fas fa-database"></i>Quản lý đơn hàng</a>
+                    </li>
+                    <li class="<?php echo isset($open) && $open == 'news' ? 'active' : '' ?>">
+                        <a href="<?php echo url_home(); ?>/admin/modules/news/"><i class="fas fa-database"></i>Bài viết</a>
                     </li>
                
                 </ul>
