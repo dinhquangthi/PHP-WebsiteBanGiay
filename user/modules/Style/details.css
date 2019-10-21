@@ -16,12 +16,12 @@ li {
   margin-top: 30px;
   margin-bottom: 50px;
   padding: 5px 0 10px;
-  border-bottom: 1px solid #9a9a9a7d;
+  border-bottom: 1px solid #9a9a9a7d; 
   width: 50%; 
   transition: 0.3s;}
   .breadcrumb .breadcrumb-item {
-    font-size: 17px; }
-    .breadcrumb .breadcrumb-item:hover {
+    font-size: 14px; }
+    .breadcrumb .breadcrumb-item:first-child:hover {
       font-weight: bold !important;
       transition: 0.3s;}
 

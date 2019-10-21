@@ -94,6 +94,9 @@
                     <li class="<?php echo isset($open) && $open == 'transaction' ? 'active' : '' ?>">
                         <a href="<?php echo url_home(); ?>/admin/modules/order/"><i class="fas fa-database"></i>Quản lý đơn hàng</a>
                     </li>
+                    <li class="<?php echo isset($open) && $open == 'news' ? 'active' : '' ?>">
+                        <a href="<?php echo url_home(); ?>/admin/modules/news/"><i class="fas fa-database"></i>Bài viết</a>
+                    </li>
                
                 </ul>
             </div>

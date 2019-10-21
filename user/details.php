@@ -3,8 +3,10 @@ require_once __DIR__ . "/autoload/autoload.php";
 
 $category = $db->fetchAll("category");
 
+
 $id = intval(getInput('id'));
 $product = $db->fetchID("product", $id);
+// echo '<pre>'; print_r($product); echo '<pre>'; die();
 
 if (isset($_POST['Submit'])) {
     if (!isset($_SESSION['name_id'])) {
@@ -36,7 +38,6 @@ if (isset($_POST['Submit'])) {
 //===============================================
 $sqlOther = "SELECT *FROM product ORDER BY RAND()";
 $productAll = $db->fetchsql($sqlOther);
-// _debug($productAll);
 //===============================================
 ?>
 
@@ -51,7 +52,16 @@ $productAll = $db->fetchsql($sqlOther);
         <nav aria-label="breadcrumb">
             <ol class="breadcrumb">
                 <li class="breadcrumb-item"><a href="<?php echo url_home(); ?>">Trang chủ</a></li>
-                <li class="breadcrumb-item " aria-current="page">Chi Tiết Sản Phẩm</li>
+                <li class="breadcrumb-item " aria-current="page"><?php
+                    if($product['category_id'] == '1') {
+                        echo 'Giày Bóng Đá';
+                    }elseif($product['category_id'] == '2'){
+                        echo 'Giày Bóng Rổ';
+                    }elseif($product['category_id'] == '3'){
+                        echo 'Giày Chạy Bộ';
+                    }
+                ?></li>
+                <li class="breadcrumb-item text-danger" aria-current="page"><?php echo $product['name'] ?></li>
             </ol>
         </nav>
     </div>
