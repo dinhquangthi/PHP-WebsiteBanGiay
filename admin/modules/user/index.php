@@ -2,10 +2,9 @@
  $open = "user";
     require_once __DIR__. "/../../autoload/autoload.php";
 
-
     $sql = "SELECT users. * FROM users ORDER BY ID DESC";
     $users = $db->fetchAll("users");
-
+   
 ?>
 
 <?php require_once __DIR__. "/../../layouts/header.php"; ?>

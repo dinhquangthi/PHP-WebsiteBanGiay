@@ -54,7 +54,12 @@
                             <tr>
                                 <td><?php echo $stt ?></td>
                                 <td><?php echo $item['title'] ?></td>
-                                <td><?php echo $item['content'] ?></td>
+                                <td>
+                                    <p>
+                                    <?php echo $item['content'] ?>
+                                    </p>
+                                   
+                                </td>
                                 <td><?php echo $item['content2'] ?></td>
                                 <td><?php echo $item['slug'] ?></td>
                                 <td style="display: flex;">

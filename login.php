@@ -41,7 +41,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                 $_SESSION['name_user'] = $is_check['name'];
                 $_SESSION['name_id'] = $is_check['id'];
                 $_SESSION['permission'] = $is_check['permission'];
-                echo "<script>alert('Đăng nhập thành công');location.href='index.php'</script>";
+                echo "<script>alert('Đăng nhập thành công');location.href='http://localhost:5000/PHP-WebsiteBanGiay'</script>";
             } else {
                 // dang nhap that bai
                 $_SESSION['error'] = "Tên đăng nhập hoặc mật khẩu không đúng.<br>Vui lòng nhập lại";
