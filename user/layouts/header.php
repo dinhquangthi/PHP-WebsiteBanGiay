@@ -34,7 +34,7 @@ if (isset($_SESSION['cart'])) {
     <link href="<?php echo url_home() ?>/user/modules/plugin/animate.css" rel="stylesheet" type="text/css">
     <link href="<?php echo url_home() ?>/user/modules/plugin/slider-pro.min.css" rel="stylesheet" type="text/css">
     <link href="<?php echo url_home() ?>/user/modules/plugin/swiper.min.css" rel="stylesheet" type="text/css">
-        type="text/css">
+    type="text/css">
 
     <!-- My css -->
     <link href="<?php echo url_home() ?>/user/modules/style/index.css" rel="stylesheet" type="text/css">
@@ -42,7 +42,10 @@ if (isset($_SESSION['cart'])) {
 
 
 
-
+    <div id="fb-root"></div>
+    <script async defer crossorigin="anonymous"
+        src="https://connect.facebook.net/vi_VN/sdk.js#xfbml=1&version=v4.0&appId=1483597968457687&autoLogAppEvents=1">
+    </script>
 </head>
 
 <body>
@@ -62,25 +65,27 @@ if (isset($_SESSION['cart'])) {
                         <?php if(isset($_SESSION['name_user'])) : ?>
                         <li class="nav-item">
                             <a class="nav-link header2" href="<?php echo url_home(); ?>"> <i class="fas fa-user-friends"
-                                    style="font-size: 18px;margin-top: 5px;padding-right:3px"></i>Xin chào: <?php echo $_SESSION['name_user'] ?></a>
+                                    style="font-size: 18px;margin-top: 5px;padding-right:3px"></i>Xin chào:
+                                <?php echo $_SESSION['name_user'] ?></a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link header2" href="<?php echo url_home(); ?>/dang-xuat.php"> <i class="fas fa-sign-out-alt"
+                            <a class="nav-link header2" href="<?php echo url_home(); ?>/dang-xuat.php"> <i
+                                    class="fas fa-sign-out-alt"
                                     style="font-size: 18px;margin-top: 5px;padding-right:3px"></i>Đăng xuất</a>
                         </li>
                         <div class="pay">
-                                    <a href="<?php echo url_home() ?>/cart.php"><img src="<?php echo url_home() ?>/user/image/icon-header-02.png"
-                                            alt=""></a>
-                                    <span class="header-icons-noti">
-                                    <?php 
+                            <a href="<?php echo url_home() ?>/cart.php"><img
+                                    src="<?php echo url_home() ?>/user/image/icon-header-02.png" alt=""></a>
+                            <span class="header-icons-noti">
+                                <?php 
                                             if(isset($_SESSION['totalQuantity'])){
                                                 echo $_SESSION['totalQuantity'];
                                             } else{
                                                 echo 0;
                                             }
                                         ?>
-                                    </span>
-                                </div>
+                            </span>
+                        </div>
                         <?php else : ?>
                         <li class="nav-item">
                             <a class="nav-link header2" href="<?php echo url_home()?>/sign-up.php">ĐĂNG KÍ</a>
@@ -88,21 +93,21 @@ if (isset($_SESSION['cart'])) {
                         <li class="nav-item">
                             <a class="nav-link header2" href="<?php echo url_home()?>/login.php">ĐĂNG NHẬP</a>
                         </li>
-                       
+
                         <li class="nav-item">
                             <div class="nav-item__right">
                                 <div class="user">
 
                                 </div>
                                 <div class="pay">
-                                    <a href="<?php echo url_home() ?>/cart.php"><img src="<?php echo url_home() ?>/user/image/icon-header-02.png"
-                                            alt=""></a>
+                                    <a href="<?php echo url_home() ?>/cart.php"><img
+                                            src="<?php echo url_home() ?>/user/image/icon-header-02.png" alt=""></a>
                                     <span class="header-icons-noti">0</span>
                                 </div>
                             </div>
                         </li>
                         <?php endif ?>
-                       
+
                     </ul>
                 </div>
             </nav>
