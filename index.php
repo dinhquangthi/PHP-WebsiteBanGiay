@@ -25,7 +25,11 @@
         $p=1;
 
     }
+    // Product New
+    $sqlNew = "SELECT *FROM product ORDER BY created_at DESC LIMIT 6";
+    $productNew = $db->fetchsql($sqlNew);
 
+    // All product random
    $sql = "SELECT *FROM product ORDER BY RAND()";
    
     $product = $db->fetchJone('product',$sql,$p,9,true);
@@ -69,10 +73,11 @@
             <?php require_once __DIR__. "/user/layouts/sidebar.php"; ?>
 
             </div>
+            <!-- New Product -->
             <div class="info-product col-9">
                 <div class="row">
                     <div class="col-9">
-                        <h2>TẤT CẢ SẢN PHẨM</h2>
+                        <h2>SẢN PHẨM MỚI</h2>
                     </div>
                     <div class="search-product col-3">
                         <form action="search.php" method="GET">
@@ -83,6 +88,54 @@
                 </div>
 
                 <div class="row">
+
+                    <?php foreach ($productNew as $keyNew => $valueNew): ?>
+                   
+                    <div class="col-4 product-detail wow fadeInUp" data-wow-duration="1s">
+                    <?php foreach (unserialize(base64_decode($valueNew['image'])) as $keyNew => $valNew ) : ?> 
+                           <?php 
+                           if($keyNew == 0) {
+                            $ten_anhNew = $valNew;
+                           }
+                           ?>
+                    <?php endforeach ?>
+
+                        <a href="<?php echo url_home()?>/user/details.php?id=<?php echo $valueNew['id'] ?>">
+                        <img src="<?php echo url_home() ?>/public/uploads/product/<?php echo $ten_anhNew ?>"
+                                alt="">
+                        </a>
+                        <a href="<?php echo url_home()?>/user/details.php?id=<?php echo $valueNew['id'] ?>">
+                            <h3><?php echo $valueNew['name'] ?></h3>
+                        </a>
+
+                        <?php if ($valueNew['sale'] > 0): ?>
+                        <p class="price"><strike class="sale"><?php echo formatPrice($valueNew['price']) ?></strike>
+                            <?php echo formatpricesale($valueNew['price'],$valueNew['sale']) ?>
+                        </p>
+                        <?php else: ?>
+                        <p class="price"> <?php echo formatpricesale($valueNew['price'],$valueNew['sale']) ?></p>
+                        <?php endif ?>
+
+
+                        <a href="<?php echo url_home()?>/user/details.php?id=<?php echo $valueNew['id'] ?>"><button class="add-cart">XEM CHI TIẾT</button></a>
+                    </div>
+                
+                    <?php endforeach ?>
+                </div>
+                
+                
+             
+            </div>
+
+            <div class="info-product col-12">
+                <div class="row">
+                    <div class="mx-auto">
+                        <h2 class="text-center">TẤT CẢ SẢN PHẨM</h2>
+                    </div>
+                    
+                </div>
+
+                <div class="row pl-5">
 
                     <?php foreach ($product as $key => $value): ?>
                    
@@ -100,7 +153,7 @@
                                 alt="">
                         </a>
                         <a href="<?php echo url_home()?>/user/details.php?id=<?php echo $value['id'] ?>">
-                            <h3><?php echo $value['name'] ?></h3>
+                            <h3 style="width:70%;"><?php echo $value['name'] ?></h3>
                         </a>
 
                         <?php if ($value['sale'] > 0): ?>

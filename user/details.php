@@ -2,6 +2,7 @@
 require_once __DIR__ . "/autoload/autoload.php";
 
 $category = $db->fetchAll("category");
+$actual_link = "http://$_SERVER[HTTP_HOST]$_SERVER[REQUEST_URI]";
 
 
 $id = intval(getInput('id'));
@@ -207,7 +208,11 @@ $productAll = $db->fetchsql($sqlOther);
 
             </div>
         </div>
-
+        <div class="row">
+            <div class="col-md-8">
+            <div class="fb-comments" data-href="<?php echo $actual_link ?>" data-width="" data-numposts="5"></div>
+            </div>
+        </div>
     </div>
 </section>
 <?php require_once __DIR__ . "/layouts/footer.php"; ?>

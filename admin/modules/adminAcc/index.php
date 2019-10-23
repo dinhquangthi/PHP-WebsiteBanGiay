@@ -1,8 +1,8 @@
 <?php 
- $open = "user";
+ $open = "adminAcc";
     require_once __DIR__. "/../../autoload/autoload.php";
 
-    $sql = "SELECT users. * FROM users WHERE permission='0' ORDER BY ID DESC";
+    $sql = "SELECT users. * FROM users WHERE permission='1' ORDER BY ID DESC";
     $users = $db->fetchsql($sql);
    
 ?>
@@ -17,7 +17,8 @@
         <div class="row">
             <div class="col-lg-12">
                 <h1 class="page-header">
-                    Danh sách thành viên
+                    Danh sách quản trị viên
+                    <a href="add.php" class="btn btn-success">Thêm mới</a>
                 </h1>
               
                 <ol class="breadcrumb">
@@ -25,7 +26,7 @@
                         <i class="fa fa-dashboard"></i> <a href="index.html">Home</a>
                     </li>
                     <li class="active">
-                        <i class="fa fa-file"></i> Danh sách thành viên
+                        <i class="fa fa-file"></i> Danh sách Admin
                     </li>
                 </ol>
                 <div class="clearfix"></div>
@@ -58,8 +59,6 @@
                                 <td><?php echo $item['phone'] ?></td>
                               
                                 <td>
-                                    <a class="btn btn-info" href="edit.php?id=<?php echo $item['id'] ?>"><i
-                                            class="far fa-edit"></i>Sửa</a>
                                     <a class="btn btn-danger" href="delete.php?id=<?php echo $item['id'] ?>"><i
                                             class="far fa-trash-alt"></i>Xóa</a>
                                 </td>

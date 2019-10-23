@@ -111,6 +111,9 @@
                     <li class="<?php echo isset($open) && $open == 'product' ? 'active' : '' ?>">
                         <a href="<?php echo url_home(); ?>/admin/modules/product/"><i class="fas fa-database"></i> Sản phẩm</a>
                     </li>
+                    <li class="<?php echo isset($open) && $open == 'adminAcc' ? 'active' : '' ?>">
+                        <a href="<?php echo url_home(); ?>/admin/modules/adminAcc/"><i class="fas fa-database"></i>Quản lý Admin</a>
+                    </li>
                     <li class="<?php echo isset($open) && $open == 'user' ? 'active' : '' ?>">
                         <a href="<?php echo url_home(); ?>/admin/modules/user/"><i class="fas fa-database"></i>Quản lý thành viên</a>
                     </li>
