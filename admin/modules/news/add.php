@@ -1,7 +1,9 @@
 <?php 
     $open = "news";
     require_once __DIR__. "/../../autoload/autoload.php";
-      
+  
+
+    
     // $news = $db->fetchAll("category");
    if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
@@ -135,7 +137,7 @@
                     <div class="form-group">
                         <label for="exampleInputEmail1" class="col-sm-2">Hình ảnh</label>
                         <div class="col-sm-4">
-                            <input type="file" name="image[]" multiple  class="form-control" placeholder="10%">
+                            <input type="file" name="image[]" multiple class="form-control" placeholder="10%">
                             <?php if (isset($error['image'])) : ?>
                             <p class="text-danger"><?php echo $error['image'] ?></p>
                             <?php endif ?>
@@ -156,13 +158,14 @@
                     <button type="submit" class="btn btn-primary">Thêm</button>
                 </div>
             </div>
+
             </form>
         </div>
+
+       
     </div>
-   
+
 </div>
 <!-- /.container-fluid -->
 
 </div>
-
-<?php require_once __DIR__. "/../../layouts/footer.php"; ?>

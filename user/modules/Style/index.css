@@ -4,7 +4,7 @@
 }
 @font-face {
   font-family: quick_sand;
-  src: url("../webfonts/Quicksand-Regular.ttf") format(‘truetype’);
+  src: url("../webfonts/Quicksand-Regular.ttf") format(â€˜truetypeâ€™);
   font-weight: normal;
   font-style: normal;
 }
@@ -245,7 +245,7 @@ h3 a:hover {
   padding: 100px 0;
 }
 .list-product__category {
-  width: 80%;
+  width: 95%;
   border: 1px solid #f2f2f2;
   margin-bottom: 35px;
 }
@@ -280,17 +280,14 @@ h3 a:hover {
 }
 
 .list-product .col-3 {
-  padding-right: 10px;
+  /* padding-right: 30px; */
   padding-left: 0;
+  /* border-right: 1px solid #e6e6e694; */
 }
 
-.news {
-margin: 0 0 25px 0;
-  border-bottom: 1px solid #f2f2f2;
-  width: 90%;
-}
+.news {margin: 0 0 25px 0;border-bottom: 1px solid #f2f2f2;width: 100%;}
 .list-product__news {
-  width: 80%;
+  width: 95%;
   margin-bottom: 100px;
 }
 .list-product__news h4{
@@ -313,7 +310,7 @@ border-bottom: 1px solid #f2f2f2;
   width: 255px;
   margin: 10px 0;
   font-weight: 600;
-  font-size: 14px;
+  font-size: 12px;
 }
 
 .news a:hover {
@@ -366,8 +363,8 @@ border-bottom: 1px solid #f2f2f2;
 }
 
 .info-product {
-  padding-left: 30px;
-  border-left: 1px solid #e6e6e694;
+  /* padding-left: 30px;
+  border-left: 1px solid #e6e6e694; */
 }
 
 .info-product h2 {
