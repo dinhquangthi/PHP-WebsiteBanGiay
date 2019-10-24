@@ -16,11 +16,11 @@ $new = $db->fetchsql($sqlNew);
                            }
                            ?>
             <?php endforeach ?>
-            <a href="<?php echo url_home()?>/user/news.php?id=<?php echo $value['id'] ?>">
+            <a href="<?php echo url_home()?>/news.php?id=<?php echo $value['id'] ?>">
             <img src="<?php echo url_home() ?>/public/uploads/uploads-new/<?php echo $thumb ?>">
             </a>
 
-            <a href="<?php echo url_home()?>/user/news.php?id=<?php echo $value['id'] ?>">
+            <a href="<?php echo url_home()?>/news.php?id=<?php echo $value['id'] ?>">
                 <p><?php echo $value['title'] ?></p>
             </a>
         </div>
