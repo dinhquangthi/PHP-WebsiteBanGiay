@@ -45,6 +45,7 @@
 
     <!-- Custom Fonts -->
     <link href="<?php echo url_home() ?>/public/admin/css/fontawesome.min.css" rel="stylesheet" type="text/css">
+    <link href="<?php echo url_home() ?>/public/admin/css/Chart.min.css" rel="stylesheet" type="text/css">
     <link href="<?php echo url_home() ?>/public/admin/css/all.min.css" rel="stylesheet" type="text/css">
     <link href="<?php echo url_home() ?>/public/admin/css/brands.min.css" rel="stylesheet" type="text/css">
     <link href="<?php echo url_home() ?>/public/admin/css/solid.min.css" rel="stylesheet" type="text/css">
@@ -122,6 +123,9 @@
                     </li>
                     <li class="<?php echo isset($open) && $open == 'news' ? 'active' : '' ?>">
                         <a href="<?php echo url_home(); ?>/admin/modules/news/"><i class="fas fa-database"></i>Bài viết</a>
+                    </li>
+                    <li class="<?php echo isset($open) && $open == 'statistical' ? 'active' : '' ?>">
+                        <a href="<?php echo url_home(); ?>/admin/statistical.php"><i class="fas fa-database"></i>Thống kê</a>
                     </li>
                
                 </ul>
