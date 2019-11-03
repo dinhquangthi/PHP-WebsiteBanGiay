@@ -103,7 +103,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                             <div class="form-group row">
                                 <label class="col-md-4 col-form-label text-md-right">Mã xác nhận</label>
                                 <div class="col-md-6">
-                                    <input type="text" name="inputCap" style="margin-bottom: 10px"><img src="captcha.php" title="" alt="" /><br />
+                                    <input type="text" name="inputCap" style="margin-bottom: 10px" autocomplete="off"><img src="captcha.php" title="" alt="" /><br />
                                     <p class="text-danger canh-bao" id="message-captcha">
                                         <?php if (isset($_SESSION['message'])) {
                                             echo $_SESSION['message'];
