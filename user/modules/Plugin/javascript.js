@@ -12,6 +12,7 @@
         self.sliderBanner();
         self.viewMore();
         self.setSmoothScroll();
+        self.searchFixed();
         self.gallery();
         self.gallery2();
         self.phanTrang();
@@ -29,6 +30,16 @@
 
 
       });
+    },
+    searchFixed: function () {
+      var searchTop = $('.search-product').offset().top;
+      $(window).scroll(function(){
+        if ($(this).scrollTop() > searchTop) {
+          $('.search-product').addClass('col-4 search-fixed');
+        } else {
+          $('.search-product').removeClass('col-4 search-fixed');
+        }
+    });
     },
 
     sliderBanner: function () {
@@ -171,7 +182,7 @@
     load_phuong: function ($this) {
 
       maCodeQuan = ($this).find(":selected").attr('value').slice(0, 3);
-      console.log(maCodeQuan);
+      // console.log(maCodeQuan);
       $('#quan-list').attr("value", maCodeQuan);
 
       $('#phuong-list option').remove();

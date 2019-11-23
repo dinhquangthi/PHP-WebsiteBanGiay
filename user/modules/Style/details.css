@@ -20,7 +20,9 @@ li {
   width: 50%; 
   transition: 0.3s;}
   .breadcrumb .breadcrumb-item {
-    font-size: 14px; }
+    font-size: 14px;
+    margin-bottom: 10px;
+  }
     .breadcrumb .breadcrumb-item:first-child:hover {
       font-weight: bold !important;
       transition: 0.3s;}

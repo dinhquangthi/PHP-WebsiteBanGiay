@@ -75,7 +75,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                 <div class="card">
                     <div class="card-header">ĐĂNG KÝ THÀNH VIÊN</div>
                     <div class="card-body">
-                        <form name="my-form" method="POST">
+                        <form name="my-form" method="POST" autocomplete="off">
                             <div class="form-group row">
                                 <label class="col-md-4 col-form-label text-md-right">Họ tên</label>
                                 <div class="col-md-6">
