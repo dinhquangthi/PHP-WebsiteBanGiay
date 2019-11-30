@@ -33,12 +33,15 @@
     <meta name="author" content="">
 
     <title>Trang Admin</title>
-
+    
     <!-- Bootstrap Core CSS -->
     <link href="<?php echo url_home() ?>/public/admin/css/bootstrap.min.css" rel="stylesheet">
 
     <!-- Custom CSS -->
     <link href="<?php echo url_home() ?>/public/admin/css/sb-admin.css" rel="stylesheet">
+    
+    <!-- DataTable CSS -->
+    <link href="<?php echo url_home() ?>/public/admin/css/dataTable.css" rel="stylesheet">
 
     <!-- Morris Charts CSS -->
     <link href="<?php echo url_home() ?>/public/admin/css/plugins/morris.css" rel="stylesheet">
