@@ -131,7 +131,7 @@
                                 <div class="pl-2">
                                     <div class="form-group">
                                         <strong class="text-muted">Số điện thoại</strong>
-                                        <input type="text" class="form-control form-control-sm" required value="<?php echo $user['phone'] ?>">
+                                        <input type="text" readonly class="form-control form-control-sm" required value="<?php echo $user['phone'] ?>">
                                     </div>
                                 </div>
                                 <div class="pl-2">

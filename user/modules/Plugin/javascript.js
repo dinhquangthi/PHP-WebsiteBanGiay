@@ -12,7 +12,6 @@
         self.sliderBanner();
         self.viewMore();
         self.setSmoothScroll();
-        self.searchFixed();
         self.gallery();
         self.gallery2();
         self.phanTrang();
@@ -27,6 +26,7 @@
           self.load_phuong($(this));
           maCodePhuong = maCodeQuan;
         });
+        self.searchFixed();
 
 
       });
